@@ -35,7 +35,16 @@ tailwind.config = {
   @keyframes blink { 0%,100%{opacity:.5} 50%{opacity:.1} }
   @keyframes particleFly { 0%{transform:translateY(100vh) rotate(0deg);opacity:0} 10%{opacity:1} 90%{opacity:.5} 100%{transform:translateY(-20vh) rotate(360deg);opacity:0} }
   @keyframes pulse-ring { 0%,100%{opacity:1} 50%{opacity:.4} }
-
+@keyframes moveLine {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+.moving-line {
+  background: linear-gradient(90deg, transparent, transparent, #00d4ff, #a855f7, transparent, transparent);
+  background-size: 50% 100%;
+  animation: moveLine 3s linear infinite;
+  box-shadow: 0 0 12px rgba(59,130,246,.4);
+}
   /* Multi-property gradient text — requires clip combo */
   .gradient-text { background:linear-gradient(135deg,#00d4ff 0%,#a855f7 50%,#ec4899 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
   .gradient-text-2 { background:linear-gradient(135deg,#06b6d4,#3b82f6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
@@ -172,6 +181,10 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
         <span class="text-[0.55rem] text-[#4a5568] tracking-wide text-center">TODAY ONLY</span>
       </div>
     </div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-red-500/20 text-[0.65rem] font-semibold text-red-400" style="background:rgba(239,68,68,.08)">
+        🔥 Only <span class="text-white font-bold mx-0.5">12</span> seats left
+      </div>
+    
 
   </div>
 
@@ -201,7 +214,7 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
       onclick="scrollToSection('#final-cta')"
       class="shine-btn relative overflow-hidden px-5 py-2.5 text-[0.85rem] font-semibold text-white rounded-lg transition-all duration-300 hover:-translate-y-px hover:shadow-[0_8px_30px_rgba(59,130,246,.5)] whitespace-nowrap"
       style="background:linear-gradient(135deg,#3b82f6,#8b5cf6,#a855f7)">
-      Reserve Your Seat ✦
+     Enroll Now 
     </button>
 
   </div>
@@ -217,7 +230,7 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
 
 <!-- ===================== HERO ===================== -->
 <section id="hero" class="relative z-[1] min-h-screen flex 
-items-center pt-[80px] pb-5 px-[5%]">
+items-center pt-[30px] pb-2 px-[2%]">
   <div class="grid grid-cols-2 gap-[60px] items-center max-w-[1200px] mx-auto w-full max-[900px]:grid-cols-1">
 
     <!-- Left -->
@@ -371,7 +384,7 @@ items-center pt-[80px] pb-5 px-[5%]">
 </section>
 
 <!-- ===================== SUCCESS STORIES ===================== -->
-<section id="success" class="relative z-[1] py-16  overflow-hidden" style="background:linear-gradient(180deg,#050816 0%,rgba(11,16,32,.8) 100%)">
+<section id="success" class="relative z-[1]   overflow-hidden" style="background:linear-gradient(180deg,#050816 0%,rgba(11,16,32,.8) 100%)">
   <div class="text-center mb-10 reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Social Proof
@@ -385,7 +398,7 @@ items-center pt-[80px] pb-5 px-[5%]">
 </section>
 
 <!-- ===================== WHAT YOU LEARN ===================== -->
-<section id="learn" class="relative z-[1] py-12 px-[5%]">
+<section id="learn" class="relative z-[1] py-8 px-[2%]">
   <div class="text-center mb-16 reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5
      rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase 
@@ -453,15 +466,15 @@ items-center pt-[80px] pb-5 px-[5%]">
 </section>
 
 <!-- ===================== MENTOR ===================== -->
-<section id="mentor" class="relative z-[1] py-12 px-[5%]">
+<section id="mentor" class="relative z-[1] py-8 px-[2%]">
   <div class="grid grid-cols-2 gap-[80px] items-center max-w-[1100px] mx-auto max-[900px]:grid-cols-1">
 
     <div class="reveal">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 
-      rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
         <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Your Instructor
       </div>
-      <h2 class="font-syne text-[clamp(1.8rem,3.5vw,2.6rem)] font-extrabold mb-3.5 leading-snug">Meet Your <span class="gradient-text">Mentor</span></h2>
+      <h2 class="font-syne text-[clamp(2rem,1.5vw,1.3rem)] font-bold leading-tight 
+      tracking-tight mb-4">Meet Your <span class="gradient-text">Mentor</span></h2>
       <p class="text-[#8892b0] text-base leading-[1.7] mb-1.5"><strong class="text-[#f0f4ff]">Senior UI/UX Designer at TCS</strong> — 7+ Years Experience in the design industry, mentoring hundreds of students to break into top companies.</p>
 
       <div class="grid grid-cols-2 gap-4 my-7">
@@ -472,20 +485,87 @@ items-center pt-[80px] pb-5 px-[5%]">
       </div>
 
       <p class="text-[0.82rem] text-[#4a5568] uppercase tracking-[2px] mb-3">Brands Worked With</p>
-      <div class="flex flex-wrap gap-2.5 mb-7">
-        <span class="px-3.5 py-1.5 rounded-lg  text-[0.78rem] text-[#8892b0] bg-white/[.04]">🎥 Nikon</span>
-        <span class="px-3.5 py-1.5 rounded-lg text-[0.78rem] text-[#8892b0] bg-white/[.04]">📺 Panasonic</span>
-        <span class="px-3.5 py-1.5 rounded-lg text-[0.78rem] text-[#8892b0] bg-white/[.04]">🍗 KFC</span>
-        <span class="px-3.5 py-1.5 rounded-lg text-[0.78rem] text-[#8892b0] bg-white/[.04]">💊 Eli Lilly</span>
-        <span class="px-3.5 py-1.5 rounded-lg text-[0.78rem] text-[#8892b0] bg-white/[.04]">👶 Mamy Poko</span>
-        <span class="px-3.5 py-1.5 rounded-lg text-[0.78rem] text-[#8892b0] bg-white/[.04]">+ More</span>
+
+      <!-- Row 1: 5 logos always visible -->
+      <div class="flex items-center gap-5 mb-3">
+
+        <div class="flex items-center justify-center h-7 opacity-50 hover:opacity-90 transition-opacity duration-300 cursor-default">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Panasonic_logo_%28Blue%29.svg/1280px-Panasonic_logo_%28Blue%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail"
+            alt="Nikon" onerror="this.parentElement.style.display='none'"
+            style="height:18px;width:auto;max-width:70px;object-fit:contain;filter:brightness(0) invert(1)"/>
+        </div>
+
+        <div class="flex items-center justify-center h-7 opacity-50 hover:opacity-90 transition-opacity duration-300 cursor-default">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Panasonic_logo_%28Blue%29.svg/1280px-Panasonic_logo_%28Blue%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail"
+            alt="Panasonic" onerror="this.parentElement.style.display='none'"
+            style="height:14px;width:auto;max-width:90px;object-fit:contain;filter:brightness(0) invert(1)"/>
+        </div>
+
+        <div class="flex items-center justify-center h-7 opacity-50 hover:opacity-90 transition-opacity duration-300 cursor-default">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Panasonic_logo_%28Blue%29.svg/1280px-Panasonic_logo_%28Blue%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail"
+            alt="KFC" onerror="this.parentElement.style.display='none'"
+            style="height:26px;width:auto;max-width:40px;object-fit:contain"/>
+        </div>
+
+        <div class="flex items-center justify-center h-7 opacity-50 hover:opacity-90 transition-opacity duration-300 cursor-default">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Panasonic_logo_%28Blue%29.svg/1280px-Panasonic_logo_%28Blue%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail"
+            alt="Eli Lilly" onerror="this.parentElement.style.display='none'"
+            style="height:16px;width:auto;max-width:80px;object-fit:contain;filter:brightness(0) invert(1)"/>
+        </div>
+
+        <div class="flex items-center justify-center h-7 opacity-50 hover:opacity-90 transition-opacity duration-300 cursor-default">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Panasonic_logo_%28Blue%29.svg/1280px-Panasonic_logo_%28Blue%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail"
+            alt="Mamy Poko" onerror="this.parentElement.style.display='none'"
+            style="height:14px;width:auto;max-width:80px;object-fit:contain;filter:brightness(0) invert(1)"/>
+        </div>
+
+        <!-- divider -->
+        <div class="w-[1px] h-4 bg-white/10"></div>
+
+        <!-- + More btn -->
+        <button
+          onclick="document.getElementById('more-brands').classList.toggle('hidden')"
+          class="flex items-center gap-1 text-[0.72rem] font-semibold text-[#4a5568] hover:text-[#f0f4ff] transition-colors duration-200 cursor-pointer whitespace-nowrap">
+          + More
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" id="more-chevron"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+
       </div>
-      <a href="#final-cta" class="inline-flex items-center gap-2 px-7 py-3.5 text-[0.95rem] font-semibold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(59,130,246,.5)]" style="background:linear-gradient(135deg,#3b82f6,#a855f7)">Learn From Industry Experience →</a>
+
+      <!-- Row 2: hidden extra brands -->
+      <div id="more-brands" class="hidden flex items-center gap-5 mb-7">
+
+        <div class="flex items-center justify-center h-7 opacity-50 hover:opacity-90 transition-opacity duration-300 cursor-default">
+          <img src="assets/logos/brand6.png"
+            alt="Brand 6" onerror="this.parentElement.style.display='none'"
+            style="height:18px;width:auto;max-width:80px;object-fit:contain;filter:brightness(0) invert(1)"/>
+        </div>
+
+        <div class="flex items-center justify-center h-7 opacity-50 hover:opacity-90 transition-opacity duration-300 cursor-default">
+          <img src="assets/logos/brand7.png"
+            alt="Brand 7" onerror="this.parentElement.style.display='none'"
+            style="height:18px;width:auto;max-width:80px;object-fit:contain;filter:brightness(0) invert(1)"/>
+        </div>
+
+        <div class="flex items-center justify-center h-7 opacity-50 hover:opacity-90 transition-opacity duration-300 cursor-default">
+          <img src="assets/logos/brand8.png"
+            alt="Brand 8" onerror="this.parentElement.style.display='none'"
+            style="height:18px;width:auto;max-width:80px;object-fit:contain;filter:brightness(0) invert(1)"/>
+        </div>
+
+      </div>
+
+     <a href="#final-cta" class="shine-btn relative overflow-hidden inline-flex items-center gap-2
+  px-7 py-3.5 text-[0.95rem] font-semibold text-white rounded-xl
+  transition-all duration-300 hover:-translate-y-0.5
+  hover:shadow-[0_12px_40px_rgba(59,130,246,.5)]"
+  style="background:linear-gradient(135deg,#3b82f6,#a855f7)">
+  Learn From Industry Experience →
+</a>
     </div>
 
     <div class="relative flex items-center justify-center reveal max-[900px]:-order-1" style="transition-delay:.2s">
-      <div class="w-full max-w-[400px] aspect-[3/4] flex flex-col 
-      items-center justify-center gap-3 rounded-3xl  text-[#4a5568] text-[0.85rem]" style="background:linear-gradient(145deg,rgba(59,130,246,.08),rgba(168,85,247,.08))">
+      <div class="w-full max-w-[400px] aspect-[3/4] flex flex-col items-center justify-center gap-3 rounded-3xl text-[#4a5568] text-[0.85rem]" style="background:linear-gradient(145deg,rgba(59,130,246,.08),rgba(168,85,247,.08))">
         <div class="text-6xl opacity-30">👤</div>
         <span>Mentor Photo Placeholder</span>
       </div>
@@ -493,11 +573,12 @@ items-center pt-[80px] pb-5 px-[5%]">
       <div class="mentor-float mf2 absolute bottom-[18%] -left-[10%] px-4 py-3 rounded-xl text-xs font-semibold border border-blue-500/30" style="background:rgba(5,8,22,.9);backdrop-filter:blur(20px)">🎨 7+ Yrs Design</div>
       <div class="mentor-float mf3 absolute top-[40%] -right-[14%] px-4 py-3 rounded-xl text-xs font-semibold border border-blue-500/30" style="background:rgba(5,8,22,.9);backdrop-filter:blur(20px)">🏆 Top Mentor</div>
     </div>
+
   </div>
 </section>
 
 <!-- ===================== BONUSES ===================== -->
-<section id="bonuses" class="relative z-[1] py-24 px-[5%]">
+<section id="bonuses" class="relative z-[1] py-8 px-[2%]">
   <div class="text-center mb-16 reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Exclusive Bonuses
@@ -536,7 +617,7 @@ items-center pt-[80px] pb-5 px-[5%]">
 </section>
 
 <!-- ===================== FOR WHO ===================== -->
-<section id="forwho" class="relative z-[1] py-24 px-[5%]">
+<section id="forwho" class="relative z-[1] py-8 px-[2%]">
   <div class="text-center mb-16 reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Target Audience
@@ -605,7 +686,7 @@ items-center pt-[80px] pb-5 px-[5%]">
 </section>
 
 <!-- ===================== VIDEO TESTIMONIALS ===================== -->
-<section id="testimonials" class="relative z-[1] py-24 px-[5%]">
+<section id="testimonials" class="relative z-[1] py-8 px-[2%]">
   <div class="text-center mb-16 reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Testimonials
@@ -636,7 +717,7 @@ items-center pt-[80px] pb-5 px-[5%]">
 </section>
 
 <!-- ===================== CHAT TESTIMONIALS ===================== -->
-<section id="chats" class="relative z-[1] px-[5%] pb-24">
+<section id="chats" class="relative z-[1] px-[2%] pb-13">
   <div class="text-center mb-16 reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Real Messages
@@ -673,7 +754,7 @@ items-center pt-[80px] pb-5 px-[5%]">
 </section>
 
 <!-- ===================== FAQ ===================== -->
-<section id="faq" class="relative z-[1] py-24 px-[5%]">
+<section id="faq" class="relative z-[1] py-13 px-[2%]">
   <div class="text-center mb-16 reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>FAQ
@@ -778,7 +859,7 @@ items-center pt-[80px] pb-5 px-[5%]">
 </section>
 
 <!-- ===================== CERTIFICATE ===================== -->
-<section id="certificate" class="relative z-[1] py-24 px-[5%]">
+<section id="certificate" class="relative z-[1] py-14 px-[2%]">
   <div class="max-w-[900px] mx-auto text-center reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Recognition
@@ -808,7 +889,7 @@ items-center pt-[80px] pb-5 px-[5%]">
 </section>
 
 <!-- ===================== FINAL CTA ===================== -->
-<section id="final-cta" class="relative z-[1] py-32 px-[5%] text-center overflow-hidden">
+<section id="final-cta" class="relative z-[1] py-20 px-[2%] text-center overflow-hidden">
   <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at center,rgba(59,130,246,.1) 0%,transparent 70%)"></div>
   <div class="relative z-[1]">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-6" style="background:rgba(0,212,255,.08)">
@@ -838,7 +919,7 @@ items-center pt-[80px] pb-5 px-[5%]">
 </section>
 
 <!-- ===================== FOOTER ===================== -->
-<footer class="relative z-[1] pt-[70px] pb-10 px-[5%]" style="border-top:1px solid rgba(59,130,246,.15)">
+<footer class="relative z-[1] pt-[70px] pb-10 px-[2%]" style="border-top:1px solid rgba(59,130,246,.15)">
   <div class="absolute top-[-1px] left-0 right-0 h-[1px]" style="background:linear-gradient(90deg,transparent,#00d4ff,#a855f7,transparent);box-shadow:0 0 20px rgba(59,130,246,.4)"></div>
 
   <div class="grid grid-cols-[2fr_1fr_1fr_1.5fr] gap-[50px] max-w-[1100px] mx-auto mb-12 max-[900px]:grid-cols-2 max-[600px]:grid-cols-1 max-[600px]:gap-8">
@@ -895,21 +976,17 @@ items-center pt-[80px] pb-5 px-[5%]">
 <div id="sticky-bar" class="fixed bottom-0 left-0 right-0 z-[999] translate-y-full transition-transform duration-500 ease-in-out" style="background:rgba(5,8,22,.85);backdrop-filter:blur(24px);border-top:1px solid rgba(59,130,246,.15)">
   
   <!-- Top glow line -->
-  <div class="absolute top-0 left-0 right-0 h-[1px]" style="background:linear-gradient(90deg,transparent,#00d4ff,#a855f7,transparent);box-shadow:0 0 12px rgba(59,130,246,.4)"></div>
-
+  <div class="moving-line absolute top-0 left-0 right-0 h-[1px]"></div>
   <div class="max-w-[1200px] mx-auto px-[5%] h-[64px] flex items-center justify-between gap-4">
 
     <!-- LEFT: Workshop name + live badge -->
-    <div class="flex items-center gap-3 flex-shrink-0">
-      <div class="w-[36px] h-[36px] rounded-[8px] flex items-center justify-center text-xs font-extrabold text-white flex-shrink-0" style="background:linear-gradient(135deg,#00d4ff,#a855f7)">DA</div>
-      <div class="flex flex-col">
-        <span class="font-syne font-extrabold text-[0.88rem] text-[#f0f4ff] leading-none">Desinerz Academy</span>
-        <div class="flex items-center gap-1.5 mt-0.5">
-          <span class="w-1.5 h-1.5 rounded-full bg-red-500 pulse-dot inline-block"></span>
-          <span class="text-[0.62rem] text-[#8892b0] tracking-wide uppercase">Gen AI Design Workshop · Live</span>
-        </div>
-      </div>
-    </div>
+     <div class="flex items-center gap-2.5 font-syne font-extrabold text-[1.15rem] tracking-wide gradient-text flex-shrink-0">
+   <img 
+  src="Assets/Desinerz_academy_light.png" 
+  alt="Desinerz Academy" 
+  class="h-[38px] w-auto object-contain flex-shrink-0"
+/>
+  </div>
 
     <!-- CENTER: Urgency message + countdown -->
     <div class="flex items-center gap-3 mx-auto">
@@ -919,27 +996,32 @@ items-center pt-[80px] pb-5 px-[5%]">
       </div>
 
       <!-- Mini countdown -->
-      <div class="flex items-center gap-1 px-3 py-1.5 rounded-xl border border-[#00d4ff]/15" style="background:rgba(0,212,255,.06)">
-        <div class="flex flex-col items-center min-w-[28px]">
-          <span class="font-mono text-sm font-bold text-[#00d4ff] leading-none" id="sb-h">11</span>
-          <span class="text-[0.48rem] tracking-[1.5px] uppercase text-[#4a5568]">Hrs</span>
-        </div>
-        <span class="text-sm font-bold text-[#00d4ff] blink opacity-40 pb-2">:</span>
-        <div class="flex flex-col items-center min-w-[28px]">
-          <span class="font-mono text-sm font-bold text-[#00d4ff] leading-none" id="sb-m">47</span>
-          <span class="text-[0.48rem] tracking-[1.5px] uppercase text-[#4a5568]">Min</span>
-        </div>
-        <span class="text-sm font-bold text-[#00d4ff] blink opacity-40 pb-2">:</span>
-        <div class="flex flex-col items-center min-w-[28px]">
-          <span class="font-mono text-sm font-bold text-[#00d4ff] leading-none" id="sb-s">33</span>
-          <span class="text-[0.48rem] tracking-[1.5px] uppercase text-[#4a5568]">Sec</span>
-        </div>
+    <div class="flex items-center gap-4 ml-auto flex-shrink-0">
+
+    <!-- Countdown — no border, plain style -->
+    <div class="flex items-center" id="countdown">
+      <div class="flex flex-col items-center min-w-[40px]">
+        <span class="font-mono text-base font-bold text-[#00d4ff] leading-none" id="cd-h">11</span>
+        <span class="text-[0.52rem] tracking-[2px] uppercase text-[#4a5568] mt-0.5">Hours</span>
       </div>
+      <span class="text-lg font-bold text-[#00d4ff] blink opacity-40 pb-3 mx-0.5">:</span>
+      <div class="flex flex-col items-center min-w-[40px]">
+        <span class="font-mono text-base font-bold text-[#00d4ff] leading-none" id="cd-m">47</span>
+        <span class="text-[0.52rem] tracking-[2px] uppercase text-[#4a5568] mt-0.5">Min</span>
+      </div>
+      <span class="text-lg font-bold text-[#00d4ff] blink opacity-40 pb-3 mx-0.5">:</span>
+      <div class="flex flex-col items-center min-w-[40px]">
+        <span class="font-mono text-base font-bold text-[#00d4ff] leading-none" id="cd-s">33</span>
+        <span class="text-[0.52rem] tracking-[2px] uppercase text-[#4a5568] mt-0.5">Sec</span>
+      </div>
+    </div>
+
+    
+
+  </div>
 
       <!-- Seats left badge -->
-      <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-red-500/20 text-[0.65rem] font-semibold text-red-400" style="background:rgba(239,68,68,.08)">
-        🔥 Only <span class="text-white font-bold mx-0.5">12</span> seats left
-      </div>
+      
     </div>
 
     <!-- RIGHT: Price + Enroll btn -->
@@ -952,7 +1034,7 @@ items-center pt-[80px] pb-5 px-[5%]">
       <a href="#final-cta"
         class="shine-btn relative overflow-hidden flex items-center gap-2 px-5 py-2.5 text-[0.85rem] font-bold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(59,130,246,.5)] whitespace-nowrap"
         style="background:linear-gradient(135deg,#3b82f6,#8b5cf6,#a855f7)">
-        🚀 Enroll Now
+        Reserve Your Seat ✦
       </a>
     </div>
 
@@ -1001,23 +1083,65 @@ setInterval(() => {
 
 // Carousel
 const students = [
-  { name:'Rohit V.', company:'Swiggy', role:'UI Designer', emoji:'👨‍💻' },
-  { name:'Ananya M.', company:'Zomato', role:'Product Designer', emoji:'👩‍🎨' },
-  { name:'Karan S.', company:'Razorpay', role:'UX Researcher', emoji:'🧑' },
-  { name:'Divya P.', company:'PhonePe', role:'Graphic Designer', emoji:'👩' },
-  { name:'Arjun T.', company:'Zepto', role:'Visual Designer', emoji:'🧑‍💼' },
-  { name:'Priyanka R.', company:'Meesho', role:'UI/UX Lead', emoji:'👩‍💼' },
-  { name:'Nikhil B.', company:'Groww', role:'Motion Designer', emoji:'👨' },
-  { name:'Shreya K.', company:'CRED', role:'Brand Designer', emoji:'👱‍♀️' },
-  { name:'Aditya C.', company:'Ola', role:'Freelancer', emoji:'🙋‍♂️' },
-  { name:'Kavya N.', company:'Startup', role:'UX Designer', emoji:'👩‍🔬' },
+  { name:'Rohit V.', company:'https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png', role:'UI Designer'
+  , photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
+  { name:'Ananya M.', company:'https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png', role:'Product Designer', 
+   photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
+  { name:'Karan S.', company:'https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png', role:'UX Researcher', 
+   photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
+  { name:'Divya P.', company:'https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png', role:'Graphic Designer', 
+   photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
+  { name:'Arjun T.', company:'https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png', role:'Visual Designer', 
+   photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
+  { name:'Priyanka R.', company:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Zomato_Logo.jpg/1280px-Zomato_Logo.jpg', role:'UI/UX Lead',
+   photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
+  { name:'Nikhil B.', company:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Zomato_Logo.jpg/1280px-Zomato_Logo.jpg', role:'Motion Designer',  
+  photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
+  { name:'Shreya K.', company:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Zomato_Logo.jpg/1280px-Zomato_Logo.jpg', role:'Brand Designer',  
+  photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
+  { name:'Aditya C.', company:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Zomato_Logo.jpg/1280px-Zomato_Logo.jpg', role:'Freelancer', 
+  photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
+  { name:'Kavya N.', company:'https://1000logos.net/wp-content/uploads/2021/05/Swiggy-logo.jpg', role:'UX Designer', 
+  photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
 ];
+
 const carousel = document.getElementById('carousel');
 [...students, ...students].forEach(s => {
   const card = document.createElement('div');
-  card.className = 'bg-white/[.03] border border-white/[.07] rounded-2xl p-5 w-[220px] flex-shrink-0 text-center transition-all duration-300 hover:border-blue-500/30 hover:shadow-[0_0_30px_rgba(59,130,246,.1)]  cursor-default';
+  card.className = 'flex-shrink-0 w-[200px] text-center p-5 rounded-2xl transition-all duration-300 cursor-default';
   card.style.background = 'rgba(255,255,255,.03)';
-  card.innerHTML = `<div class="w-[60px] h-[60px] rounded-full mx-auto mb-3 flex items-center justify-center text-[1.4rem] border-2 border-white/10" style="background:linear-gradient(135deg,#3b82f6,#a855f7)">${s.emoji}</div><div class="font-syne font-bold text-[0.9rem] mb-1">${s.name}</div><div class="text-[0.75rem] text-[#00d4ff] mb-0.5">${s.company}</div><div class="text-[0.72rem] text-[#4a5568]">${s.role}</div>`;
+  card.innerHTML = `
+    <div class="relative mx-auto mb-4" style="width:72px;height:72px">
+      <img
+        src="${s.photo}"
+        alt="${s.name}"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+        class="w-[72px] h-[72px] rounded-full object-cover object-top border-2 border-white/10"
+      />
+      <!-- Fallback initials if image missing -->
+      <div
+        style="display:none;background:linear-gradient(135deg,${s.color},
+        ${s.color}88);width:72px;height:72px"
+        class="rounded-full items-center justify-center font-syne 
+        font-extrabold text-[1.1rem] text-white absolute top-0 left-0">
+        ${s.name.split(' ').map(n => n[0]).join('')}
+      </div>
+      <!-- Verified badge -->
+      <div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-[0.55rem] font-bold text-white border-2 border-[#050816]" style="background:${s.color}">✓</div>
+    </div>
+    <div class="font-syne font-bold text-[0.95rem] text-[#f0f4ff] mb-1">
+      ${s.name}</div>
+  <div class="flex items-center justify-center mx-auto mb-2" style="height:24px">
+  <img
+    src="${s.company}"
+    alt="company logo"
+    onerror="this.parentElement.style.display='none'"
+    style="height:24px;width:auto;max-width:100px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"
+  />
+</div>
+
+    <div class="text-[0.7rem] text-[#4a5568]">${s.role}</div>
+  `;
   carousel.appendChild(card);
 });
 
