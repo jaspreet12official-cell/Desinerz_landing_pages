@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desinerz Academy — Gen AI Design Workshop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#07080f;
+  --ink2:#0d0f1d;
+  --acid:#c8ff00;
+  --acid2:#a8e600;
+  --cyan:#00e5ff;
+  --purple:#9d4edd;
+  --pink:#ff2d78;
+  --white:#f5f5f0;
+  --muted:#6b7280;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(200,255,0,0.2);
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--white);font-family:'Barlow',sans-serif;overflow-x:hidden}
+
+/* NOISE */
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:999;mix-blend-mode:overlay}
+
+/* SCROLL PROGRESS */
+#sprog{position:fixed;top:0;left:0;height:3px;background:var(--acid);z-index:1000;transition:width .1s;box-shadow:0 0 10px var(--acid)}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:990;display:flex;align-items:center;justify-content:space-between;padding:18px 52px;transition:all .3s}
+nav.solid{background:rgba(7,8,15,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:34px;height:34px;background:var(--acid);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:15px;color:#000;letter-spacing:0.02em}
+.logo-name{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.12em;color:var(--white)}
+.nav-mid{display:flex;gap:36px;list-style:none}
+.nav-mid a{font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-mid a:hover{color:var(--white)}
+.nav-cta{background:var(--acid);color:#000;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.1em;padding:10px 24px;border:none;cursor:pointer;transition:all .2s}
+.nav-cta:hover{background:var(--acid2);transform:translateY(-1px)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-rows:auto 1fr;padding-top:90px;position:relative;overflow:hidden}
+.hero-top-bar{display:flex;align-items:center;justify-content:space-between;padding:14px 52px;border-bottom:1px solid var(--border);position:relative;z-index:2}
+.htb-tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--acid);display:flex;align-items:center;gap:8px}
+.htb-tag::before{content:'';width:6px;height:6px;background:var(--acid);border-radius:50%;animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.htb-seats{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.1em}
+.htb-seats span{color:var(--pink);font-weight:700}
+
+/* HERO BODY */
+.hero-body{display:grid;grid-template-columns:1fr 420px;align-items:center;gap:0;padding:0;position:relative;z-index:2}
+.hero-left{padding:60px 52px 60px}
+.workshop-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:24px;display:block}
+.hero-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,8.5vw,130px);line-height:.95;letter-spacing:-.01em;margin-bottom:12px}
+.hero-h1 .line-acid{color:var(--acid);display:block}
+.hero-h1 .line-white{color:var(--white);display:block}
+.hero-h1 .line-outline{-webkit-text-stroke:2px rgba(255,255,255,0.3);color:transparent;display:block}
+.hero-sub{font-size:18px;font-weight:400;color:rgba(245,245,240,0.6);line-height:1.6;margin-bottom:40px;max-width:520px}
+.hero-sub strong{color:var(--white);font-weight:600}
+
+/* BULLETS */
+.bullets{display:flex;flex-direction:column;gap:10px;margin-bottom:44px}
+.bullet{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:500;color:rgba(245,245,240,0.85);padding:10px 0;border-bottom:1px solid var(--border);transition:all .2s}
+.bullet:last-child{border-bottom:none}
+.bullet:hover{color:var(--white);padding-left:4px}
+.b-num{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--acid);width:20px;flex-shrink:0}
+.b-arr{margin-left:auto;color:var(--acid);opacity:0;transition:opacity .2s;font-size:12px}
+.bullet:hover .b-arr{opacity:1}
+
+/* PRICE + CTA */
+.price-row{display:flex;align-items:center;gap:20px;margin-bottom:28px}
+.p-old{font-family:'JetBrains Mono',monospace;font-size:18px;color:var(--muted);text-decoration:line-through}
+.p-new{font-family:'Bebas Neue',sans-serif;font-size:72px;line-height:1;color:var(--acid)}
+.p-tag{background:var(--pink);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:.08em;padding:4px 10px;align-self:flex-start;margin-top:8px}
+
+.cta-row{display:flex;gap:14px;margin-bottom:32px;flex-wrap:wrap}
+.btn-acid{background:var(--acid);color:#000;font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:.1em;padding:15px 36px;border:none;cursor:pointer;transition:all .25s;display:flex;align-items:center;gap:10px;position:relative;overflow:hidden}
+.btn-acid::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.1);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.btn-acid:hover::before{transform:scaleX(1)}
+.btn-acid:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(200,255,0,0.3)}
+.btn-ghost{background:transparent;color:var(--white);font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:.1em;padding:14px 36px;border:1px solid var(--border2);cursor:pointer;transition:all .25s;display:flex;align-items:center;gap:8px}
+.btn-ghost:hover{border-color:var(--acid);color:var(--acid);transform:translateY(-2px)}
+.btn-play{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:10px}
+
+.trust-chips{display:flex;gap:10px;flex-wrap:wrap}
+.tchip{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.08em;padding:5px 12px;border:1px solid var(--border);display:flex;align-items:center;gap:6px}
+.tchip-dot{width:5px;height:5px;background:var(--acid);border-radius:50%}
+
+/* HERO RIGHT PANEL */
+.hero-right{background:var(--ink2);border-left:1px solid var(--border);height:100%;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.timer-panel{border-bottom:1px solid var(--border);padding:28px 32px}
+.tp-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.timer-digits{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:6px;align-items:center}
+.td-unit{text-align:center}
+.td-num{font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:1;color:var(--white);display:block;background:rgba(255,255,255,0.03);border:1px solid var(--border);padding:8px}
+.td-lbl{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;display:block;margin-top:4px}
+.td-sep{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--acid);margin-bottom:16px;animation:blink 1s infinite}
+
+.photo-panel{flex:1;position:relative;display:flex;align-items:flex-end;overflow:hidden;background:linear-gradient(160deg,#0d0f1d 0%,#130d1f 100%)}
+.photo-grad{position:absolute;inset:0;background:linear-gradient(160deg,rgba(157,78,221,.12) 0%,rgba(0,229,255,.06) 100%)}
+.photo-ph{width:100%;height:100%;display:flex;align-items:flex-end;justify-content:center;position:relative;min-height:360px}
+.ph-silhouette{width:75%;height:90%;background:linear-gradient(180deg,rgba(157,78,221,.08) 0%,rgba(157,78,221,.2) 60%,rgba(157,78,221,.05) 100%);border-radius:8px 8px 0 0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:32px;gap:12px;border:1px solid rgba(157,78,221,.15);border-bottom:none;position:relative}
+.ph-head{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--cyan));box-shadow:0 0 30px rgba(157,78,221,.4)}
+.ph-body-lines{width:60%;display:flex;flex-direction:column;gap:6px}
+.ph-ln{height:6px;border-radius:2px;background:rgba(255,255,255,0.06)}
+.ph-tag-label{position:absolute;bottom:0;left:0;right:0;background:rgba(7,8,15,.95);border-top:1px solid var(--border2);padding:14px 20px}
+.ph-name{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.08em;color:var(--acid)}
+.ph-role{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-top:2px}
+
+.floating-chips{position:absolute;top:20px;left:20px;display:flex;flex-direction:column;gap:8px}
+.fchip{background:rgba(7,8,15,.9);border:1px solid var(--border);padding:7px 12px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--white);letter-spacing:.05em;display:flex;align-items:center;gap:6px;backdrop-filter:blur(10px);animation:chipFloat 3s ease-in-out infinite}
+.fchip:nth-child(2){animation-delay:-1s}
+.fchip:nth-child(3){animation-delay:-2s}
+@keyframes chipFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.chip-dot{width:6px;height:6px;border-radius:50%}
+.cd-green{background:var(--acid);box-shadow:0 0 6px var(--acid)}
+.cd-cyan{background:var(--cyan);box-shadow:0 0 6px var(--cyan)}
+.cd-pink{background:var(--pink);box-shadow:0 0 6px var(--pink)}
+
+/* SECTION COMMON */
+section{position:relative}
+.wrap{max-width:1300px;margin:0 auto;padding:0 52px}
+.s-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--acid);margin-bottom:12px;display:block}
+.s-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,88px);line-height:.95;letter-spacing:.01em;margin-bottom:20px}
+.s-title .t-outline{-webkit-text-stroke:1.5px rgba(255,255,255,0.25);color:transparent}
+.s-sub{font-size:16px;color:var(--muted);max-width:540px;line-height:1.7}
+.divider{height:1px;background:var(--border);margin:0}
+
+/* SUCCESS STRIP */
+.success{padding:60px 0;overflow:hidden}
+.success-hdr{padding:0 52px 40px;display:flex;align-items:flex-end;justify-content:space-between}
+.success-num{font-family:'Bebas Neue',sans-serif;font-size:80px;color:var(--acid);line-height:1}
+.success-txt{font-size:13px;color:var(--muted);max-width:220px;text-align:right;line-height:1.5}
+.marquee-outer{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%)}
+.marquee-inner{display:flex;gap:12px;animation:slide 28s linear infinite;width:max-content}
+.marquee-inner:hover{animation-play-state:paused}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.s-card{background:var(--ink2);border:1px solid var(--border);padding:18px 20px;display:flex;align-items:center;gap:14px;min-width:210px;flex-shrink:0;transition:all .25s;cursor:default}
+.s-card:hover{border-color:rgba(200,255,0,0.2);background:rgba(200,255,0,0.02)}
+.s-av{width:40px;height:40px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:17px}
+.s-nm{font-size:13px;font-weight:600;margin-bottom:1px}
+.s-role{font-size:11px;color:var(--acid);margin-bottom:1px}
+.s-co{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted)}
+
+/* WHAT YOULL LEARN — editorial list style */
+.learn{padding:100px 0;border-top:1px solid var(--border)}
+.learn-grid{display:grid;grid-template-columns:400px 1fr;gap:0;margin-top:70px}
+.learn-left{border-right:1px solid var(--border);padding-right:60px;position:sticky;top:110px;align-self:flex-start}
+.learn-desc{font-size:16px;color:var(--muted);line-height:1.7;margin-top:20px}
+.learn-stat-row{display:flex;gap:32px;margin-top:36px}
+.lstat{border-left:2px solid var(--acid);padding-left:12px}
+.lstat-n{font-family:'Bebas Neue',sans-serif;font-size:36px;line-height:1;color:var(--white)}
+.lstat-l{font-size:12px;color:var(--muted);margin-top:2px}
+.learn-items{display:flex;flex-direction:column}
+.li-item{display:grid;grid-template-columns:56px 1fr auto;align-items:start;gap:24px;padding:28px 0 28px 48px;border-bottom:1px solid var(--border);transition:all .25s;cursor:default;position:relative}
+.li-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:var(--acid);transition:width .3s}
+.li-item:hover::before{width:3px}
+.li-item:hover{background:rgba(200,255,0,0.02);padding-left:52px}
+.li-num{font-family:'Bebas Neue',sans-serif;font-size:40px;color:rgba(255,255,255,0.07);line-height:1;padding-top:4px}
+.li-item:hover .li-num{color:rgba(200,255,0,0.3)}
+.li-title{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:.02em;margin-bottom:6px;color:var(--white)}
+.li-desc{font-size:14px;color:var(--muted);line-height:1.6}
+.li-tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--acid);border:1px solid var(--border2);padding:4px 8px;align-self:flex-start;margin-top:4px;white-space:nowrap}
+
+/* MENTOR — editorial split */
+.mentor{padding:100px 0;border-top:1px solid var(--border)}
+.mentor-inner{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.mentor-img-col{border-right:1px solid var(--border);padding-right:0;position:relative;min-height:600px}
+.mentor-img-bg{position:absolute;inset:0;background:linear-gradient(160deg,#0d0f1d,#130d24);overflow:hidden}
+.mentor-img-bg::before{content:'';position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(0deg,var(--ink) 0%,transparent 100%)}
+.m-figure-wrap{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:70%;height:85%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:40px}
+.m-head{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--cyan));box-shadow:0 0 40px rgba(157,78,221,.5)}
+.m-body{width:100%;flex:1;margin-top:12px;background:linear-gradient(180deg,rgba(157,78,221,.08),transparent);border-top:1px solid rgba(157,78,221,.2)}
+.mentor-badge{position:absolute;top:28px;left:28px;background:var(--ink);border:1px solid var(--border2);padding:12px 16px}
+.mb-role{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--acid);letter-spacing:.1em;text-transform:uppercase}
+.mb-co{font-size:13px;font-weight:600;margin-top:3px}
+.brand-float{position:absolute;bottom:28px;right:28px;display:flex;flex-direction:column;gap:6px}
+.bf-pill{background:rgba(7,8,15,.92);border:1px solid var(--border);padding:5px 12px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);backdrop-filter:blur(8px);transition:all .2s}
+.bf-pill:hover{border-color:var(--border2);color:var(--white)}
+.mentor-content{padding:70px 60px}
+.mentor-brands{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 36px}
+.m-brand{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border);padding:5px 12px;letter-spacing:.05em;transition:all .2s;cursor:default}
+.m-brand:hover{border-color:rgba(200,255,0,.2);color:var(--white)}
+.mentor-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin:36px 0}
+.ms-box{background:var(--ink2);padding:24px 20px;transition:background .2s}
+.ms-box:hover{background:rgba(200,255,0,.03)}
+.ms-num{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--acid);line-height:1;display:block}
+.ms-desc{font-size:12px;color:var(--muted);display:block;margin-top:4px;letter-spacing:.02em}
+.btn-acid-outline{background:transparent;border:1px solid var(--acid);color:var(--acid);font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.1em;padding:13px 32px;cursor:pointer;transition:all .25s}
+.btn-acid-outline:hover{background:var(--acid);color:#000}
+
+/* BONUSES */
+.bonuses{padding:100px 0;border-top:1px solid var(--border)}
+.bonus-list{margin-top:70px;display:flex;flex-direction:column;gap:0}
+.bx{display:grid;grid-template-columns:80px 1fr auto;gap:32px;align-items:center;padding:32px 0;border-bottom:1px solid var(--border);transition:all .3s;cursor:default;position:relative;overflow:hidden}
+.bx::after{content:'';position:absolute;inset:0;background:rgba(200,255,0,.02);opacity:0;transition:opacity .3s}
+.bx:hover::after{opacity:1}
+.bx:hover{padding-left:8px}
+.bx-num{font-family:'Bebas Neue',sans-serif;font-size:64px;color:rgba(200,255,0,.12);line-height:1;text-align:center;transition:color .3s}
+.bx:hover .bx-num{color:rgba(200,255,0,.25)}
+.bx-icon{font-size:36px;margin-bottom:10px}
+.bx-title{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:.02em;margin-bottom:6px}
+.bx-desc{font-size:14px;color:var(--muted);line-height:1.6}
+.bx-val{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--acid);border:1px solid var(--border2);padding:6px 14px;white-space:nowrap;align-self:center}
+
+/* FOR WHO */
+.forwho{padding:100px 0;border-top:1px solid var(--border)}
+.forwho-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);margin-top:70px}
+.fw-card{padding:32px 28px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:all .3s;cursor:default;position:relative;overflow:hidden}
+.fw-card:nth-child(3n){border-right:none}
+.fw-card:nth-last-child(-n+3){border-bottom:none}
+.fw-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--acid);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.fw-card:hover::before{transform:scaleX(1)}
+.fw-card:hover{background:rgba(200,255,0,.02)}
+.fw-icon{font-size:32px;margin-bottom:14px;display:block}
+.fw-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.04em;margin-bottom:4px}
+.fw-sub{font-size:13px;color:var(--muted)}
+
+/* TESTIMONIALS */
+.testi{padding:100px 0;border-top:1px solid var(--border)}
+.vid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:70px}
+.vc{background:var(--ink2);border:1px solid var(--border);overflow:hidden;transition:all .3s;cursor:pointer}
+.vc:hover{border-color:rgba(200,255,0,.2);transform:translateY(-4px)}
+.vc-thumb{aspect-ratio:16/9;background:linear-gradient(135deg,#0d0f1d,#130d24);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.vc-thumb-inner{position:absolute;inset:0;background:linear-gradient(135deg,rgba(157,78,221,.1),rgba(0,229,255,.08))}
+.vc-play{width:54px;height:54px;background:rgba(200,255,0,.9);display:flex;align-items:center;justify-content:center;font-size:20px;position:relative;z-index:1;transition:all .3s;color:#000;font-weight:700}
+.vc:hover .vc-play{background:var(--acid);transform:scale(1.1)}
+.vc-info{padding:18px 20px;border-top:1px solid var(--border)}
+.vc-stars{color:var(--acid);font-size:12px;letter-spacing:.1em;margin-bottom:6px}
+.vc-name{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.04em;margin-bottom:4px}
+.vc-rev{font-size:13px;color:var(--muted);line-height:1.5}
+
+/* CHAT TESTIMONIALS */
+.chat{padding:100px 0;border-top:1px solid var(--border)}
+.chat-masonry{columns:3;gap:12px;margin-top:70px}
+.cc{break-inside:avoid;margin-bottom:12px;background:var(--ink2);border:1px solid var(--border);padding:22px;transition:all .3s;cursor:default}
+.cc:hover{border-color:rgba(200,255,0,.15);transform:rotate(-.3deg)}
+.cc-plat{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:5px}
+.cc-plat::before{content:'';width:3px;height:3px;border-radius:50%}
+.plat-wa{color:#25d366}.plat-wa::before{background:#25d366}
+.plat-ig{color:#e1306c}.plat-ig::before{background:#e1306c}
+.plat-tg{color:#229ed9}.plat-tg::before{background:#229ed9}
+.cc-user{font-weight:700;font-size:13px;margin-bottom:7px}
+.cc-msg{font-size:13px;color:rgba(245,245,240,.65);line-height:1.65}
+.cc-time{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-top:10px}
+
+/* FAQ */
+.faq{padding:100px 0;border-top:1px solid var(--border)}
+.faq-inner{display:grid;grid-template-columns:380px 1fr;gap:80px;align-items:start}
+.faq-left{position:sticky;top:110px}
+.faq-list{display:flex;flex-direction:column;gap:0;margin-top:0}
+.fi{border-bottom:1px solid var(--border);overflow:hidden}
+.fi-q{display:flex;justify-content:space-between;align-items:center;padding:22px 0;cursor:pointer;font-size:15px;font-weight:600;gap:16px;transition:color .2s}
+.fi.open .fi-q{color:var(--acid)}
+.fi-ico{width:26px;height:26px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;transition:all .3s;font-weight:300}
+.fi.open .fi-ico{border-color:var(--acid);color:var(--acid);transform:rotate(45deg)}
+.fi-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.fi.open .fi-a{max-height:250px}
+.fi-a-txt{padding:0 0 20px;font-size:14px;color:var(--muted);line-height:1.75}
+
+/* CERTIFICATE */
+.cert{padding:100px 0;border-top:1px solid var(--border);text-align:center}
+.cert-frame{max-width:660px;margin:60px auto 0;border:1px solid var(--border);background:var(--ink2);padding:60px;position:relative;overflow:hidden}
+.cert-frame::before{content:'';position:absolute;inset:12px;border:1px solid rgba(200,255,0,.08);pointer-events:none}
+.cert-frame::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:300px;background:radial-gradient(circle,rgba(200,255,0,.04) 0%,transparent 70%);pointer-events:none}
+.cert-icon{font-size:56px;display:block;margin-bottom:20px;position:relative;z-index:1}
+.cert-title{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:.2em;color:rgba(245,245,240,.4);position:relative;z-index:1}
+.cert-course{font-size:14px;color:var(--muted);margin:8px 0 24px;position:relative;z-index:1}
+.cert-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(200,255,0,.3),transparent);margin:20px auto;width:60%;position:relative;z-index:1}
+.cert-name-ph{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.15em;color:rgba(245,245,240,.2);position:relative;z-index:1}
+.cert-footer{font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(200,255,0,.4);letter-spacing:.2em;margin-top:28px;position:relative;z-index:1}
+.cert-badges{display:flex;justify-content:center;gap:10px;margin-top:24px;flex-wrap:wrap}
+.cb{font-family:'JetBrains Mono',monospace;font-size:10px;border:1px solid var(--border);padding:6px 14px;color:var(--muted);letter-spacing:.08em;display:flex;align-items:center;gap:5px}
+.cb.active{border-color:var(--border2);color:var(--acid)}
+
+/* FINAL CTA */
+.final{padding:120px 0;border-top:1px solid var(--border);text-align:center;position:relative;overflow:hidden}
+.final-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(200,255,0,.06) 0%,transparent 70%);pointer-events:none}
+.final-glow2{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:400px;height:300px;background:radial-gradient(ellipse,rgba(157,78,221,.08) 0%,transparent 70%);pointer-events:none}
+.final h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(60px,8vw,120px);line-height:.92;letter-spacing:.01em;margin-bottom:16px;position:relative;z-index:1}
+.final h2 em{color:var(--acid);font-style:normal}
+.final h2 .outline{-webkit-text-stroke:1.5px rgba(255,255,255,.3);color:transparent}
+.final-sub{font-size:17px;color:var(--muted);margin-bottom:48px;position:relative;z-index:1}
+.final-price{display:inline-flex;align-items:center;gap:20px;background:var(--ink2);border:1px solid var(--border);padding:24px 40px;margin-bottom:40px;position:relative;z-index:1}
+.urgency{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,45,120,.3);color:var(--pink);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;padding:8px 20px;margin-top:28px;position:relative;z-index:1;animation:urgPulse 2s infinite}
+@keyframes urgPulse{0%,100%{box-shadow:0 0 0 rgba(255,45,120,0)}50%{box-shadow:0 0 20px rgba(255,45,120,.2)}}
+.u-dot{width:6px;height:6px;border-radius:50%;background:var(--pink);animation:blink 1.2s infinite}
+
+/* FOOTER */
+footer{background:var(--ink);border-top:3px solid var(--acid);padding:60px 52px 32px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:52px}
+.fb-brand{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.1em;margin-bottom:12px}
+.fb-desc{font-size:14px;color:var(--muted);line-height:1.7;max-width:240px}
+.social-row{display:flex;gap:8px;margin-top:18px}
+.sb{width:36px;height:36px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;transition:all .2s;text-decoration:none;color:var(--muted)}
+.sb:hover{border-color:var(--acid);color:var(--acid);background:rgba(200,255,0,.04)}
+.fc-title{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.fc-links{list-style:none;display:flex;flex-direction:column;gap:12px}
+.fc-links a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:6px}
+.fc-links a:hover{color:var(--white)}
+.fc-links a::before{content:'→';font-size:11px;opacity:0;transition:opacity .2s}
+.fc-links a:hover::before{opacity:1}
+.footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.fb-copy{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.05em}
+.fb-policy{display:flex;gap:20px}
+.fb-policy a{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:.05em;transition:color .2s}
+.fb-policy a:hover{color:var(--white)}
+
+/* REVEAL ANIMATIONS */
+.rev{opacity:0;transform:translateY(28px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
+.rev.in{opacity:1;transform:none}
+.rev.d1{transition-delay:.08s}.rev.d2{transition-delay:.16s}.rev.d3{transition-delay:.24s}
+
+/* MOBILE */
+@media(max-width:960px){
+  nav{padding:14px 20px}
+  .nav-mid{display:none}
+  .hero-body{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{padding:40px 20px 60px}
+  .wrap{padding:0 20px}
+  .learn-grid{grid-template-columns:1fr}
+  .learn-left{position:static;border-right:none;border-bottom:1px solid var(--border);padding-right:0;padding-bottom:40px;margin-bottom:0}
+  .li-item{padding:22px 0;grid-template-columns:44px 1fr auto}
+  .li-item:hover{padding-left:6px}
+  .mentor-inner{grid-template-columns:1fr}
+  .mentor-img-col{min-height:320px}
+  .mentor-content{padding:48px 20px}
+  .bonus-list .bx{grid-template-columns:60px 1fr}
+  .bx-val{display:none}
+  .forwho-grid{grid-template-columns:1fr 1fr}
+  .fw-card:nth-child(3n){border-right:1px solid var(--border)}
+  .fw-card:nth-child(2n){border-right:none}
+  .vid-grid{grid-template-columns:1fr}
+  .chat-masonry{columns:1}
+  .faq-inner{grid-template-columns:1fr}
+  .faq-left{position:static;margin-bottom:48px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  footer{padding:48px 20px 24px}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .hero-h1{font-size:58px}
+  .success-hdr{flex-direction:column;align-items:flex-start;gap:12px}
+  .success-txt{text-align:left}
+  .final{padding:80px 20px}
+  .final h2{font-size:52px}
+}
+@media(max-width:560px){
+  .forwho-grid{grid-template-columns:1fr}
+  .fw-card:nth-child(3n){border-right:none}
+  .fw-card:nth-child(2n){border-right:none}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="sprog"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo"><div class="logo-mark">DA</div><span class="logo-name">DESINERZ ACADEMY</span></a>
+  <ul class="nav-mid">
+    <li><a href="#workshop">Workshop</a></li>
+    <li><a href="#curriculum">Curriculum</a></li>
+    <li><a href="#mentor">Mentor</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <button class="nav-cta">Reserve Your Seat</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="workshop">
+  <div class="hero-top-bar">
+    <div class="htb-tag">Live Workshop · Gen AI + Graphics + UI/UX Design</div>
+    <div class="htb-seats">Only <span>47 seats</span> remaining</div>
+  </div>
+  <div class="hero-body">
+    <div class="hero-left">
+      <span class="workshop-label">// 2026 Edition — 3 Hours Live</span>
+      <h1 class="hero-h1">
+        <span class="line-acid">THIS ₹49</span>
+        <span class="line-white">DECISION</span>
+        <span class="line-outline">CHANGES</span>
+        <span class="line-white">EVERYTHING.</span>
+      </h1>
+      <p class="hero-sub">A <strong>3-hour live Gen AI powered</strong> Graphics + UI/UX Design Workshop that gives you the clarity, tools, and roadmap to break into design in 2026.</p>
+      <ul class="bullets">
+        <li class="bullet"><span class="b-num">01</span>Graphic Design + UI/UX Design Roadmap 2026<span class="b-arr">→</span></li>
+        <li class="bullet"><span class="b-num">02</span>Top AI Tools Used In The Tech Industry<span class="b-arr">→</span></li>
+        <li class="bullet"><span class="b-num">03</span>Learn To 10X Your Productivity<span class="b-arr">→</span></li>
+        <li class="bullet"><span class="b-num">04</span>Future Career Opportunities In Design & AI<span class="b-arr">→</span></li>
+        <li class="bullet"><span class="b-num">05</span>Live Practical Learning + Industry Insights<span class="b-arr">→</span></li>
+      </ul>
+      <div class="price-row">
+        <span class="p-old">₹499</span>
+        <span class="p-new">₹49</span>
+        <span class="p-tag">90% OFF</span>
+      </div>
+      <div class="cta-row">
+        <button class="btn-acid">🎯 Book Your Seat Now</button>
+        <button class="btn-ghost"><div class="btn-play">▶</div>Watch Preview</button>
+      </div>
+      <div class="trust-chips">
+        <div class="tchip"><div class="tchip-dot"></div>1500+ Students</div>
+        <div class="tchip"><div class="tchip-dot"></div>Beginner Friendly</div>
+        <div class="tchip"><div class="tchip-dot"></div>Live Workshop</div>
+        <div class="tchip"><div class="tchip-dot"></div>Certificate Included</div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="timer-panel">
+        <div class="tp-label">// Offer Expires In</div>
+        <div class="timer-digits">
+          <div class="td-unit"><span class="td-num" id="th">08</span><span class="td-lbl">Hours</span></div>
+          <span class="td-sep">:</span>
+          <div class="td-unit"><span class="td-num" id="tm">34</span><span class="td-lbl">Mins</span></div>
+          <span class="td-sep">:</span>
+          <div class="td-unit"><span class="td-num" id="ts">22</span><span class="td-lbl">Secs</span></div>
+        </div>
+      </div>
+      <div class="photo-panel">
+        <div class="photo-grad"></div>
+        <div class="photo-ph">
+          <div class="ph-silhouette">
+            <div class="ph-head"></div>
+            <div class="ph-body-lines">
+              <div class="ph-ln" style="width:100%"></div>
+              <div class="ph-ln" style="width:65%"></div>
+              <div class="ph-ln" style="width:80%"></div>
+            </div>
+            <div class="ph-tag-label">
+              <div class="ph-name">WORKSHOP MENTOR</div>
+              <div class="ph-role">// Senior UI/UX Designer · TCS</div>
+            </div>
+          </div>
+          <div class="floating-chips">
+            <div class="fchip"><div class="chip-dot cd-green"></div>Figma Expert</div>
+            <div class="fchip"><div class="chip-dot cd-cyan"></div>AI Tools</div>
+            <div class="fchip"><div class="chip-dot cd-pink"></div>Career Growth</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SUCCESS STRIP -->
+<section class="success">
+  <div class="success-hdr rev">
+    <div>
+      <span class="s-label">// Social Proof</span>
+      <div class="success-num">1500+</div>
+      <div style="font-size:16px;color:var(--muted);margin-top:4px">Successful Transitions. Students Working In Startups, Agencies & Top Companies.</div>
+    </div>
+    <div class="success-txt">From zero design experience to industry-ready professionals.</div>
+  </div>
+  <div class="marquee-outer">
+    <div class="marquee-inner" id="mTrack"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CURRICULUM -->
+<section class="learn" id="curriculum">
+  <div class="wrap">
+    <div class="learn-grid">
+      <div class="learn-left rev">
+        <span class="s-label">// Curriculum</span>
+        <div class="s-title">WHAT<br>YOU'LL<br><span class="t-outline">LEARN</span></div>
+        <p class="learn-desc">Everything you need to understand modern design careers in 2026. No fluff. No filler. Pure industry knowledge delivered live.</p>
+        <div class="learn-stat-row">
+          <div class="lstat"><div class="lstat-n">7</div><div class="lstat-l">Core Topics</div></div>
+          <div class="lstat"><div class="lstat-n">3hrs</div><div class="lstat-l">Live Session</div></div>
+          <div class="lstat"><div class="lstat-n">∞</div><div class="lstat-l">Lifetime Access</div></div>
+        </div>
+      </div>
+      <div class="learn-items">
+        <div class="li-item rev"><div class="li-num">01</div><div><div class="li-title">Gen AI Tools Understanding</div><div class="li-desc">Learn the latest AI tools used by top designers. MidJourney, Firefly, ChatGPT, Kling — all covered in depth.</div></div><div class="li-tag">⭐ MOST POPULAR</div></div>
+        <div class="li-item rev d1"><div class="li-num">02</div><div><div class="li-title">10X Productivity & Growth</div><div class="li-desc">Workflows, systems & hacks for faster creative output and professional growth.</div></div><div class="li-tag">AI TOOLS</div></div>
+        <div class="li-item rev d2"><div class="li-num">03</div><div><div class="li-title">Understanding The Tech Industry</div><div class="li-desc">How startups, agencies & tech companies hire, work, and what they look for in designers.</div></div><div class="li-tag">INDUSTRY</div></div>
+        <div class="li-item rev"><div class="li-num">04</div><div><div class="li-title">Complete Graphic Design Roadmap</div><div class="li-desc">From absolute beginner to advanced professional. Typography, color, brand — full coverage.</div></div><div class="li-tag">🗺 ROADMAP</div></div>
+        <div class="li-item rev d1"><div class="li-num">05</div><div><div class="li-title">How To Become A UI/UX Designer</div><div class="li-desc">Complete roadmap, tools, process & the right mindset to break into UX design roles.</div></div><div class="li-tag">UI/UX</div></div>
+        <div class="li-item rev d2"><div class="li-num">06</div><div><div class="li-title">Industry-Level Portfolio Creation</div><div class="li-desc">Build portfolios that actually attract recruiters and high-paying clients in 2026.</div></div><div class="li-tag">PORTFOLIO</div></div>
+        <div class="li-item rev"><div class="li-num">07</div><div><div class="li-title">Freelancing Industry Understanding</div><div class="li-desc">How freelancers get clients, set rates, and build sustainable income using design skills.</div></div><div class="li-tag">💰 INCOME</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MENTOR -->
+<section class="mentor" id="mentor">
+  <div class="wrap" style="padding-bottom:0">
+    <span class="s-label rev">// Your Mentor</span>
+  </div>
+  <div class="mentor-inner">
+    <div class="mentor-img-col">
+      <div class="mentor-img-bg">
+        <div class="m-figure-wrap">
+          <div class="m-head"></div>
+          <div class="m-body"></div>
+        </div>
+      </div>
+      <div class="mentor-badge">
+        <div class="mb-role">// Senior UI/UX Designer</div>
+        <div class="mb-co">Tata Consultancy Services</div>
+      </div>
+      <div class="brand-float">
+        <div class="bf-pill">Nikon</div>
+        <div class="bf-pill">KFC</div>
+        <div class="bf-pill">Panasonic</div>
+      </div>
+    </div>
+    <div class="mentor-content">
+      <div class="s-title rev" style="margin-bottom:20px">MEET<br>YOUR<br><span class="t-outline">MENTOR</span></div>
+      <p class="rev" style="font-size:16px;color:var(--muted);line-height:1.7">Senior UI/UX Designer at TCS with <strong style="color:var(--white)">7+ years</strong> of hands-on industry experience. Has worked with Fortune 500 brands and trained 1500+ students to break into design.</p>
+      <div class="mentor-brands rev">
+        <div class="m-brand">Nikon</div><div class="m-brand">Panasonic</div><div class="m-brand">KFC</div><div class="m-brand">Eli Lilly</div><div class="m-brand">Mamy Poko</div><div class="m-brand">+ More</div>
+      </div>
+      <div class="mentor-stats rev">
+        <div class="ms-box"><span class="ms-num">7+</span><span class="ms-desc">Years Industry Experience</span></div>
+        <div class="ms-box"><span class="ms-num">150+</span><span class="ms-desc">Projects Completed</span></div>
+        <div class="ms-box"><span class="ms-num">1500+</span><span class="ms-desc">Students Mentored</span></div>
+        <div class="ms-box"><span class="ms-num">12+</span><span class="ms-desc">Certifications Earned</span></div>
+      </div>
+      <button class="btn-acid-outline rev">Learn From Industry Experience →</button>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BONUSES -->
+<section class="bonuses" id="bonuses">
+  <div class="wrap">
+    <span class="s-label rev">// Exclusive Bonuses</span>
+    <div class="s-title rev">BONUSES<br><span class="t-outline">YOU GET</span></div>
+    <div class="bonus-list">
+      <div class="bx rev"><div class="bx-num">01</div><div><div class="bx-icon">📚</div><div class="bx-title">3 Design Industry E-Books</div><div class="bx-desc">Deep-dive guides on brand design, UI principles & Gen AI workflow strategies used by working professionals.</div></div><div class="bx-val">Worth ₹699</div></div>
+      <div class="bx rev d1"><div class="bx-num">02</div><div><div class="bx-icon">📄</div><div class="bx-title">Exclusive Mentor Resume</div><div class="bx-desc">The actual resume that cracked MNC interviews — adapted and ready for you to model directly.</div></div><div class="bx-val">Priceless</div></div>
+      <div class="bx rev d2"><div class="bx-num">03</div><div><div class="bx-icon">🗂️</div><div class="bx-title">Industry Portfolio Files</div><div class="bx-desc">PSD & PDF source files of real industry-level portfolio projects. Study, adapt, and win over recruiters.</div></div><div class="bx-val">Worth ₹1299</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FOR WHO -->
+<section class="forwho">
+  <div class="wrap">
+    <span class="s-label rev">// Who Is This For</span>
+    <div class="s-title rev">THIS WORKSHOP<br>IS <span class="t-outline">PERFECT FOR</span></div>
+    <div class="forwho-grid rev">
+      <div class="fw-card"><span class="fw-icon">🎬</span><div class="fw-title">Individual Creators</div><div class="fw-sub">Build your design identity</div></div>
+      <div class="fw-card"><span class="fw-icon">💼</span><div class="fw-title">Job Seekers</div><div class="fw-sub">Stand out in every interview</div></div>
+      <div class="fw-card"><span class="fw-icon">🎓</span><div class="fw-title">12th Pass Students</div><div class="fw-sub">Start your design career early</div></div>
+      <div class="fw-card"><span class="fw-icon">💻</span><div class="fw-title">Freelancers</div><div class="fw-sub">Add design to your skill stack</div></div>
+      <div class="fw-card"><span class="fw-icon">🏪</span><div class="fw-title">Business Owners</div><div class="fw-sub">Design your own brand identity</div></div>
+      <div class="fw-card"><span class="fw-icon">🚀</span><div class="fw-title">Startup Founders</div><div class="fw-sub">Build great products faster</div></div>
+      <div class="fw-card"><span class="fw-icon">📱</span><div class="fw-title">Digital Marketers</div><div class="fw-sub">Create scroll-stopping visuals</div></div>
+      <div class="fw-card"><span class="fw-icon">🌐</span><div class="fw-title">Web Designers</div><div class="fw-sub">Level up with UI/UX depth</div></div>
+      <div class="fw-card"><span class="fw-icon">🎒</span><div class="fw-title">College Students</div><div class="fw-sub">Get industry-ready before graduation</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- VIDEO TESTIMONIALS -->
+<section class="testi" id="testimonials">
+  <div class="wrap">
+    <span class="s-label rev">// Testimonials</span>
+    <div class="s-title rev">WHAT PEOPLE ARE<br><span class="t-outline">SAYING</span></div>
+    <div class="vid-grid" id="vg"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CHAT TESTIMONIALS -->
+<section class="chat">
+  <div class="wrap">
+    <span class="s-label rev">// Real Feedback</span>
+    <div class="s-title rev">REAL STUDENT<br><span class="t-outline">MESSAGES</span></div>
+    <div class="chat-masonry" id="cg"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="faq-inner">
+      <div class="faq-left rev">
+        <span class="s-label">// FAQ</span>
+        <div class="s-title" style="font-size:clamp(40px,5vw,72px)">FREQUENTLY<br>ASKED<br><span class="t-outline">QUESTIONS</span></div>
+        <p style="font-size:14px;color:var(--muted);margin-top:20px;line-height:1.7">Still have doubts? Everything you need to know is answered below.</p>
+        <div style="margin-top:36px;padding:20px;border:1px solid var(--border2);background:rgba(200,255,0,.03)">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--acid);letter-spacing:.15em;margin-bottom:8px">// STILL CONFUSED?</div>
+          <div style="font-size:14px;color:var(--muted)">DM us on WhatsApp or Instagram and we'll answer within minutes.</div>
+        </div>
+      </div>
+      <div class="faq-list rev" id="faqList"></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CERTIFICATE -->
+<section class="cert">
+  <div class="wrap">
+    <span class="s-label rev" style="display:block;text-align:center">// Credentials</span>
+    <div class="s-title rev" style="text-align:center">CERTIFICATE<br><span class="t-outline">UNLOCKED</span></div>
+    <p class="s-sub rev" style="margin:0 auto;text-align:center">Every participant receives an official AI Workshop Participation Certificate from Desinerz Academy.</p>
+    <div class="cert-frame rev">
+      <span class="cert-icon">🏆</span>
+      <div class="cert-title">CERTIFICATE OF COMPLETION</div>
+      <div class="cert-course">Gen AI + Graphics + UI/UX Design Workshop · 2026</div>
+      <div class="cert-divider"></div>
+      <div style="font-size:12px;color:rgba(245,245,240,.2);letter-spacing:.1em;font-family:'JetBrains Mono',monospace">THIS CERTIFIES THAT</div>
+      <div class="cert-name-ph" style="margin-top:8px">YOUR NAME HERE</div>
+      <div class="cert-divider"></div>
+      <div style="font-size:12px;color:rgba(245,245,240,.2);font-family:'JetBrains Mono',monospace;letter-spacing:.05em">has successfully completed the workshop</div>
+      <div class="cert-footer">DESINERZ ACADEMY · VERIFIED · 2026</div>
+    </div>
+    <div class="cert-badges rev">
+      <div class="cb active">✅ Verified Certificate</div>
+      <div class="cb active">🎯 Industry Recognized</div>
+      <div class="cb">🏅 LinkedIn Shareable</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FINAL CTA -->
+<section class="final" id="cta">
+  <div class="final-glow"></div>
+  <div class="final-glow2"></div>
+  <div class="wrap">
+    <span class="s-label rev" style="display:block">// Limited Time Offer</span>
+    <h2 class="rev">YOUR FUTURE<br>IN <em>DESIGN</em><br><span class="outline">STARTS TODAY</span></h2>
+    <p class="final-sub rev">Stop consuming random tutorials. Start learning with clarity and direction.</p>
+    <div class="final-price rev">
+      <span class="p-old" style="font-size:22px">₹499</span>
+      <span class="p-new" style="font-size:80px">₹49</span>
+      <span class="p-tag" style="font-size:16px;align-self:flex-start;margin-top:12px">90% OFF TODAY</span>
+    </div>
+    <div class="cta-row rev" style="justify-content:center">
+      <button class="btn-acid" style="font-size:22px;padding:18px 44px">🚀 Reserve My Seat</button>
+      <button class="btn-ghost" style="font-size:22px;padding:17px 44px"><div class="btn-play">▶</div>Join Workshop</button>
+    </div>
+    <div class="urgency rev"><div class="u-dot"></div>LIMITED SEATS AVAILABLE — DON'T MISS OUT</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="fb-brand">DESINERZ ACADEMY</div>
+      <div class="fb-desc">Empowering the next generation of designers with AI-powered education and industry-level mentorship.</div>
+      <div class="social-row">
+        <a class="sb" href="#">𝕏</a>
+        <a class="sb" href="#">in</a>
+        <a class="sb" href="#">▶</a>
+        <a class="sb" href="#">📷</a>
+      </div>
+    </div>
+    <div>
+      <div class="fc-title">Workshop</div>
+      <ul class="fc-links">
+        <li><a href="#">Curriculum</a></li>
+        <li><a href="#">Bonuses</a></li>
+        <li><a href="#">Testimonials</a></li>
+        <li><a href="#">Certificate</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fc-title">Company</div>
+      <ul class="fc-links">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Meet Mentor</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fc-title">Contact</div>
+      <ul class="fc-links">
+        <li><a href="#">support@desinerz.in</a></li>
+        <li><a href="#">+91 00000 00000</a></li>
+        <li><a href="#">WhatsApp Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="fb-copy">© 2026 DESINERZ ACADEMY. ALL RIGHTS RESERVED.</div>
+    <div class="fb-policy">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Refund Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// SCROLL PROGRESS
+const sp = document.getElementById('sprog');
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  sp.style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+  nav.classList.toggle('solid', window.scrollY > 60);
+});
+
+// TIMER
+let sec = 8*3600+34*60+22;
+setInterval(() => {
+  if(--sec < 0) return;
+  document.getElementById('th').textContent = String(Math.floor(sec/3600)).padStart(2,'0');
+  document.getElementById('tm').textContent = String(Math.floor(sec%3600/60)).padStart(2,'0');
+  document.getElementById('ts').textContent = String(sec%60).padStart(2,'0');
+}, 1000);
+
+// MARQUEE
+const students = [
+  {n:'Aryan Sharma',r:'UI Designer',c:'Swiggy',e:'👨'},{n:'Priya Menon',r:'Graphic Designer',c:'Zomato',e:'👩'},
+  {n:'Rohit Kumar',r:'UX Researcher',c:'Razorpay',e:'👨'},{n:'Ananya Singh',r:'Visual Designer',c:'Zepto',e:'👩'},
+  {n:'Karan Patel',r:'Product Designer',c:'CRED',e:'👨'},{n:'Divya Nair',r:'Brand Designer',c:'Meesho',e:'👩'},
+  {n:'Aditya Joshi',r:'Freelance Designer',c:'Self-Employed',e:'👨'},{n:'Sneha Gupta',r:'UI/UX Lead',c:'PhonePe',e:'👩'},
+  {n:'Vikram Das',r:'Creative Director',c:'Agencyio',e:'👨'},{n:'Pooja Rao',r:'Motion Designer',c:'Groww',e:'👩'},
+];
+const mt = document.getElementById('mTrack');
+[...students,...students].forEach(s=>{
+  const c=document.createElement('div');c.className='s-card';
+  const bg=['#1a2a4a','#2a1a3a','#1a3a2a','#3a2a1a','#2a1a2a'][Math.floor(Math.random()*5)];
+  c.innerHTML=`<div class="s-av" style="background:${bg}">${s.e}</div><div><div class="s-nm">${s.n}</div><div class="s-role">${s.r}</div><div class="s-co">${s.c}</div></div>`;
+  mt.appendChild(c);
+});
+
+// VIDEO TESTIMONIALS
+const vids=[
+  {n:'Rahul Verma',rev:'"Completely changed how I think about design. Worth every rupee!"',st:'★★★★★'},
+  {n:'Shreya Iyer',rev:'"The AI tools session was mind-blowing. Got 3 freelance clients already."',st:'★★★★★'},
+  {n:'Manish Tiwari',rev:'"Best ₹49 I ever spent. Landed a UI job 2 months after the workshop."',st:'★★★★★'},
+  {n:'Komal Shah',rev:'"Finally understood how to build a portfolio that actually gets responses."',st:'★★★★★'},
+  {n:'Arjun Mehta',rev:'"The mentor\'s industry insights are pure gold. No fluff, all value."',st:'★★★★★'},
+  {n:'Neha Saxena',rev:'"From zero knowledge to freelancing in 3 months. Genuinely unreal."',st:'★★★★★'},
+];
+const vg=document.getElementById('vg');
+vids.forEach(v=>{
+  vg.innerHTML+=`<div class="vc"><div class="vc-thumb"><div class="vc-thumb-inner"></div><div class="vc-play">▶</div></div><div class="vc-info"><div class="vc-stars">${v.st}</div><div class="vc-name">${v.n}</div><div class="vc-rev">${v.rev}</div></div></div>`;
+});
+
+// CHAT TESTIMONIALS
+const chats=[
+  {p:'WhatsApp',pc:'wa',u:'Rishab K.',m:'Bhai just got my first freelance project worth ₹18,000. This workshop literally changed everything for me 🔥',t:'2 days ago'},
+  {p:'Instagram',pc:'ig',u:'@design.priya',m:'Guys if you haven\'t done this workshop yet please just go and do it. The AI tools section alone is worth 10x the price.',t:'1 week ago'},
+  {p:'WhatsApp',pc:'wa',u:'Anjali M.',m:'Got shortlisted for a UI role at a startup!! They loved my portfolio. Thank you so much 🙏',t:'3 days ago'},
+  {p:'Telegram',pc:'tg',u:'Suresh R.',m:'The Gen AI section is genuinely insane. I had no idea tools like this even existed. Completely mind blown.',t:'5 days ago'},
+  {p:'Instagram',pc:'ig',u:'@creative.karan',m:'Did the workshop on Saturday. By Monday had 2 new clients reach out. The roadmap clarity is unmatched.',t:'Yesterday'},
+  {p:'WhatsApp',pc:'wa',u:'Mehak T.',m:'For ₹49 this is absolutely insane value. I paid 40x more for worse courses before. Best decision ever.',t:'1 week ago'},
+  {p:'WhatsApp',pc:'wa',u:'Dev S.',m:'The freelancing module hit different. Finally understand how to price my work and actually find clients.',t:'4 days ago'},
+  {p:'Instagram',pc:'ig',u:'@uiux.neha',m:'Certificate on LinkedIn! Already got 3 recruiter requests. This workshop works.',t:'2 days ago'},
+];
+const cg=document.getElementById('cg');
+chats.forEach(c=>{
+  cg.innerHTML+=`<div class="cc"><div class="cc-plat plat-${c.pc}">${c.p}</div><div class="cc-user">${c.u}</div><div class="cc-msg">"${c.m}"</div><div class="cc-time">${c.t}</div></div>`;
+});
+
+// FAQ
+const faqs=[
+  {q:'Is there any refund policy?',a:'We offer a satisfaction-based review. Since this is a live workshop at ₹49, we encourage you to attend and experience the value firsthand.'},
+  {q:'Does this come with lifetime access?',a:'Yes! You get lifetime access to the recorded session, E-books, and all bonus materials after the live workshop ends.'},
+  {q:'What is the language of the workshop?',a:'The workshop is conducted in Hindi with English terminology. All materials are bilingual for maximum clarity.'},
+  {q:"I've tried learning before. How is this different?",a:'This is not a generic course. You get a real industry expert, live practical sessions, current AI tools, and a clear career roadmap — not scattered free tutorials.'},
+  {q:'I have zero experience. Can I still do this?',a:'Absolutely. This workshop is designed for complete beginners. We start from scratch and build up to professional-level concepts within 3 hours.'},
+  {q:'Why pay when tutorials are free?',a:'Free tutorials give you information. This workshop gives you a system — a roadmap, mentorship, community, and career direction. That clarity is worth far more than ₹49.'},
+  {q:'Will I be able to create professional designs?',a:'Yes. After this workshop, you will have the knowledge, tools, and resources to create designs that attract real clients and employers.'},
+  {q:'Will I get a certificate?',a:'Yes. Every participant receives an official AI Workshop Participation Certificate from Desinerz Academy upon completion.'},
+  {q:"I don't have time. How long will it take?",a:'The live session is 3 hours. You can watch the replay at your own pace. Three focused hours that could genuinely change your career direction.'},
+  {q:'Can I make money using these skills?',a:'Many of our students have landed freelance clients, full-time jobs, or started their own agencies within months of completing the workshop.'},
+  {q:'How will I get access after payment?',a:'Immediately after payment you receive a WhatsApp confirmation with the workshop link, bonus materials, and joining instructions.'},
+  {q:'Can I start with zero experience?',a:'Zero experience required. We take you from absolute beginner to understanding the complete design industry landscape in one session.'},
+];
+const fl=document.getElementById('faqList');
+faqs.forEach(f=>{
+  const el=document.createElement('div');el.className='fi';
+  el.innerHTML=`<div class="fi-q">${f.q}<div class="fi-ico">+</div></div><div class="fi-a"><div class="fi-a-txt">${f.a}</div></div>`;
+  el.querySelector('.fi-q').addEventListener('click',()=>{
+    const was=el.classList.contains('open');
+    document.querySelectorAll('.fi').forEach(i=>i.classList.remove('open'));
+    if(!was)el.classList.add('open');
+  });
+  fl.appendChild(el);
+});
+
+// SCROLL REVEAL
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.rev').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
