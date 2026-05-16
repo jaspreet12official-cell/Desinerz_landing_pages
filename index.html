@@ -46,7 +46,15 @@ tailwind.config = {
   box-shadow: 0 0 12px rgba(59,130,246,.4);
 }
   /* Multi-property gradient text — requires clip combo */
-  .gradient-text { background:linear-gradient(135deg,#00d4ff 0%,#a855f7 50%,#ec4899 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .gradient-text {background: linear-gradient(
+  90deg,
+  #27E6FF 0%,
+  #D9FF3F 25%,
+  #FF9A3D 55%,
+  #FF4D8D 80%,
+  #FFFFFF 100%
+); -webkit-background-clip:text; 
+-webkit-text-fill-color:transparent; background-clip:text; }
   .gradient-text-2 { background:linear-gradient(135deg,#06b6d4,#3b82f6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
 
   /* Grid background — complex multi-stop */
@@ -240,7 +248,8 @@ items-center pt-[30px] pb-2 px-[2%]">
     Live Workshop · Limited Seats
   </div>
 
-  <h1 class="font-syne text-[clamp(1rem,1.5vw,1.3rem)] font-bold leading-tight tracking-tight mb-4">
+  <h1 class="font-syne text-[clamp(1rem,1.5vw,1.3rem)]
+   font-bold leading-tight tracking-tight mb-4">
     This <span class="gradient-text">₹49 </span>Decision Could Change Your Career Forever.
   </h1>
 
@@ -386,10 +395,15 @@ items-center pt-[30px] pb-2 px-[2%]">
 <!-- ===================== SUCCESS STORIES ===================== -->
 <section id="success" class="relative z-[1]   overflow-hidden" style="background:linear-gradient(180deg,#050816 0%,rgba(11,16,32,.8) 100%)">
   <div class="text-center mb-10 reveal">
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
-      <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Social Proof
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 
+    rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase 
+    text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background
+    :rgba(0,212,255,.08)">
+      <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] 
+      inline-block"></span>Social Proof
     </div>
-    <h2 class="font-syne text-3xl font-extrabold mb-2">1500+ <span class="gradient-text">Successful Transitions</span></h2>
+    <h2 class="font-syne text-3xl font-extrabold mb-2">1500+
+       <span class="gradient-text">Successful Transitions</span></h2>
     <p class="text-[#8892b0] text-[0.95rem]">Students Working In Startups, Agencies & Top Companies</p>
   </div>
   <div class="overflow-hidden">
@@ -402,10 +416,13 @@ items-center pt-[30px] pb-2 px-[2%]">
   <div class="text-center mb-16 reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5
      rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase 
-     text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
-      <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Curriculum
+     text-[#00d4ff] border border-[#00d4ff]/20 mb-5"
+      style="background:rgba(0,212,255,.08)">
+      <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff]
+       inline-block"></span>Curriculum
     </div>
-    <h2 class="font-syne text-[clamp(1.8rem,4vw,2.8rem)] font-extrabold mb-3.5 leading-snug">What You'll Learn <span class="gradient-text">Inside This Workshop</span></h2>
+    <h2 class="font-syne text-3xl
+    font-extrabold mb-3.5 leading-snug">What You'll Learn <span class="gradient-text">Inside This Workshop</span></h2>
     <p class="text-[#8892b0] text-base max-w-[540px] mx-auto">Everything you need to understand modern design careers in 2026.</p>
   </div>
 
@@ -580,18 +597,26 @@ items-center pt-[30px] pb-2 px-[2%]">
 <!-- ===================== BONUSES ===================== -->
 <section id="bonuses" class="relative z-[1] py-8 px-[2%]">
   <div class="text-center mb-16 reveal">
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
-      <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Exclusive Bonuses
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 
+    rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase 
+    text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:
+    rgba(0,212,255,.08)">
+      <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff]
+       inline-block"></span>Exclusive Bonuses
     </div>
-    <h2 class="font-syne text-[clamp(1.8rem,4vw,2.8rem)] font-extrabold leading-snug">Bonuses You'll Get <span class="gradient-text">Inside</span></h2>
+    <h2 class="font-syne text-3xl
+    font-extrabold leading-snug">Bonuses You'll Get <span class="gradient-text">Inside</span></h2>
   </div>
 
-  <div class="grid grid-cols-3 gap-5 max-w-[1100px] mx-auto max-[900px]:grid-cols-1">
+  <div class="grid grid-cols-3 gap-5 max-w-[1100px] mx-auto
+   max-[900px]:grid-cols-1">
     <div class="bonus-card bb1 p-9 rounded-[20px] border  border-transparent
      relative overflow-hidden cursor-default transition-all duration-300 
      hover:-translate-y-1.5 hover:scale-[1.01] hover:border-blue-500/35 
-     hover:shadow-[0_30px_80px_rgba(0,0,0,.5)] reveal" style="background:rgba(255,255,255,.03);--b-from:rgba(59,130,246,.08)">
-      <div class="font-mono text-[0.72rem] tracking-[2px] text-[#4a5568] mb-4">BONUS 01</div>
+     hover:shadow-[0_30px_80px_rgba(0,0,0,.5)] reveal"
+      style="background:rgba(255,255,255,.03);--b-from:rgba(59,130,246,.08)">
+      <div class="font-mono text-[0.72rem] tracking-[2px] 
+      text-[#4a5568] mb-4">BONUS 01</div>
       <span class="text-4xl mb-4 block">📚</span>
       <h3 class="font-syne text-[1.15rem] font-bold mb-2.5">3 Design Industry E-books</h3>
       <p class="text-[0.85rem] text-[#8892b0] leading-relaxed">Curated e-books covering design fundamentals, UI systems, and freelancing secrets — worth ₹1500 alone.</p>
@@ -622,7 +647,7 @@ items-center pt-[30px] pb-2 px-[2%]">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Target Audience
     </div>
-    <h2 class="font-syne text-[clamp(1.8rem,4vw,2.8rem)] font-extrabold leading-snug">This Workshop Is <span class="gradient-text">Perfect For</span></h2>
+    <h2 class="font-syne text-3xl font-extrabold leading-snug">This Workshop Is <span class="gradient-text">Perfect For</span></h2>
   </div>
 
   <!-- 3 cols mobile → 3 cols tablet → 3 cols desktop = always 3×3 even grid -->
@@ -691,7 +716,7 @@ items-center pt-[30px] pb-2 px-[2%]">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Testimonials
     </div>
-    <h2 class="font-syne text-[clamp(1.8rem,4vw,2.8rem)] font-extrabold leading-snug">What People Are <span class="gradient-text">Saying About Us</span></h2>
+    <h2 class="font-syne text-3xl font-extrabold leading-snug">What People Are <span class="gradient-text">Saying About Us</span></h2>
   </div>
 
   <div class="grid grid-cols-3 gap-5 max-w-[1100px] mx-auto max-[900px]:grid-cols-2 max-[600px]:grid-cols-1">
@@ -722,7 +747,7 @@ items-center pt-[30px] pb-2 px-[2%]">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Real Messages
     </div>
-    <h2 class="font-syne text-[clamp(1.8rem,4vw,2.8rem)] font-extrabold leading-snug">Real Student <span class="gradient-text">Messages</span></h2>
+    <h2 class="font-syne text-3xl font-extrabold leading-snug">Real Student <span class="gradient-text">Messages</span></h2>
   </div>
 
   <div class="columns-3 gap-4 max-w-[1100px] mx-auto max-[900px]:columns-2 max-[600px]:columns-1">
@@ -759,7 +784,7 @@ items-center pt-[30px] pb-2 px-[2%]">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>FAQ
     </div>
-    <h2 class="font-syne text-[clamp(1.8rem,4vw,2.8rem)] font-extrabold leading-snug">Frequently Asked <span class="gradient-text">Questions</span></h2>
+    <h2 class="font-syne text-3xl font-extrabold leading-snug">Frequently Asked <span class="gradient-text">Questions</span></h2>
   </div>
 
   <!-- Two column grid -->
@@ -861,10 +886,14 @@ items-center pt-[30px] pb-2 px-[2%]">
 <!-- ===================== CERTIFICATE ===================== -->
 <section id="certificate" class="relative z-[1] py-14 px-[2%]">
   <div class="max-w-[900px] mx-auto text-center reveal">
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
-      <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Recognition
+    <div class="inline-flex items-center gap-2 px-4 py-1.5
+     rounded-full text-[0.72rem] font-mono tracking-[3px]
+      uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5"
+       style="background:rgba(0,212,255,.08)">
+      <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] 
+      inline-block"></span>Recognition
     </div>
-    <h2 class="font-syne text-[clamp(1.8rem,4vw,2.8rem)] font-extrabold mb-3 leading-snug">Certificate <span class="gradient-text">Unlocked</span></h2>
+    <h2 class="font-syne text-3xl font-extrabold mb-3 leading-snug">Certificate <span class="gradient-text">Unlocked</span></h2>
     <p class="text-[#8892b0]">Receive an AI Workshop Participation Certificate upon completion</p>
 
     <div class="relative max-w-[700px] mx-auto my-12">
@@ -895,7 +924,8 @@ items-center pt-[30px] pb-2 px-[2%]">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-6" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Ready To Begin
     </div>
-    <h2 class="font-syne text-[clamp(2rem,5vw,3.5rem)] font-extrabold mb-3.5 leading-[1.1] reveal">Your Future In Design <br><span class="gradient-text">Starts Today</span></h2>
+    <h2 class="font-syne text-3xl font-extrabold
+     mb-3.5 leading-[1.1] reveal">Your Future In Design <br><span class="gradient-text">Starts Today</span></h2>
     <p class="text-[#8892b0] text-[1.05rem] max-w-[540px] mx-auto mb-10 reveal">Stop consuming random tutorials. Start learning with clarity.</p>
 
     <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[0.82rem] font-semibold text-red-400 border border-red-500/30 mb-10 reveal" style="background:rgba(239,68,68,.1)">
