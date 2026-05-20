@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<hstyle>
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Desinerz Academy — Gen AI Design Workshop</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<!-- FIX #7: Added missing Font Awesome CDN for social icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <script>
 tailwind.config = {
@@ -26,7 +28,7 @@ tailwind.config = {
 }
 </script>
 
-
+<!-- FIX #1 & #2: Was <hstyle> ... </hstyle> — corrected to <style> ... </style> -->
 <style>
   /* Keyframes & animations — can't be single Tailwind classes */
   @keyframes orbFloat { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(20px,-30px) scale(1.05)} 66%{transform:translate(-15px,20px) scale(0.95)} }
@@ -36,26 +38,25 @@ tailwind.config = {
   @keyframes blink { 0%,100%{opacity:.5} 50%{opacity:.1} }
   @keyframes particleFly { 0%{transform:translateY(100vh) rotate(0deg);opacity:0} 10%{opacity:1} 90%{opacity:.5} 100%{transform:translateY(-20vh) rotate(360deg);opacity:0} }
   @keyframes pulse-ring { 0%,100%{opacity:1} 50%{opacity:.4} }
-@keyframes moveLine {
-  0% { background-position: -100% 0; }
-  100% { background-position: 200% 0; }
-}
-.moving-line {
-  background: linear-gradient(90deg, transparent, transparent, #00d4ff, #a855f7, transparent, transparent);
-  background-size: 50% 100%;
-  animation: moveLine 3s linear infinite;
-  box-shadow: 0 0 12px rgba(59,130,246,.4);
-}
+  @keyframes moveLine {
+    0% { background-position: -100% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .moving-line {
+    background: linear-gradient(90deg, transparent, transparent, #00d4ff, #a855f7, transparent, transparent);
+    background-size: 50% 100%;
+    animation: moveLine 3s linear infinite;
+    box-shadow: 0 0 12px rgba(59,130,246,.4);
+  }
   /* Multi-property gradient text — requires clip combo */
   .gradient-text {background: linear-gradient(
-  90deg,
-  #27E6FF 0%,
-  #D9FF3F 25%,
-  #FF9A3D 55%,
-  #FF4D8D 100%
-
-); -webkit-background-clip:text; 
--webkit-text-fill-color:transparent; background-clip:text; }
+    90deg,
+    #27E6FF 0%,
+    #D9FF3F 25%,
+    #FF9A3D 55%,
+    #FF4D8D 100%
+  ); -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent; background-clip:text; }
   .gradient-text-2 { background:linear-gradient(135deg,#06b6d4,#3b82f6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
 
   /* Grid background — complex multi-stop */
@@ -119,7 +120,7 @@ tailwind.config = {
   .bonus-card::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,var(--b-from,rgba(59,130,246,.06)),transparent); opacity:0; transition:opacity .35s; border-radius:inherit; }
   .bonus-card:hover::after { opacity:1; }
 
-   @keyframes shine {
+  @keyframes shine {
     0% { transform: translateX(-100%) skewX(-15deg); }
     100% { transform: translateX(300%) skewX(-15deg); }
   }
@@ -132,13 +133,15 @@ tailwind.config = {
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
     animation: shine 2.5s ease-in-out infinite;
   }
-  
-  /* ===========================
-   RESPONSIVE FIXES
-=========================== */
 
-/* Tablets */
+  /* ===========================
+     RESPONSIVE FIXES
+  =========================== */
+
+  /* Tablets */
+  /* Tablet */
 @media (max-width: 1024px) {
+
   .fc1 { left: -10%; }
   .fc2 { right: -6%; }
   .fc3 { left: -8%; }
@@ -153,15 +156,26 @@ tailwind.config = {
   }
 }
 
+
 /* Mobile */
 @media (max-width: 768px) {
-  /* Float cards ko andar lao */
-  .fc1, .fc2, .fc3, .fc4 {
-    left: 50% !important;
+
+  .fc1,
+  .fc2,
+  .fc3,
+  .fc4{
+    position: relative;
+
+    left: auto !important;
     right: auto !important;
-    transform: translateX(-50%);
-    width: 85%;
+
+    transform: none !important;
+
+    width: calc(100% - 24px);
     max-width: 320px;
+
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .fc1 { top: 8%; }
@@ -169,58 +183,65 @@ tailwind.config = {
   .fc3 { bottom: 25%; }
   .fc4 { bottom: 6%; }
 
-  /* Orbs smaller */
-  .orb {
+  .orb{
     width: 180px !important;
     height: 180px !important;
     filter: blur(60px);
   }
 
-  /* Carousel slower */
-  .carousel-track {
+  .carousel-track{
     animation-duration: 60s;
     gap: 14px;
   }
 
-  /* FAQ open height bigger for mobile */
-  .faq-item.open .faq-answer {
+  .faq-item.open .faq-answer{
     max-height: 400px;
   }
 
-  /* Grid background tighter */
-  .grid-bg {
+  .grid-bg{
     background-size: 30px 30px;
   }
 }
 
-/* Extra small mobile */
+
+/* Extra Small Mobile */
 @media (max-width: 480px) {
-  .orb {
+
+  .fc1,
+  .fc2,
+  .fc3,
+  .fc4{
+    width: calc(100% - 20px);
+    max-width: 280px;
+  }
+
+  .orb{
     width: 140px !important;
     height: 140px !important;
     filter: blur(50px);
   }
 
-  .fc1, .fc2, .fc3, .fc4 {
-    width: 92%;
-    max-width: 280px;
-  }
-
-
-.carousel-track {
-  display: flex;
-  width: max-content;
-  animation: scroll 20s linear infinite;
-}
-
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
+  .carousel-track{
+    display: flex;
+    width: max-content;
+    animation: scroll 20s linear infinite;
   }
 }
+
+
+/* Global Fix */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body{
+  overflow-x: hidden;
+}
+  /* FIX #3: Removed stray closing </style> that was inside the old <hstyle> block
+     and the orphaned @keyframes scroll duplicate that followed it */
 </style>
 </head>
 <body class="bg-[#050816] text-[#f0f4ff] font-outfit overflow-x-hidden">
@@ -243,34 +264,21 @@ tailwind.config = {
 <div id="particles" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
 
 <!-- ===================== NAVBAR ===================== -->
-
-
-
-</style>
-
-<nav id="navbar" class="fixed top-0 left-0 right-0 
-z-[1000] h-[70px] flex items-center px-[5%] border-b 
-border-white/5 transition-all duration-300" 
-style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-[1000] h-[70px] flex items-center px-[5%] border-b border-white/5 transition-all duration-300"
+  style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
 
   <!-- LEFT: Logo -->
   <div class="flex items-center gap-2.5 font-syne font-extrabold text-[1.15rem] tracking-wide gradient-text flex-shrink-0">
-   <img 
-  src="Assets/Desinerz_academy_light.png" 
-  alt="Desinerz Academy" 
-  class="h-[38px] w-auto object-contain flex-shrink-0"
-/>
+    <img src="Assets/Desinerz_academy_light.png" alt="Desinerz Academy" class="h-[38px] w-auto object-contain flex-shrink-0"/>
   </div>
 
   <!-- CENTER: Offer — absolute centered -->
   <div class="absolute left-1/2 -translate-x-1/2 flex items-center gap-2.5">
-
     <!-- Pulsing pill -->
     <div class="flex items-center gap-1.5 px-3 py-1 rounded-full border border-red-500/25 text-[0.68rem] font-semibold text-red-400 flex-shrink-0" style="background:rgba(239,68,68,.08)">
       <span class="w-1.5 h-1.5 rounded-full bg-red-500 pulse-dot inline-block"></span>
       LIMITED OFFER
     </div>
-
     <!-- Price -->
     <div class="flex items-center gap-2.5 px-4 py-1.5 rounded-xl border border-purple-500/25" style="background:rgba(168,85,247,.08)">
       <span class="text-sm text-[#4a5568] line-through">₹499</span>
@@ -280,42 +288,37 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
         <span class="text-[0.55rem] text-[#4a5568] tracking-wide text-center">TODAY ONLY</span>
       </div>
     </div>
-<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-red-500/20 text-[0.65rem] font-semibold text-red-400" style="background:rgba(239,68,68,.08)">
-        🔥 Only <span class="text-white font-bold mx-0.5">12</span> seats left
-      </div>
-    
-
+    <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-red-500/20 text-[0.65rem] font-semibold text-red-400" style="background:rgba(239,68,68,.08)">
+      🔥 Only <span class="text-white font-bold mx-0.5">12</span> seats left
+    </div>
   </div>
 
   <!-- RIGHT: Timer + Button -->
   <div class="flex items-center gap-4 ml-auto flex-shrink-0">
-
-    <!-- Countdown — no border, plain style -->
+    <!-- FIX #4: Navbar countdown uses unique IDs: nav-cd-h, nav-cd-m, nav-cd-s -->
     <div class="flex items-center" id="countdown">
       <div class="flex flex-col items-center min-w-[40px]">
-        <span class="font-mono text-base font-bold text-[#00d4ff] leading-none" id="cd-h">11</span>
+        <span class="font-mono text-base font-bold text-[#00d4ff] leading-none" id="nav-cd-h">11</span>
         <span class="text-[0.52rem] tracking-[2px] uppercase text-[#4a5568] mt-0.5">Hours</span>
       </div>
       <span class="text-lg font-bold text-[#00d4ff] blink opacity-40 pb-3 mx-0.5">:</span>
       <div class="flex flex-col items-center min-w-[40px]">
-        <span class="font-mono text-base font-bold text-[#00d4ff] leading-none" id="cd-m">47</span>
+        <span class="font-mono text-base font-bold text-[#00d4ff] leading-none" id="nav-cd-m">47</span>
         <span class="text-[0.52rem] tracking-[2px] uppercase text-[#4a5568] mt-0.5">Min</span>
       </div>
       <span class="text-lg font-bold text-[#00d4ff] blink opacity-40 pb-3 mx-0.5">:</span>
       <div class="flex flex-col items-center min-w-[40px]">
-        <span class="font-mono text-base font-bold text-[#00d4ff] leading-none" id="cd-s">33</span>
+        <span class="font-mono text-base font-bold text-[#00d4ff] leading-none" id="nav-cd-s">33</span>
         <span class="text-[0.52rem] tracking-[2px] uppercase text-[#4a5568] mt-0.5">Sec</span>
       </div>
     </div>
-
     <!-- Shiny CTA button -->
     <button
       onclick="scrollToSection('#final-cta')"
       class="shine-btn relative overflow-hidden px-5 py-2.5 text-[0.85rem] font-semibold text-white rounded-lg transition-all duration-300 hover:-translate-y-px hover:shadow-[0_8px_30px_rgba(59,130,246,.5)] whitespace-nowrap"
       style="background:linear-gradient(135deg,#f63b3b,#a855f7)">
-     Enroll Now 
+      Enroll Now
     </button>
-
   </div>
 
   <!-- Hamburger (mobile) -->
@@ -324,7 +327,6 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
     <span class="w-6 h-[2px] bg-[#f0f4ff] rounded"></span>
     <span class="w-6 h-[2px] bg-[#f0f4ff] rounded"></span>
   </div>
-
 </nav>
 
 <!-- ===================== HERO ===================== -->
@@ -358,7 +360,6 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
       </div>
 
       <div class="grid grid-cols-2 gap-2 mb-4">
-
         <!-- Card 1 -->
         <div class="relative flex items-center gap-3 px-4 py-3.5 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_24px_rgba(59,130,246,.1)] cursor-default" style="background:rgba(255,255,255,.04)">
           <div class="absolute top-0 left-0 right-0 h-[1.5px]" style="background:linear-gradient(90deg,transparent,#00d4ff,transparent)"></div>
@@ -368,7 +369,6 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
             <span class="text-[0.7rem] text-[#4a5568] leading-tight mt-0.5">Graphic + UI/UX 2026</span>
           </div>
         </div>
-
         <!-- Card 2 -->
         <div class="relative flex items-center gap-3 px-4 py-3.5 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_24px_rgba(168,85,247,.1)] cursor-default" style="background:rgba(255,255,255,.04)">
           <div class="absolute top-0 left-0 right-0 h-[1.5px]" style="background:linear-gradient(90deg,transparent,#a855f7,transparent)"></div>
@@ -378,7 +378,6 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
             <span class="text-[0.7rem] text-[#4a5568] leading-tight mt-0.5">Used in Tech Industry</span>
           </div>
         </div>
-
         <!-- Card 3 -->
         <div class="relative flex items-center gap-3 px-4 py-3.5 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_24px_rgba(6,182,212,.1)] cursor-default" style="background:rgba(255,255,255,.04)">
           <div class="absolute top-0 left-0 right-0 h-[1.5px]" style="background:linear-gradient(90deg,transparent,#06b6d4,transparent)"></div>
@@ -388,7 +387,6 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
             <span class="text-[0.7rem] text-[#4a5568] leading-tight mt-0.5">Workflows & Growth Hacks</span>
           </div>
         </div>
-
         <!-- Card 4 -->
         <div class="relative flex items-center gap-3 px-4 py-3.5 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_24px_rgba(236,72,153,.1)] cursor-default" style="background:rgba(255,255,255,.04)">
           <div class="absolute top-0 left-0 right-0 h-[1.5px]" style="background:linear-gradient(90deg,transparent,#ec4899,transparent)"></div>
@@ -398,7 +396,6 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
             <span class="text-[0.7rem] text-[#4a5568] leading-tight mt-0.5">Future Opportunities</span>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -407,16 +404,14 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
       <div class="absolute w-[300px] h-[300px] rounded-full pointer-events-none -top-[60px] right-[20%] z-0" style="background:rgba(59,130,246,.2);filter:blur(80px)"></div>
       <div class="absolute w-[300px] h-[300px] rounded-full pointer-events-none bottom-0 -right-[60px] z-0" style="background:rgba(168,85,247,.15);filter:blur(80px)"></div>
 
-      <!-- Image — border restored + mt-[10px] -->
+      <!-- Image -->
       <div class="relative rounded-2xl overflow-hidden z-[1] mt-[50px] w-full max-[900px]:mt-4" style="border:1px solid rgba(255,255,255,.1)">
         <div class="w-full aspect-video flex flex-col items-center justify-center gap-4 rounded-2xl" style="background:linear-gradient(145deg,rgba(59,130,246,.1) 0%,rgba(168,85,247,.1) 50%,rgba(6,182,212,.1) 100%)">
-         
         </div>
       </div>
 
       <!-- Stats row -->
       <div class="flex items-center z-[1] rounded-2xl overflow-hidden w-full max-[900px]:flex-col" style="background:rgba(255,255,255,.03)">
-        <!-- Card 1 -->
         <div class="relative flex items-center gap-3 py-3.5 px-4 flex-1 transition-all duration-300 hover:bg-white/[.02] cursor-default">
           <div class="w-9 h-9 rounded-xl flex items-center justify-center text-lg flex-shrink-0" style="background:rgba(16,185,129,.12)">👥</div>
           <div class="flex flex-col">
@@ -424,10 +419,7 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
             <span class="text-[0.65rem] text-[#4a5568] tracking-wide uppercase leading-tight">Students</span>
           </div>
         </div>
-
-        <!-- Divider -->
-  <div class="w-[1px] self-stretch" style="background:linear-gradient(180deg,transparent,rgba(255,255,255,.1),transparent)"></div>
-   <!-- Card 2 -->
+        <div class="w-[1px] self-stretch" style="background:linear-gradient(180deg,transparent,rgba(255,255,255,.1),transparent)"></div>
         <div class="relative flex items-center gap-3 py-3.5 px-4 flex-1 transition-all duration-300 hover:bg-white/[.02] cursor-default">
           <div class="w-9 h-9 rounded-xl flex items-center justify-center text-lg flex-shrink-0" style="background:rgba(59,130,246,.12)">🌱</div>
           <div class="flex flex-col">
@@ -435,10 +427,7 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
             <span class="text-[0.65rem] text-[#4a5568] tracking-wide uppercase leading-tight">Beginner Friendly</span>
           </div>
         </div>
-
-        <!-- Divider -->
-       <div class="w-[1px] self-stretch" style="background:linear-gradient(180deg,transparent,rgba(255,255,255,.1),transparent)"></div>
-        <!-- Card 3 -->
+        <div class="w-[1px] self-stretch" style="background:linear-gradient(180deg,transparent,rgba(255,255,255,.1),transparent)"></div>
         <div class="relative flex items-center gap-3 py-3.5 px-4 flex-1 transition-all duration-300 hover:bg-white/[.02] cursor-default">
           <div class="w-9 h-9 rounded-xl flex items-center justify-center text-lg flex-shrink-0" style="background:rgba(168,85,247,.12)">🔴</div>
           <div class="flex flex-col">
@@ -446,126 +435,89 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
             <span class="text-[0.65rem] text-[#4a5568] tracking-wide uppercase leading-tight">Workshop</span>
           </div>
         </div>
-
       </div>
 
       <!-- Book Now btn -->
       <div class="flex justify-center mb-7 z-[1] w-full">
         <a href="#final-cta"
-          class="shine-btn relative overflow-hidden flex items-center justify-center gap-2 w-[70%]  max-[900px]:w-full py-3.5 text-[0.95rem] font-semibold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(59,130,246,.5)]"
+          class="shine-btn relative overflow-hidden flex items-center justify-center gap-2 w-[70%] max-[900px]:w-full py-3.5 text-[0.95rem] font-semibold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(59,130,246,.5)]"
           style="background:linear-gradient(135deg,#f63b3b,#a855f7)">
           🎯 Book Your Seat Now
         </a>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- ===================== SUCCESS STORIES ===================== -->
-<section 
-  id="success" 
-  class="relative z-[1] overflow-hidden px-4 sm:px-8 lg:px-16 py-14 sm:py-16 lg:py-20"
-  style="background:linear-gradient(180deg,#050816 0%,rgba(11,16,32,.8) 100%)"
->
-  
-  <!-- Heading -->
+<section id="success" class="relative z-[1] overflow-hidden px-4 sm:px-8 lg:px-16 py-14 sm:py-16 lg:py-20"
+  style="background:linear-gradient(180deg,#050816 0%,rgba(11,16,32,.8) 100%)">
   <div class="text-center mb-10 sm:mb-14 reveal">
-    
-    <div 
-      class="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 
-      rounded-full text-[0.65rem] sm:text-[0.72rem] 
-      font-mono tracking-[2px] sm:tracking-[3px] uppercase 
-      text-[#00d4ff] border border-[#00d4ff]/20 mb-5"
-      style="background:rgba(0,212,255,.08)"
-    >
+    <div class="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 rounded-full text-[0.65rem] sm:text-[0.72rem] font-mono tracking-[2px] sm:tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>
       Social Proof
     </div>
-
     <h2 class="font-syne text-[1.6rem] sm:text-3xl lg:text-4xl font-extrabold mb-2 leading-tight">
       1500+
-      <span class="gradient-text block sm:inline">
-        Successful Transitions
-      </span>
+      <span class="gradient-text block sm:inline">Successful Transitions</span>
     </h2>
-
     <p class="text-[#8892b0] text-[0.85rem] sm:text-[0.95rem] lg:text-base max-w-[700px] mx-auto">
       Students Working In Startups, Agencies & Top Companies
     </p>
-
   </div>
-
-  <!-- Carousel Wrapper -->
   <div class="overflow-hidden w-full">
     <div class="carousel-track flex gap-6 sm:gap-8" id="carousel"></div>
   </div>
-
 </section>
 
 <!-- ===================== WHAT YOU LEARN ===================== -->
 <section id="learn" class="relative z-[1] py-8 px-[2%]">
   <div class="text-center mb-16 reveal">
-    <div class="inline-flex items-center gap-2 px-4 py-1.5
-     rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase 
-     text-[#00d4ff] border border-[#00d4ff]/20 mb-5"
-      style="background:rgba(0,212,255,.08)">
-      <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff]
-       inline-block"></span>Curriculum
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
+      <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Curriculum
     </div>
-    <h2 class="font-syne text-3xl
-    font-extrabold mb-3.5 leading-snug">What You'll Learn <span class="gradient-text">Inside This Workshop</span></h2>
+    <h2 class="font-syne text-3xl font-extrabold mb-3.5 leading-snug">What You'll Learn <span class="gradient-text">Inside This Workshop</span></h2>
     <p class="text-[#8892b0] text-base max-w-[540px] mx-auto">Everything you need to understand modern design careers in 2026.</p>
   </div>
 
   <div class="grid grid-cols-3 gap-4 max-w-[1100px] mx-auto max-[900px]:grid-cols-2 max-[600px]:grid-cols-1">
-
-    <div class="bento-card col-span-2 p-7 rounded-[18px]  relative overflow-hidden border border-transparent  cursor-default transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_20px_60px_rgba(0,0,0,.5)] reveal max-[600px]:col-span-1" style="background:rgba(255,255,255,.03);--card-from:rgba(59,130,246,.06)">
+    <div class="bento-card col-span-2 p-7 rounded-[18px] relative overflow-hidden border border-transparent cursor-default transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_20px_60px_rgba(0,0,0,.5)] reveal max-[600px]:col-span-1" style="background:rgba(255,255,255,.03);--card-from:rgba(59,130,246,.06)">
       <span class="text-3xl mb-4 block">🤖</span>
       <div class="w-10 h-[3px] rounded mb-3.5" style="background:linear-gradient(90deg,#00d4ff,#a855f7)"></div>
       <h3 class="font-syne text-[1.05rem] font-bold mb-2">Gen AI Tools Understanding</h3>
       <p class="text-[0.85rem] text-[#8892b0] leading-relaxed">Learn the latest AI tools revolutionizing the design industry — Midjourney, Adobe Firefly, ChatGPT for design, and more. Stay ahead of 95% of designers.</p>
     </div>
-
-    <div class="bento-card p-7 rounded-[18px] relative overflow-hidden border border-transparent  cursor-default transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/30 hover:shadow-[0_20px_60px_rgba(0,0,0,.5)] reveal" style="background:rgba(255,255,255,.03);--card-from:rgba(168,85,247,.06);transition-delay:.1s">
+    <div class="bento-card p-7 rounded-[18px] relative overflow-hidden border border-transparent cursor-default transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/30 hover:shadow-[0_20px_60px_rgba(0,0,0,.5)] reveal" style="background:rgba(255,255,255,.03);--card-from:rgba(168,85,247,.06);transition-delay:.1s">
       <span class="text-3xl mb-4 block">⚡</span>
       <div class="w-10 h-[3px] rounded mb-3.5" style="background:linear-gradient(90deg,#a855f7,#ec4899)"></div>
       <h3 class="font-syne text-[1.05rem] font-bold mb-2">10X Productivity & Growth</h3>
       <p class="text-[0.85rem] text-[#8892b0] leading-relaxed">Workflows, systems & hacks for faster design output and career growth.</p>
     </div>
-
-    <div class="bento-card p-7 rounded-[18px]  relative border border-transparent  overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/30 hover:shadow-[0_20px_60px_rgba(0,0,0,.5)] reveal" style="background:rgba(255,255,255,.03);--card-from:rgba(6,182,212,.06);transition-delay:.1s">
+    <div class="bento-card p-7 rounded-[18px] relative border border-transparent overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/30 hover:shadow-[0_20px_60px_rgba(0,0,0,.5)] reveal" style="background:rgba(255,255,255,.03);--card-from:rgba(6,182,212,.06);transition-delay:.1s">
       <span class="text-3xl mb-4 block">🏢</span>
       <div class="w-10 h-[3px] rounded mb-3.5" style="background:linear-gradient(90deg,#06b6d4,#3b82f6)"></div>
       <h3 class="font-syne text-[1.05rem] font-bold mb-2">Understanding Tech Industry</h3>
       <p class="text-[0.85rem] text-[#8892b0] leading-relaxed">How startups, agencies & tech companies operate and hire designers.</p>
     </div>
-
-    <div class="bento-card p-7 rounded-[18px]  relative overflow-hidden cursor-default border border-transparent  transition-all duration-300 hover:-translate-y-1 hover:border-pink-500/30 hover:shadow-[0_20px_60px_rgba(0,0,0,.5)] reveal" style="background:rgba(255,255,255,.03);--card-from:rgba(236,72,153,.06);transition-delay:.15s">
+    <div class="bento-card p-7 rounded-[18px] relative overflow-hidden cursor-default border border-transparent transition-all duration-300 hover:-translate-y-1 hover:border-pink-500/30 hover:shadow-[0_20px_60px_rgba(0,0,0,.5)] reveal" style="background:rgba(255,255,255,.03);--card-from:rgba(236,72,153,.06);transition-delay:.15s">
       <span class="text-3xl mb-4 block">🎨</span>
       <div class="w-10 h-[3px] rounded mb-3.5" style="background:linear-gradient(90deg,#ec4899,#a855f7)"></div>
       <h3 class="font-syne text-[1.05rem] font-bold mb-2">Complete Graphic Design Roadmap</h3>
       <p class="text-[0.85rem] text-[#8892b0] leading-relaxed">From total beginner to advanced professional level — a structured path you can actually follow.</p>
     </div>
-
-    <div class="bento-card col-span-2 p-7 rounded-[18px]  relative overflow-hidden border border-transparent  cursor-default transition-all duration-300 hover:-translate-y-1 hover:border-green-500/30 hover:shadow-[0_20px_60px_rgba(0,0,0,.5)] reveal max-[600px]:col-span-1" style="background:rgba(255,255,255,.03);--card-from:rgba(16,185,129,.06);transition-delay:.2s">
+    <div class="bento-card col-span-2 p-7 rounded-[18px] relative overflow-hidden border border-transparent cursor-default transition-all duration-300 hover:-translate-y-1 hover:border-green-500/30 hover:shadow-[0_20px_60px_rgba(0,0,0,.5)] reveal max-[600px]:col-span-1" style="background:rgba(255,255,255,.03);--card-from:rgba(16,185,129,.06);transition-delay:.2s">
       <span class="text-3xl mb-4 block">🖥️</span>
       <div class="w-10 h-[3px] rounded mb-3.5" style="background:linear-gradient(90deg,#10b981,#06b6d4)"></div>
       <h3 class="font-syne text-[1.05rem] font-bold mb-2">How To Become A UI/UX Designer</h3>
       <p class="text-[0.85rem] text-[#8892b0] leading-relaxed">Full roadmap from learning Figma to landing your first UX job — covering tools, process, portfolio and the designer mindset that companies actually value.</p>
     </div>
-
-    <div class="bento-card p-7 rounded-[18px]  relative overflow-hidden border border-transparent  cursor-default transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/30 hover:shadow-[0_20px_60px_rgba(0,0,0,.5)] reveal" style="background:rgba(255,255,255,.03);--card-from:rgba(245,158,11,.06);transition-delay:.1s">
+    <div class="bento-card p-7 rounded-[18px] relative overflow-hidden border border-transparent cursor-default transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/30 hover:shadow-[0_20px_60px_rgba(0,0,0,.5)] reveal" style="background:rgba(255,255,255,.03);--card-from:rgba(245,158,11,.06);transition-delay:.1s">
       <span class="text-3xl mb-4 block">💼</span>
       <div class="w-10 h-[3px] rounded mb-3.5" style="background:linear-gradient(90deg,#f59e0b,#ef4444)"></div>
       <h3 class="font-syne text-[1.05rem] font-bold mb-2">Industry-Level Portfolio Creation</h3>
       <p class="text-[0.85rem] text-[#8892b0] leading-relaxed">Build portfolios that make recruiters & clients say yes immediately.</p>
     </div>
-
-    <div class="bento-card p-7 rounded-[18px] border border-transparent  relative 
-    overflow-hidden cursor-default transition-all duration-300
-     hover:-translate-y-1 hover:border-red-500/30 
-     hover:shadow-[0_20px_60px_rgba(0,0,0,.5)] reveal" style="background:rgba(255,255,255,.03);--card-from:rgba(239,68,68,.06);transition-delay:.15s">
+    <div class="bento-card p-7 rounded-[18px] border border-transparent relative overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1 hover:border-red-500/30 hover:shadow-[0_20px_60px_rgba(0,0,0,.5)] reveal" style="background:rgba(255,255,255,.03);--card-from:rgba(239,68,68,.06);transition-delay:.15s">
       <span class="text-3xl mb-4 block">💰</span>
       <div class="w-10 h-[3px] rounded mb-3.5" style="background:linear-gradient(90deg,#ef4444,#ec4899)"></div>
       <h3 class="font-syne text-[1.05rem] font-bold mb-2">Freelancing Industry Understanding</h3>
@@ -575,79 +527,119 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
 </section>
 
 <!-- ===================== MENTOR ===================== -->
-<section id="mentor" class="relative z-[1] py-8 px-[2%]">
-  <div class="grid grid-cols-[60%_40%] gap-[40px] 
-  items-center max-w-[1100px] mx-auto max-[900px]:grid-cols-1">
+<section id="mentor" class="relative z-[1] py-8 px-4 sm:px-6 lg:px-[2%] overflow-hidden">
 
-    <!-- Left 60% — Image -->
-    <div class="relative flex items-center justify-center 
-    reveal" style="transition-delay:.2s">
-     <div class="w-full aspect-[4/3] flex flex-col items-center justify-center gap-3 rounded-3xl text-[#4a5568] text-[0.85rem]" style="background:linear-gradient(145deg,rgba(59,130,246,.08),rgba(168,85,247,.08));border:1px solid rgba(255,255,255,.08)">
-  <div class="text-5xl opacity-30">🧑‍💻</div>
-  <span>Mentor Photo</span>
-</div>
-    </div>
+  <div class="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 
+  lg:grid-cols-[58%_42%] gap-8 md:gap-3px lg:gap-[40px] items-center">
 
-    <!-- Right 40% — Content -->
-    <div class="reveal">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
-        <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Your Instructor
+    <!-- Left Side -->
+    <div class="relative flex items-center justify-center reveal" style="transition-delay:.2s">
+
+      <div class="w-full max-w-[620px] aspect-[4/3] flex flex-col items-center justify-center gap-3 rounded-3xl text-[#4a5568] text-[0.85rem] p-4"
+        style="background:linear-gradient(145deg,rgba(59,130,246,.08),rgba(168,85,247,.08));border:1px solid rgba(255,255,255,.08)">
+
+        <div class="text-5xl opacity-30">🧑‍💻</div>
+        <span>Mentor Photo</span>
+
       </div>
-      <h2 class="font-syne text-[clamp(2rem,1.5vw,1.3rem)] font-bold leading-tight tracking-tight mb-4">Meet Your <span class="gradient-text">Mentor</span></h2>
-      <p class="text-[#8892b0] text-base leading-[1.7] mb-1.5"><strong class="text-[#f0f4ff]">Senior UI/UX Designer at TCS</strong> — 7+ Years Experience in the design industry, mentoring hundreds of students to break into top companies.</p>
 
-      <div class="grid grid-cols-2 gap-4 my-7">
-  <div class="p-4 rounded-xl bg-white/[.03]">
-    <div class="text-[0.78rem] text-[#8892b0] mb-1">Senior UI/UX Designer at</div>
-    <div class="font-syne text-[1.8rem] font-extrabold gradient-text-2">TCS</div>
-  </div>
-  <div class="p-4 rounded-xl bg-white/[.03]">
-    <div class="text-[0.78rem] text-[#8892b0] mb-1">Students Mentored</div>
-    <div class="font-syne text-[1.8rem] font-extrabold gradient-text-2">1500+</div>
-  </div>
-  <div class="p-4 rounded-xl bg-white/[.03]">
-    <div class="text-[0.78rem] text-[#8892b0] mb-1">Projects Completed</div>
-    <div class="font-syne text-[1.8rem] font-extrabold gradient-text-2">200+</div>
-  </div>
-  <div class="p-4 rounded-xl bg-white/[.03]">
-    <div class="text-[0.78rem] text-[#8892b0] mb-1">Certifications</div>
-    <div class="font-syne text-[1.8rem] font-extrabold gradient-text-2">Google certified</div>
-  </div>
-</div>
+    </div>
+
+    <!-- Right Side -->
+    <div class="reveal w-full min-w-0">
+
+      <div class="inline-flex flex-wrap items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5"
+        style="background:rgba(0,212,255,.08)">
+
+        <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>
+
+        Your Instructor
+
+      </div>
+
+      <h2 class="font-syne text-[clamp(1.8rem,5vw,3rem)] font-bold leading-tight tracking-tight mb-4 break-words">
+
+        Meet Your <span class="gradient-text">Mentor</span>
+
+      </h2>
+
+      <p class="text-[#8892b0] text-sm sm:text-base leading-[1.8] mb-2 break-words">
+
+        <strong class="text-[#f0f4ff]">
+          Senior UI/UX Designer at TCS
+        </strong>
+
+        — 7+ Years Experience in the design industry, mentoring hundreds of students to break into top companies.
+
+      </p>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-7">
+
+        <div class="p-4 rounded-xl bg-white/[.03] min-w-0">
+          <div class="text-[0.78rem] text-[#8892b0] mb-1">
+            Senior UI/UX Designer at
+          </div>
+
+          <div class="font-syne text-[1.5rem] sm:text-[1.8rem] font-extrabold gradient-text-2 break-words">
+            TCS
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-white/[.03] min-w-0">
+          <div class="text-[0.78rem] text-[#8892b0] mb-1">
+            Students Mentored
+          </div>
+
+          <div class="font-syne text-[1.5rem] sm:text-[1.8rem] font-extrabold gradient-text-2">
+            1500+
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-white/[.03] min-w-0">
+          <div class="text-[0.78rem] text-[#8892b0] mb-1">
+            Projects Completed
+          </div>
+
+          <div class="font-syne text-[1.5rem] sm:text-[1.8rem] font-extrabold gradient-text-2">
+            200+
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-white/[.03] min-w-0">
+          <div class="text-[0.78rem] text-[#8892b0] mb-1">
+            Certifications
+          </div>
+
+          <div class="font-syne text-[1.1rem] sm:text-[1.4rem] font-extrabold gradient-text-2 break-words">
+            Google Certified
+          </div>
+        </div>
+
+      </div>
+
     </div>
 
   </div>
+
 </section>
 
 <!-- ===================== BONUSES ===================== -->
 <section id="bonuses" class="relative z-[1] py-8 px-[2%]">
   <div class="text-center mb-16 reveal">
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 
-    rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase 
-    text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:
-    rgba(0,212,255,.08)">
-      <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff]
-       inline-block"></span>Exclusive Bonuses
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
+      <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Exclusive Bonuses
     </div>
-    <h2 class="font-syne text-3xl
-    font-extrabold leading-snug">Bonuses You'll Get <span class="gradient-text">Inside</span></h2>
+    <h2 class="font-syne text-3xl font-extrabold leading-snug">Bonuses You'll Get <span class="gradient-text">Inside</span></h2>
   </div>
-
-  <div class="grid grid-cols-3 gap-5 max-w-[1100px] mx-auto
-   max-[900px]:grid-cols-1">
-    <div class="bonus-card bb1 p-9 rounded-[20px] border  border-transparent
-     relative overflow-hidden cursor-default transition-all duration-300 
-     hover:-translate-y-1.5 hover:scale-[1.01] hover:border-blue-500/35 
-     hover:shadow-[0_30px_80px_rgba(0,0,0,.5)] reveal"
-      style="background:rgba(255,255,255,.03);--b-from:rgba(59,130,246,.08)">
-      <div class="font-mono text-[0.72rem] tracking-[2px] 
-      text-[#4a5568] mb-4">BONUS 01</div>
+  <div class="grid grid-cols-3 gap-5 max-w-[1100px] mx-auto max-[900px]:grid-cols-1">
+    <div class="bonus-card p-9 rounded-[20px] border border-transparent relative overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.01] hover:border-blue-500/35 hover:shadow-[0_30px_80px_rgba(0,0,0,.5)] reveal" style="background:rgba(255,255,255,.03);--b-from:rgba(59,130,246,.08)">
+      <div class="font-mono text-[0.72rem] tracking-[2px] text-[#4a5568] mb-4">BONUS 01</div>
       <span class="text-4xl mb-4 block">📚</span>
       <h3 class="font-syne text-[1.15rem] font-bold mb-2.5">3 Design Industry E-books</h3>
       <p class="text-[0.85rem] text-[#8892b0] leading-relaxed">Curated e-books covering design fundamentals, UI systems, and freelancing secrets — worth ₹1500 alone.</p>
       <span class="inline-block mt-4 px-3.5 py-1.5 rounded-full text-[0.72rem] font-semibold border border-blue-500/20 text-[#00d4ff]" style="background:rgba(59,130,246,.1)">Instant Download</span>
     </div>
-
     <div class="bonus-card p-9 rounded-[20px] border border-transparent relative overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.01] hover:border-purple-500/35 hover:shadow-[0_30px_80px_rgba(0,0,0,.5)] reveal" style="background:rgba(255,255,255,.03);--b-from:rgba(168,85,247,.08);transition-delay:.1s">
       <div class="font-mono text-[0.72rem] tracking-[2px] text-[#4a5568] mb-4">BONUS 02</div>
       <span class="text-4xl mb-4 block">📄</span>
@@ -655,7 +647,6 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
       <p class="text-[0.85rem] text-[#8892b0] leading-relaxed">Get the actual resume template that helped crack MNC interviews — battle-tested at companies like TCS.</p>
       <span class="inline-block mt-4 px-3.5 py-1.5 rounded-full text-[0.72rem] font-semibold border border-purple-500/20 text-purple-300" style="background:rgba(168,85,247,.1)">Crack MNC Interviews</span>
     </div>
-
     <div class="bonus-card p-9 rounded-[20px] border border-transparent relative overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.01] hover:border-green-500/35 hover:shadow-[0_30px_80px_rgba(0,0,0,.5)] reveal" style="background:rgba(255,255,255,.03);--b-from:rgba(16,185,129,.08);transition-delay:.2s">
       <div class="font-mono text-[0.72rem] tracking-[2px] text-[#4a5568] mb-4">BONUS 03</div>
       <span class="text-4xl mb-4 block">🗂️</span>
@@ -674,66 +665,52 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
     </div>
     <h2 class="font-syne text-3xl font-extrabold leading-snug">This Workshop Is <span class="gradient-text">Perfect For</span></h2>
   </div>
-
-  <!-- 3 cols mobile → 3 cols tablet → 3 cols desktop = always 3×3 even grid -->
   <div class="grid grid-cols-3 gap-3.5 max-w-[900px] mx-auto">
-
-    <div class="who-card relative flex flex-col items-center
-     justify-center gap-2.5 p-2 rounded-2xl border border-transparent text-center cursor-default overflow-hidden transition-all duration-300 hover:border-blue-500/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(59,130,246,.1)] reveal" style="background:rgba(255,255,255,.03)">
-      <div class="absolute top-0 left-0 right-0 h-[2px]"
-       style="background:linear-gradient(90deg,transparent,rgba(59,130,246,.5),transparent)"></div>
+    <div class="who-card relative flex flex-col items-center justify-center gap-2.5 p-5 rounded-2xl border border-transparent text-center cursor-default overflow-hidden transition-all duration-300 hover:border-blue-500/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(59,130,246,.1)] reveal" style="background:rgba(255,255,255,.03)">
+      <div class="absolute top-0 left-0 right-0 h-[2px]" style="background:linear-gradient(90deg,transparent,rgba(59,130,246,.5),transparent)"></div>
       <div class="text-[2rem]">🎬</div>
       <h3 class="text-[0.82rem] font-semibold leading-snug text-[#f0f4ff]">Individual Creators</h3>
     </div>
-
     <div class="who-card relative flex flex-col items-center justify-center gap-2.5 p-5 rounded-2xl border border-transparent text-center cursor-default overflow-hidden transition-all duration-300 hover:border-purple-500/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(168,85,247,.1)] reveal" style="background:rgba(255,255,255,.03);transition-delay:.05s">
       <div class="absolute top-0 left-0 right-0 h-[2px]" style="background:linear-gradient(90deg,transparent,rgba(168,85,247,.5),transparent)"></div>
       <div class="text-[2rem]">💼</div>
       <h3 class="text-[0.82rem] font-semibold leading-snug text-[#f0f4ff]">Job Seekers</h3>
     </div>
-
     <div class="who-card relative flex flex-col items-center justify-center gap-2.5 p-5 rounded-2xl border border-transparent text-center cursor-default overflow-hidden transition-all duration-300 hover:border-cyan-500/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(6,182,212,.1)] reveal" style="background:rgba(255,255,255,.03);transition-delay:.1s">
       <div class="absolute top-0 left-0 right-0 h-[2px]" style="background:linear-gradient(90deg,transparent,rgba(6,182,212,.5),transparent)"></div>
       <div class="text-[2rem]">🎓</div>
       <h3 class="text-[0.82rem] font-semibold leading-snug text-[#f0f4ff]">12th Passed Students</h3>
     </div>
-
     <div class="who-card relative flex flex-col items-center justify-center gap-2.5 p-5 rounded-2xl border border-transparent text-center cursor-default overflow-hidden transition-all duration-300 hover:border-pink-500/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(236,72,153,.1)] reveal" style="background:rgba(255,255,255,.03);transition-delay:.05s">
       <div class="absolute top-0 left-0 right-0 h-[2px]" style="background:linear-gradient(90deg,transparent,rgba(236,72,153,.5),transparent)"></div>
       <div class="text-[2rem]">💻</div>
       <h3 class="text-[0.82rem] font-semibold leading-snug text-[#f0f4ff]">Freelancers</h3>
     </div>
-
     <div class="who-card relative flex flex-col items-center justify-center gap-2.5 p-5 rounded-2xl border border-transparent text-center cursor-default overflow-hidden transition-all duration-300 hover:border-green-500/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(16,185,129,.1)] reveal" style="background:rgba(255,255,255,.03);transition-delay:.1s">
       <div class="absolute top-0 left-0 right-0 h-[2px]" style="background:linear-gradient(90deg,transparent,rgba(16,185,129,.5),transparent)"></div>
       <div class="text-[2rem]">🏪</div>
       <h3 class="text-[0.82rem] font-semibold leading-snug text-[#f0f4ff]">Business Owners</h3>
     </div>
-
     <div class="who-card relative flex flex-col items-center justify-center gap-2.5 p-5 rounded-2xl border border-transparent text-center cursor-default overflow-hidden transition-all duration-300 hover:border-amber-500/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(245,158,11,.1)] reveal" style="background:rgba(255,255,255,.03);transition-delay:.15s">
       <div class="absolute top-0 left-0 right-0 h-[2px]" style="background:linear-gradient(90deg,transparent,rgba(245,158,11,.5),transparent)"></div>
       <div class="text-[2rem]">🚀</div>
       <h3 class="text-[0.82rem] font-semibold leading-snug text-[#f0f4ff]">Startup Owners</h3>
     </div>
-
     <div class="who-card relative flex flex-col items-center justify-center gap-2.5 p-5 rounded-2xl border border-transparent text-center cursor-default overflow-hidden transition-all duration-300 hover:border-blue-500/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(59,130,246,.1)] reveal" style="background:rgba(255,255,255,.03);transition-delay:.1s">
       <div class="absolute top-0 left-0 right-0 h-[2px]" style="background:linear-gradient(90deg,transparent,rgba(59,130,246,.5),transparent)"></div>
       <div class="text-[2rem]">📱</div>
       <h3 class="text-[0.82rem] font-semibold leading-snug text-[#f0f4ff]">Digital Marketers</h3>
     </div>
-
     <div class="who-card relative flex flex-col items-center justify-center gap-2.5 p-5 rounded-2xl border border-transparent text-center cursor-default overflow-hidden transition-all duration-300 hover:border-purple-500/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(168,85,247,.1)] reveal" style="background:rgba(255,255,255,.03);transition-delay:.15s">
       <div class="absolute top-0 left-0 right-0 h-[2px]" style="background:linear-gradient(90deg,transparent,rgba(168,85,247,.5),transparent)"></div>
       <div class="text-[2rem]">🌐</div>
       <h3 class="text-[0.82rem] font-semibold leading-snug text-[#f0f4ff]">Web Designers</h3>
     </div>
-
     <div class="who-card relative flex flex-col items-center justify-center gap-2.5 p-5 rounded-2xl border border-transparent text-center cursor-default overflow-hidden transition-all duration-300 hover:border-cyan-500/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(6,182,212,.1)] reveal" style="background:rgba(255,255,255,.03);transition-delay:.2s">
       <div class="absolute top-0 left-0 right-0 h-[2px]" style="background:linear-gradient(90deg,transparent,rgba(6,182,212,.5),transparent)"></div>
       <div class="text-[2rem]">📖</div>
       <h3 class="text-[0.82rem] font-semibold leading-snug text-[#f0f4ff]">College Students</h3>
     </div>
-
   </div>
 </section>
 
@@ -745,31 +722,27 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
     </div>
     <h2 class="font-syne text-3xl font-extrabold leading-snug">What People Are <span class="gradient-text">Saying About Us</span></h2>
   </div>
-
   <div class="grid grid-cols-3 gap-5 max-w-[1100px] mx-auto max-[900px]:grid-cols-2 max-[600px]:grid-cols-1">
     <div class="rounded-2xl overflow-hidden border border-transparent bg-white/[.03] cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-blue-500/30 hover:shadow-[0_20px_60px_rgba(0,0,0,.5)] reveal">
       <div class="aspect-video flex items-center justify-center relative overflow-hidden" style="background:linear-gradient(135deg,rgba(59,130,246,.12),rgba(168,85,247,.12))">
         <div class="w-14 h-14 rounded-full flex items-center justify-center text-xl transition-all duration-300 border-2 border-white/30" style="background:rgba(255,255,255,.15);backdrop-filter:blur(10px)">▶</div>
       </div>
       <div class="p-4 px-4.5"><div class="text-amber-400 text-[0.75rem] mb-1.5">★★★★★</div>
-      <div class="font-semibold text-[0.9rem] mb-1">Rahul Sharma</div>
-     </div>
+      <div class="font-semibold text-[0.9rem] mb-1">Rahul Sharma</div></div>
     </div>
     <div class="rounded-2xl overflow-hidden border border-transparent bg-white/[.03] cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-blue-500/30 hover:shadow-[0_20px_60px_rgba(0,0,0,.5)] reveal" style="transition-delay:.1s">
       <div class="aspect-video flex items-center justify-center relative overflow-hidden" style="background:linear-gradient(135deg,rgba(6,182,212,.12),rgba(59,130,246,.12))">
         <div class="w-14 h-14 rounded-full flex items-center justify-center text-xl transition-all duration-300 border-2 border-white/30" style="background:rgba(255,255,255,.15);backdrop-filter:blur(10px)">▶</div>
       </div>
       <div class="p-4 px-4.5"><div class="text-amber-400 text-[0.75rem] mb-1.5">★★★★★</div>
-      <div class="font-semibold text-[0.9rem] mb-1">Priya Mehta</div>
-      </div>
+      <div class="font-semibold text-[0.9rem] mb-1">Priya Mehta</div></div>
     </div>
     <div class="rounded-2xl overflow-hidden border border-transparent bg-white/[.03] cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-blue-500/30 hover:shadow-[0_20px_60px_rgba(0,0,0,.5)] reveal" style="transition-delay:.2s">
       <div class="aspect-video flex items-center justify-center relative overflow-hidden" style="background:linear-gradient(135deg,rgba(168,85,247,.12),rgba(236,72,153,.12))">
         <div class="w-14 h-14 rounded-full flex items-center justify-center text-xl transition-all duration-300 border-2 border-white/30" style="background:rgba(255,255,255,.15);backdrop-filter:blur(10px)">▶</div>
       </div>
       <div class="p-4 px-4.5"><div class="text-amber-400 text-[0.75rem] mb-1.5">★★★★★</div>
-      <div class="font-semibold text-[0.9rem] mb-1">Arjun Nair</div>
-      </div>
+      <div class="font-semibold text-[0.9rem] mb-1">Arjun Nair</div></div>
     </div>
   </div>
 </section>
@@ -782,7 +755,6 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
     </div>
     <h2 class="font-syne text-3xl font-extrabold leading-snug">Real Student <span class="gradient-text">Messages</span></h2>
   </div>
-
   <div class="columns-3 gap-4 max-w-[1100px] mx-auto max-[900px]:columns-2 max-[600px]:columns-1">
     <div class="break-inside-avoid bg-white/[.03] border border-transparent rounded-[14px] p-5 mb-4 cursor-default transition-all duration-300 hover:border-green-500/30 hover:-rotate-[0.5deg] hover:-translate-y-0.5 hover:shadow-[0_0_30px_rgba(16,185,129,.08)] reveal">
       <div class="flex items-center gap-2.5 mb-3.5"><div class="w-[38px] h-[38px] rounded-full flex items-center justify-center text-[0.9rem] flex-shrink-0" style="background:linear-gradient(135deg,#3b82f6,#a855f7)">😊</div><div><div class="text-[0.82rem] font-semibold">Aisha K.</div><div class="text-[0.68rem] text-[#4a5568]">WhatsApp</div></div></div>
@@ -819,116 +791,64 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
     </div>
     <h2 class="font-syne text-3xl font-extrabold leading-snug">Frequently Asked <span class="gradient-text">Questions</span></h2>
   </div>
-
-  <!-- Two column grid -->
   <div class="max-w-[1100px] mx-auto grid grid-cols-2 gap-4 max-[768px]:grid-cols-1" id="faqList">
-
     <!-- LEFT COLUMN -->
     <div class="flex flex-col gap-3">
-
       <div class="faq-item border border-transparent rounded-[14px] bg-white/[.03] overflow-hidden transition-colors duration-300 reveal">
-        <div class="faq-question flex justify-between items-center px-[22px] py-[18px] cursor-pointer font-semibold text-[0.92rem] gap-4">
-          Is there any refund policy?
-          <div class="faq-toggle w-7 h-7 rounded-full flex items-center justify-center text-base flex-shrink-0 bg-white/5 transition-all duration-300">+</div>
-        </div>
+        <div class="faq-question flex justify-between items-center px-[22px] py-[18px] cursor-pointer font-semibold text-[0.92rem] gap-4">Is there any refund policy?<div class="faq-toggle w-7 h-7 rounded-full flex items-center justify-center text-base flex-shrink-0 bg-white/5 transition-all duration-300">+</div></div>
         <div class="faq-answer text-[0.88rem] text-[#8892b0] leading-[1.7] px-[22px]">Yes, we offer a 100% satisfaction guarantee. If you feel the workshop didn't deliver value, contact us within 24 hours and we'll process a full refund.</div>
       </div>
-
       <div class="faq-item border border-transparent rounded-[14px] bg-white/[.03] overflow-hidden transition-colors duration-300 reveal">
-        <div class="faq-question flex justify-between items-center px-[22px] py-[18px] cursor-pointer font-semibold text-[0.92rem] gap-4">
-          Does this workshop come with lifetime access?
-          <div class="faq-toggle w-7 h-7 rounded-full flex items-center justify-center text-base flex-shrink-0 bg-white/5 transition-all duration-300">+</div>
-        </div>
+        <div class="faq-question flex justify-between items-center px-[22px] py-[18px] cursor-pointer font-semibold text-[0.92rem] gap-4">Does this workshop come with lifetime access?<div class="faq-toggle w-7 h-7 rounded-full flex items-center justify-center text-base flex-shrink-0 bg-white/5 transition-all duration-300">+</div></div>
         <div class="faq-answer text-[0.88rem] text-[#8892b0] leading-[1.7] px-[22px]">Yes! Once you register, you'll receive lifetime access to the recording, e-books, and all bonus materials in your personal dashboard.</div>
       </div>
-
       <div class="faq-item border border-transparent rounded-[14px] bg-white/[.03] overflow-hidden transition-colors duration-300 reveal">
-        <div class="faq-question flex justify-between items-center px-[22px] py-[18px] cursor-pointer font-semibold text-[0.92rem] gap-4">
-          What is the language of the workshop?
-          <div class="faq-toggle w-7 h-7 rounded-full flex items-center justify-center text-base flex-shrink-0 bg-white/5 transition-all duration-300">+</div>
-        </div>
+        <div class="faq-question flex justify-between items-center px-[22px] py-[18px] cursor-pointer font-semibold text-[0.92rem] gap-4">What is the language of the workshop?<div class="faq-toggle w-7 h-7 rounded-full flex items-center justify-center text-base flex-shrink-0 bg-white/5 transition-all duration-300">+</div></div>
         <div class="faq-answer text-[0.88rem] text-[#8892b0] leading-[1.7] px-[22px]">The workshop is delivered in Hindi with English technical terms, making it easy for students from all backgrounds across India to follow along.</div>
       </div>
-
       <div class="faq-item border border-transparent rounded-[14px] bg-white/[.03] overflow-hidden transition-colors duration-300 reveal">
-        <div class="faq-question flex justify-between items-center px-[22px] py-[18px] cursor-pointer font-semibold text-[0.92rem] gap-4">
-          I've tried learning design before. How is this different?
-          <div class="faq-toggle w-7 h-7 rounded-full flex items-center justify-center text-base flex-shrink-0 bg-white/5 transition-all duration-300">+</div>
-        </div>
+        <div class="faq-question flex justify-between items-center px-[22px] py-[18px] cursor-pointer font-semibold text-[0.92rem] gap-4">I've tried learning design before. How is this different?<div class="faq-toggle w-7 h-7 rounded-full flex items-center justify-center text-base flex-shrink-0 bg-white/5 transition-all duration-300">+</div></div>
         <div class="faq-answer text-[0.88rem] text-[#8892b0] leading-[1.7] px-[22px]">Unlike random YouTube tutorials, this is a structured, industry-led session with real career roadmaps, AI tool integrations, and hands-on portfolio guidance from a working professional.</div>
       </div>
-
       <div class="faq-item border border-transparent rounded-[14px] bg-white/[.03] overflow-hidden transition-colors duration-300 reveal">
-        <div class="faq-question flex justify-between items-center px-[22px] py-[18px] cursor-pointer font-semibold text-[0.92rem] gap-4">
-          I have zero experience. Can I still do this?
-          <div class="faq-toggle w-7 h-7 rounded-full flex items-center justify-center text-base flex-shrink-0 bg-white/5 transition-all duration-300">+</div>
-        </div>
+        <div class="faq-question flex justify-between items-center px-[22px] py-[18px] cursor-pointer font-semibold text-[0.92rem] gap-4">I have zero experience. Can I still do this?<div class="faq-toggle w-7 h-7 rounded-full flex items-center justify-center text-base flex-shrink-0 bg-white/5 transition-all duration-300">+</div></div>
         <div class="faq-answer text-[0.88rem] text-[#8892b0] leading-[1.7] px-[22px]">Absolutely! This workshop is designed specifically for complete beginners. No prior design experience, software knowledge, or technical background is needed.</div>
       </div>
-
     </div>
-
     <!-- RIGHT COLUMN -->
     <div class="flex flex-col gap-3">
-
       <div class="faq-item border border-transparent rounded-[14px] bg-white/[.03] overflow-hidden transition-colors duration-300 reveal">
-        <div class="faq-question flex justify-between items-center px-[22px] py-[18px] cursor-pointer font-semibold text-[0.92rem] gap-4">
-          Why should I pay when tutorials are free?
-          <div class="faq-toggle w-7 h-7 rounded-full flex items-center justify-center text-base flex-shrink-0 bg-white/5 transition-all duration-300">+</div>
-        </div>
+        <div class="faq-question flex justify-between items-center px-[22px] py-[18px] cursor-pointer font-semibold text-[0.92rem] gap-4">Why should I pay when tutorials are free?<div class="faq-toggle w-7 h-7 rounded-full flex items-center justify-center text-base flex-shrink-0 bg-white/5 transition-all duration-300">+</div></div>
         <div class="faq-answer text-[0.88rem] text-[#8892b0] leading-[1.7] px-[22px]">Free tutorials give you information. This workshop gives you clarity — a structured path, live Q&A, real portfolio feedback, and industry-grade bonuses you can't find on YouTube.</div>
       </div>
-
       <div class="faq-item border border-transparent rounded-[14px] bg-white/[.03] overflow-hidden transition-colors duration-300 reveal">
-        <div class="faq-question flex justify-between items-center px-[22px] py-[18px] cursor-pointer font-semibold text-[0.92rem] gap-4">
-          Will I get a certificate?
-          <div class="faq-toggle w-7 h-7 rounded-full flex items-center justify-center text-base flex-shrink-0 bg-white/5 transition-all duration-300">+</div>
-        </div>
+        <div class="faq-question flex justify-between items-center px-[22px] py-[18px] cursor-pointer font-semibold text-[0.92rem] gap-4">Will I get a certificate?<div class="faq-toggle w-7 h-7 rounded-full flex items-center justify-center text-base flex-shrink-0 bg-white/5 transition-all duration-300">+</div></div>
         <div class="faq-answer text-[0.88rem] text-[#8892b0] leading-[1.7] px-[22px]">Yes! Every participant receives a verified AI Workshop Participation Certificate from Desinerz Academy — shareable on LinkedIn and your portfolio.</div>
       </div>
-
       <div class="faq-item border border-transparent rounded-[14px] bg-white/[.03] overflow-hidden transition-colors duration-300 reveal">
-        <div class="faq-question flex justify-between items-center px-[22px] py-[18px] cursor-pointer font-semibold text-[0.92rem] gap-4">
-          Can I make money using these skills?
-          <div class="faq-toggle w-7 h-7 rounded-full flex items-center justify-center text-base flex-shrink-0 bg-white/5 transition-all duration-300">+</div>
-        </div>
+        <div class="faq-question flex justify-between items-center px-[22px] py-[18px] cursor-pointer font-semibold text-[0.92rem] gap-4">Can I make money using these skills?<div class="faq-toggle w-7 h-7 rounded-full flex items-center justify-center text-base flex-shrink-0 bg-white/5 transition-all duration-300">+</div></div>
         <div class="faq-answer text-[0.88rem] text-[#8892b0] leading-[1.7] px-[22px]">100% yes. Graphic design and UI/UX are among the highest-paid freelance skills globally. We'll show you exactly how to land your first paid project.</div>
       </div>
-
       <div class="faq-item border border-transparent rounded-[14px] bg-white/[.03] overflow-hidden transition-colors duration-300 reveal">
-        <div class="faq-question flex justify-between items-center px-[22px] py-[18px] cursor-pointer font-semibold text-[0.92rem] gap-4">
-          How will I get access after payment?
-          <div class="faq-toggle w-7 h-7 rounded-full flex items-center justify-center text-base flex-shrink-0 bg-white/5 transition-all duration-300">+</div>
-        </div>
+        <div class="faq-question flex justify-between items-center px-[22px] py-[18px] cursor-pointer font-semibold text-[0.92rem] gap-4">How will I get access after payment?<div class="faq-toggle w-7 h-7 rounded-full flex items-center justify-center text-base flex-shrink-0 bg-white/5 transition-all duration-300">+</div></div>
         <div class="faq-answer text-[0.88rem] text-[#8892b0] leading-[1.7] px-[22px]">You'll receive an email confirmation with the workshop link and all bonus download links immediately after payment — usually within 2 minutes.</div>
       </div>
-
       <div class="faq-item border border-transparent rounded-[14px] bg-white/[.03] overflow-hidden transition-colors duration-300 reveal">
-        <div class="faq-question flex justify-between items-center px-[22px] py-[18px] cursor-pointer font-semibold text-[0.92rem] gap-4">
-          Can I start with zero experience?
-          <div class="faq-toggle w-7 h-7 rounded-full flex items-center justify-center text-base flex-shrink-0 bg-white/5 transition-all duration-300">+</div>
-        </div>
+        <div class="faq-question flex justify-between items-center px-[22px] py-[18px] cursor-pointer font-semibold text-[0.92rem] gap-4">Can I start with zero experience?<div class="faq-toggle w-7 h-7 rounded-full flex items-center justify-center text-base flex-shrink-0 bg-white/5 transition-all duration-300">+</div></div>
         <div class="faq-answer text-[0.88rem] text-[#8892b0] leading-[1.7] px-[22px]">Yes — and you're actually in the ideal position! This workshop is built from the ground up for beginners. Zero experience is not a barrier; it's a blank canvas.</div>
       </div>
-
     </div>
-
   </div>
 </section>
 
 <!-- ===================== CERTIFICATE ===================== -->
 <section id="certificate" class="relative z-[1] py-14 px-[2%]">
   <div class="max-w-[900px] mx-auto text-center reveal">
-    <div class="inline-flex items-center gap-2 px-4 py-1.5
-     rounded-full text-[0.72rem] font-mono tracking-[3px]
-      uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5"
-       style="background:rgba(0,212,255,.08)">
-      <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] 
-      inline-block"></span>Recognition
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
+      <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Recognition
     </div>
     <h2 class="font-syne text-3xl font-extrabold mb-3 leading-snug">Certificate <span class="gradient-text">Unlocked</span></h2>
     <p class="text-[#8892b0]">Receive an AI Workshop Participation Certificate upon completion</p>
-
     <div class="relative max-w-[700px] mx-auto my-12">
       <div class="absolute inset-[-20px] rounded-[30px] pointer-events-none" style="background:radial-gradient(ellipse,rgba(245,158,11,.06),transparent 70%)"></div>
       <div class="flex flex-col items-center gap-4 p-14 rounded-[20px] border-2 border-amber-500/30" style="background:linear-gradient(135deg,rgba(245,158,11,.06),rgba(168,85,247,.06));box-shadow:0 0 60px rgba(245,158,11,.1)">
@@ -945,7 +865,6 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
         </div>
       </div>
     </div>
-
     <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[0.82rem] font-semibold text-amber-400 border border-amber-500/30 mt-5" style="background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(168,85,247,.1))">✦ Verified & Shareable on LinkedIn</div>
   </div>
 </section>
@@ -957,14 +876,11 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-6" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Ready To Begin
     </div>
-    <h2 class="font-syne text-3xl font-extrabold
-     mb-3.5 leading-[1.1] reveal">Your Future In Design <br><span class="gradient-text">Starts Today</span></h2>
+    <h2 class="font-syne text-3xl font-extrabold mb-3.5 leading-[1.1] reveal">Your Future In Design <br><span class="gradient-text">Starts Today</span></h2>
     <p class="text-[#8892b0] text-[1.05rem] max-w-[540px] mx-auto mb-10 reveal">Stop consuming random tutorials. Start learning with clarity.</p>
-
     <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[0.82rem] font-semibold text-red-400 border border-red-500/30 mb-10 reveal" style="background:rgba(239,68,68,.1)">
       <span class="w-2 h-2 rounded-full bg-red-500 pulse-dot inline-block"></span>Limited Seats Available — Offer Ends Soon
     </div>
-
     <div class="flex items-center gap-4 justify-center mb-10 reveal">
       <div class="inline-flex items-center gap-4 px-8 py-5 rounded-2xl border border-purple-500/25" style="background:rgba(255,255,255,.03)">
         <span class="text-2xl text-[#4a5568] line-through">₹499</span>
@@ -972,11 +888,8 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
         <span class="text-[0.7rem] font-bold px-2.5 py-1 rounded-full text-white tracking-wide" style="background:linear-gradient(135deg,#ef4444,#dc2626)">90% OFF TODAY</span>
       </div>
     </div>
-
     <div class="flex gap-4 justify-center flex-wrap reveal">
-      <a href="#" class="inline-flex items-center gap-2 px-9 py-4 text-[1.05rem] font-semibold text-white rounded-xl transition-all 
-      duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(59,130,246,.5)]"
-       style="background:linear-gradient(135deg,#f63b3b,#a855f7)">🚀 Reserve My Seat</a>
+      <a href="#" class="inline-flex items-center gap-2 px-9 py-4 text-[1.05rem] font-semibold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(59,130,246,.5)]" style="background:linear-gradient(135deg,#f63b3b,#a855f7)">🚀 Reserve My Seat</a>
       <a href="#" class="inline-flex items-center gap-2 px-9 py-4 text-[1.05rem] font-medium text-[#f0f4ff] rounded-xl border border-white/7 transition-all duration-300 hover:border-blue-500/40 hover:bg-blue-500/5 hover:-translate-y-0.5">Join Workshop</a>
     </div>
     <p class="mt-5 text-[0.78rem] text-[#4a5568] reveal">✓ Instant Access &nbsp;&nbsp;✓ All Bonuses Included &nbsp;&nbsp;✓ Certificate Included</p>
@@ -984,532 +897,109 @@ style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
 </section>
 
 <!-- ===================== FOOTER ===================== -->
-
-<footer 
-  class="relative z-[1] pt-[50px] pb-10 px-5 sm:px-6 md:px-8 lg:px-[5%]"
-  style="border-top:1px solid rgba(59,130,246,.15)"
->
-
-  <!-- Top Glow Line -->
-  <div 
-    class="absolute top-[-1px] left-0 right-0 h-[1px]"
-    style="background:linear-gradient(90deg,transparent,#00d4ff,#a855f7,transparent);box-shadow:0 0 20px rgba(59,130,246,.4)"
-  ></div>
-
-  <!-- Main Grid -->
-  <div 
-    class="max-w-[1200px] mx-auto grid 
-    grid-cols-1 
-    sm:grid-cols-2 
-    lg:grid-cols-4 
-    gap-y-12 
-    gap-x-8"
-  >
-
+<footer class="relative z-[1] pt-[50px] pb-10 px-5 sm:px-6 md:px-8 lg:px-[5%]" style="border-top:1px solid rgba(59,130,246,.15)">
+  <div class="absolute top-[-1px] left-0 right-0 h-[1px]" style="background:linear-gradient(90deg,transparent,#00d4ff,#a855f7,transparent);box-shadow:0 0 20px rgba(59,130,246,.4)"></div>
+  <div class="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8">
     <!-- Logo Section -->
     <div class="flex flex-col items-center sm:items-start text-center sm:text-left">
-
-      <img 
-        src="Assets/Desinerz_academy_light.png" 
-        alt="Desinerz Academy" 
-        class="h-[34px] sm:h-[38px] md:h-[42px] w-auto object-contain"
-      />
-
-      <p class="mt-4 text-[0.88rem] leading-relaxed text-[#8892b0] max-w-[280px]">
-        India's most practical design workshop platform.
-      </p>
-
+      <img src="Assets/Desinerz_academy_light.png" alt="Desinerz Academy" class="h-[34px] sm:h-[38px] md:h-[42px] w-auto object-contain"/>
+      <p class="mt-4 text-[0.88rem] leading-relaxed text-[#8892b0] max-w-[280px]">India's most practical design workshop platform.</p>
     </div>
-
     <!-- Quick Links -->
     <div class="text-center sm:text-left">
-
-      <h4 class="font-syne text-[0.82rem] tracking-[2px] uppercase text-[#8892b0] mb-5">
-        Quick Links
-      </h4>
-
+      <h4 class="font-syne text-[0.82rem] tracking-[2px] uppercase text-[#8892b0] mb-5">Quick Links</h4>
       <ul class="flex flex-col gap-3">
-
-        <li>
-          <a 
-            href="#"
-            class="text-[0.92rem] text-[#8892b0] hover:text-white transition-all duration-300"
-          >
-            Terms & Conditions
-          </a>
-        </li>
-
-        <li>
-          <a 
-            href="#"
-            class="text-[0.92rem] text-[#8892b0] hover:text-white transition-all duration-300"
-          >
-            Privacy Policy
-          </a>
-        </li>
-
+        <li><a href="#" class="text-[0.92rem] text-[#8892b0] hover:text-white transition-all duration-300">Terms & Conditions</a></li>
+        <li><a href="#" class="text-[0.92rem] text-[#8892b0] hover:text-white transition-all duration-300">Privacy Policy</a></li>
       </ul>
-
     </div>
-
     <!-- Contact -->
     <div class="text-center sm:text-left">
-
-      <h4 class="font-syne text-[0.82rem] tracking-[2px] uppercase text-[#8892b0] mb-5">
-        Contact
-      </h4>
-
+      <h4 class="font-syne text-[0.82rem] tracking-[2px] uppercase text-[#8892b0] mb-5">Contact</h4>
       <ul class="flex flex-col gap-4">
-
         <li class="flex items-start justify-center sm:justify-start gap-3 text-[#8892b0] text-[0.9rem] break-all">
-
-          <!-- Email Icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 flex-shrink-0 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l9 6 9-6m-18 8h18V8H3v8z"/>
-          </svg>
-
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 flex-shrink-0 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l9 6 9-6m-18 8h18V8H3v8z"/></svg>
           <span>hello@desinerz.academy</span>
-
         </li>
-
         <li class="flex items-start justify-center sm:justify-start gap-3 text-[#8892b0] text-[0.9rem]">
-
-          <!-- Phone Icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 flex-shrink-0 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.547 2.19a2 2 0 01-.502 1.94l-1.27 1.27a16 16 0 006.364 6.364l1.27-1.27a2 2 0 011.94-.502l2.19.547A2 2 0 0121 16.72V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-          </svg>
-
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 flex-shrink-0 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.547 2.19a2 2 0 01-.502 1.94l-1.27 1.27a16 16 0 006.364 6.364l1.27-1.27a2 2 0 011.94-.502l2.19.547A2 2 0 0121 16.72V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
           <span>+91 98765 43210</span>
-
         </li>
-
         <li class="flex items-start justify-center sm:justify-start gap-3 text-[#8892b0] text-[0.9rem] break-all">
-
-          <!-- Globe Icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 flex-shrink-0 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12A9 9 0 1112 3m0 0c2.5 2.5 4 5.5 4 9s-1.5 6.5-4 9m0-18c-2.5 2.5-4 5.5-4 9s1.5 6.5 4 9"/>
-          </svg>
-
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 flex-shrink-0 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12A9 9 0 1112 3m0 0c2.5 2.5 4 5.5 4 9s-1.5 6.5-4 9m0-18c-2.5 2.5-4 5.5-4 9s1.5 6.5 4 9"/></svg>
           <span>desinerzacademy.com</span>
-
         </li>
-
       </ul>
-
     </div>
-
     <!-- Social Media -->
     <div class="text-center sm:text-left">
-
-      <h4 class="font-syne text-[0.82rem] tracking-[2px] uppercase text-[#8892b0] mb-5">
-        Follow Us
-      </h4>
-
+      <h4 class="font-syne text-[0.82rem] tracking-[2px] uppercase text-[#8892b0] mb-5">Follow Us</h4>
       <div class="flex flex-wrap justify-center sm:justify-start gap-4">
-
-        <!-- Instagram -->
-        <a 
-          href="YOUR_INSTAGRAM_LINK"
-          class="w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105"
-          style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)"
-        >
+        <a href="YOUR_INSTAGRAM_LINK" class="w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)">
           <i class="fab fa-instagram text-white text-[18px]"></i>
         </a>
-
-        <!-- LinkedIn -->
-        <a 
-          href="YOUR_LINKEDIN_LINK"
-          class="w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 bg-[#0077b5]"
-        >
+        <a href="YOUR_LINKEDIN_LINK" class="w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 bg-[#0077b5]">
           <i class="fab fa-linkedin-in text-white text-[18px]"></i>
         </a>
-
-        <!-- Facebook -->
-        <a 
-          href="YOUR_FACEBOOK_LINK"
-          class="w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 bg-[#1877f2]"
-        >
+        <a href="YOUR_FACEBOOK_LINK" class="w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 bg-[#1877f2]">
           <i class="fab fa-facebook-f text-white text-[18px]"></i>
         </a>
-
-        <!-- WhatsApp -->
-        <a 
-          href="YOUR_WHATSAPP_LINK"
-          class="w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 bg-[#25d366]"
-        >
+        <a href="YOUR_WHATSAPP_LINK" class="w-11 h-11 rounded-2xl flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 bg-[#25d366]">
           <i class="fab fa-whatsapp text-white text-[18px]"></i>
         </a>
-
       </div>
-
     </div>
-
   </div>
-
 </footer>
-<!-- Add this right after your <nav> tag, before the hero section -->
+
 <!-- ===================== STICKY CTA BAR ===================== -->
-
-<div 
-  id="sticky-bar"
-
-  class="fixed bottom-0 left-0 right-0 z-[999]
-
-  translate-y-full
-  transition-transform duration-500 ease-in-out"
-
-  style="
-  background:rgba(5,8,22,.85);
-  backdrop-filter:blur(24px);
-  border-top:1px solid rgba(59,130,246,.15)"
->
-
-  <!-- Glow line -->
+<div id="sticky-bar" class="fixed bottom-0 left-0 right-0 z-[999] translate-y-full transition-transform duration-500 ease-in-out"
+  style="background:rgba(5,8,22,.85);backdrop-filter:blur(24px);border-top:1px solid rgba(59,130,246,.15)">
   <div class="moving-line absolute top-0 left-0 right-0 h-[1px]"></div>
+  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 lg:px-[5%] py-3 sm:py-0 min-h-[64px] flex items-center justify-between gap-3 sm:gap-4 flex-wrap sm:flex-nowrap">
 
-  <!-- Container -->
-
-  <div 
-    class="max-w-[1200px] mx-auto
-
-    px-4
-    sm:px-6
-    md:px-8
-    lg:px-[5%]
-
-    py-3
-    sm:py-0
-
-    min-h-[64px]
-
-    flex
-    items-center
-    justify-between
-
-    gap-3
-    sm:gap-4
-
-    flex-wrap
-    sm:flex-nowrap"
-  >
-
-    <!-- ================= LEFT ================= -->
-
-    <div 
-      class="flex items-center gap-2.5
-      flex-shrink-0"
-    >
-
-      <img 
-        src="Assets/Desinerz_academy_light.png" 
-        alt="Desinerz Academy" 
-
-        class="
-        h-[30px]
-        sm:h-[34px]
-        md:h-[38px]
-
-        w-auto
-        object-contain
-        flex-shrink-0"
-      />
-
+    <!-- LEFT -->
+    <div class="flex items-center gap-2.5 flex-shrink-0">
+      <img src="Assets/Desinerz_academy_light.png" alt="Desinerz Academy" class="h-[30px] sm:h-[34px] md:h-[38px] w-auto object-contain flex-shrink-0"/>
     </div>
 
-    <!-- ================= CENTER ================= -->
-
-    <div 
-      class="flex items-center
-
-      gap-2
-      sm:gap-3
-
-      mx-auto
-
-      flex-wrap
-      sm:flex-nowrap
-
-      justify-center"
-    >
-
-      <!-- Offer text -->
-
+    <!-- CENTER -->
+    <div class="flex items-center gap-2 sm:gap-3 mx-auto flex-wrap sm:flex-nowrap justify-center">
       <div class="flex flex-col items-center">
-
-        <span 
-          class="
-          text-[0.62rem]
-          sm:text-[0.72rem]
-
-          font-semibold
-          text-amber-400
-          tracking-wide
-          whitespace-nowrap"
-        >
-          ⚡ Offer expires in
-        </span>
-
+        <span class="text-[0.62rem] sm:text-[0.72rem] font-semibold text-amber-400 tracking-wide whitespace-nowrap">⚡ Offer expires in</span>
       </div>
-
-      <!-- Countdown -->
-
+      <!-- FIX #4 & #5: Sticky bar countdown now has correct unique IDs: sb-cd-h, sb-cd-m, sb-cd-s -->
       <div class="flex items-center">
-
-        <!-- Hours -->
-
-        <div 
-          class="flex flex-col items-center
-
-          min-w-[32px]
-          sm:min-w-[40px]"
-        >
-
-          <span 
-            class="
-            font-mono
-            text-[0.9rem]
-            sm:text-base
-
-            font-bold
-            text-[#00d4ff]
-            leading-none"
-            id="cd-h"
-          >
-            11
-          </span>
-
-          <span 
-            class="
-            text-[0.45rem]
-            sm:text-[0.52rem]
-
-            tracking-[1px]
-            sm:tracking-[2px]
-
-            uppercase
-            text-[#4a5568]
-            mt-0.5"
-          >
-            Hours
-          </span>
-
+        <div class="flex flex-col items-center min-w-[32px] sm:min-w-[40px]">
+          <span class="font-mono text-[0.9rem] sm:text-base font-bold text-[#00d4ff] leading-none" id="sb-cd-h">11</span>
+          <span class="text-[0.45rem] sm:text-[0.52rem] tracking-[1px] sm:tracking-[2px] uppercase text-[#4a5568] mt-0.5">Hours</span>
         </div>
-
-        <!-- Colon -->
-
-        <span 
-          class="
-          text-base
-          sm:text-lg
-
-          font-bold
-          text-[#00d4ff]
-
-          blink
-          opacity-40
-
-          pb-3
-          mx-0.5"
-        >
-          :
-        </span>
-
-        <!-- Minutes -->
-
-        <div 
-          class="flex flex-col items-center
-
-          min-w-[32px]
-          sm:min-w-[40px]"
-        >
-
-          <span 
-            class="
-            font-mono
-            text-[0.9rem]
-            sm:text-base
-
-            font-bold
-            text-[#00d4ff]
-            leading-none"
-            id="cd-m"
-          >
-            47
-          </span>
-
-          <span 
-            class="
-            text-[0.45rem]
-            sm:text-[0.52rem]
-
-            tracking-[1px]
-            sm:tracking-[2px]
-
-            uppercase
-            text-[#4a5568]
-            mt-0.5"
-          >
-            Min
-          </span>
-
+        <span class="text-base sm:text-lg font-bold text-[#00d4ff] blink opacity-40 pb-3 mx-0.5">:</span>
+        <div class="flex flex-col items-center min-w-[32px] sm:min-w-[40px]">
+          <span class="font-mono text-[0.9rem] sm:text-base font-bold text-[#00d4ff] leading-none" id="sb-cd-m">47</span>
+          <span class="text-[0.45rem] sm:text-[0.52rem] tracking-[1px] sm:tracking-[2px] uppercase text-[#4a5568] mt-0.5">Min</span>
         </div>
-
-        <!-- Colon -->
-
-        <span 
-          class="
-          text-base
-          sm:text-lg
-
-          font-bold
-          text-[#00d4ff]
-
-          blink
-          opacity-40
-
-          pb-3
-          mx-0.5"
-        >
-          :
-        </span>
-
-        <!-- Seconds -->
-
-        <div 
-          class="flex flex-col items-center
-
-          min-w-[32px]
-          sm:min-w-[40px]"
-        >
-
-          <span 
-            class="
-            font-mono
-            text-[0.9rem]
-            sm:text-base
-
-            font-bold
-            text-[#00d4ff]
-            leading-none"
-            id="cd-s"
-          >
-            33
-          </span>
-
-          <span 
-            class="
-            text-[0.45rem]
-            sm:text-[0.52rem]
-
-            tracking-[1px]
-            sm:tracking-[2px]
-
-            uppercase
-            text-[#4a5568]
-            mt-0.5"
-          >
-            Sec
-          </span>
-
+        <span class="text-base sm:text-lg font-bold text-[#00d4ff] blink opacity-40 pb-3 mx-0.5">:</span>
+        <div class="flex flex-col items-center min-w-[32px] sm:min-w-[40px]">
+          <span class="font-mono text-[0.9rem] sm:text-base font-bold text-[#00d4ff] leading-none" id="sb-cd-s">33</span>
+          <span class="text-[0.45rem] sm:text-[0.52rem] tracking-[1px] sm:tracking-[2px] uppercase text-[#4a5568] mt-0.5">Sec</span>
         </div>
-
       </div>
-
     </div>
 
-    <!-- ================= RIGHT ================= -->
-
-    <div 
-      class="
-      flex items-center
-
-      gap-2
-      sm:gap-3
-
-      flex-shrink-0"
-    >
-
-      <!-- Price -->
-
+    <!-- RIGHT -->
+    <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
       <div class="flex flex-col items-end">
-
-        <span 
-          class="
-          text-[0.62rem]
-          sm:text-[0.7rem]
-
-          text-[#4a5568]
-          line-through
-          leading-none"
-        >
-          ₹499
-        </span>
-
-        <span 
-          class="
-          font-syne
-
-          text-[1.1rem]
-          sm:text-[1.25rem]
-          md:text-[1.4rem]
-
-          font-extrabold
-          gradient-text
-          leading-none"
-        >
-          ₹49
-        </span>
-
+        <span class="text-[0.62rem] sm:text-[0.7rem] text-[#4a5568] line-through leading-none">₹499</span>
+        <span class="font-syne text-[1.1rem] sm:text-[1.25rem] md:text-[1.4rem] font-extrabold gradient-text leading-none">₹49</span>
       </div>
-
-      <!-- Button -->
-
-      <a 
-        href="#final-cta"
-
-        class="
-        shine-btn
-        relative overflow-hidden
-
-        flex items-center justify-center gap-2
-
-        px-3
-        sm:px-4
-        md:px-5
-
-        py-2
-        sm:py-2.5
-
-        text-[0.72rem]
-        sm:text-[0.8rem]
-        md:text-[0.85rem]
-
-        font-bold
-        text-white
-
-        rounded-lg
-        sm:rounded-xl
-
-        transition-all duration-300
-        hover:-translate-y-0.5
-        hover:shadow-[0_8px_30px_rgba(59,130,246,.5)]
-
-        whitespace-nowrap"
-
-        style="background:linear-gradient(135deg,#f63b3b,#a855f7)"
-      >
-
+      <a href="#final-cta" class="shine-btn relative overflow-hidden flex items-center justify-center gap-2 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 text-[0.72rem] sm:text-[0.8rem] md:text-[0.85rem] font-bold text-white rounded-lg sm:rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(59,130,246,.5)] whitespace-nowrap" style="background:linear-gradient(135deg,#f63b3b,#a855f7)">
         Reserve Your Seat ✦
-
       </a>
-
     </div>
 
   </div>
-
 </div>
-
-
 
 <script>
 // Scroll progress
@@ -1538,39 +1028,41 @@ function toggleMobileNav() { document.getElementById('navLinks')?.classList.togg
 // Scroll to
 function scrollToSection(sel) { document.querySelector(sel)?.scrollIntoView({ behavior:'smooth' }); }
 
-// Countdown
+// FIX #4: Single shared countdown total, update all three countdowns together
 let total = 11 * 3600 + 47 * 60 + 33;
-const cdH = document.getElementById('cd-h'), cdM = document.getElementById('cd-m'), cdS = document.getElementById('cd-s');
+const navH = document.getElementById('nav-cd-h');
+const navM = document.getElementById('nav-cd-m');
+const navS = document.getElementById('nav-cd-s');
+const sbH  = document.getElementById('sb-cd-h');
+const sbM  = document.getElementById('sb-cd-m');
+const sbS  = document.getElementById('sb-cd-s');
+
+function updateCountdowns() {
+  const h = String(Math.floor(total / 3600)).padStart(2, '0');
+  const m = String(Math.floor((total % 3600) / 60)).padStart(2, '0');
+  const s = String(total % 60).padStart(2, '0');
+  navH.textContent = h; navM.textContent = m; navS.textContent = s;
+  sbH.textContent  = h; sbM.textContent  = m; sbS.textContent  = s;
+}
+
 setInterval(() => {
   if (total <= 0) { total = 12 * 3600; return; }
   total--;
-  cdH.textContent = String(Math.floor(total / 3600)).padStart(2, '0');
-  cdM.textContent = String(Math.floor((total % 3600) / 60)).padStart(2, '0');
-  cdS.textContent = String(total % 60).padStart(2, '0');
+  updateCountdowns();
 }, 1000);
 
 // Carousel
 const students = [
-  { name:'Rohit V.', company:'https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png', role:'UI Designer'
-  , photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
-  { name:'Ananya M.', company:'https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png', role:'Product Designer', 
-   photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
-  { name:'Karan S.', company:'https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png', role:'UX Researcher', 
-   photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
-  { name:'Divya P.', company:'https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png', role:'Graphic Designer', 
-   photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
-  { name:'Arjun T.', company:'https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png', role:'Visual Designer', 
-   photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
-  { name:'Priyanka R.', company:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Zomato_Logo.jpg/1280px-Zomato_Logo.jpg', role:'UI/UX Lead',
-   photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
-  { name:'Nikhil B.', company:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Zomato_Logo.jpg/1280px-Zomato_Logo.jpg', role:'Motion Designer',  
-  photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
-  { name:'Shreya K.', company:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Zomato_Logo.jpg/1280px-Zomato_Logo.jpg', role:'Brand Designer',  
-  photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
-  { name:'Aditya C.', company:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Zomato_Logo.jpg/1280px-Zomato_Logo.jpg', role:'Freelancer', 
-  photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
-  { name:'Kavya N.', company:'https://1000logos.net/wp-content/uploads/2021/05/Swiggy-logo.jpg', role:'UX Designer', 
-  photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
+  { name:'Rohit V.',    company:'https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png', role:'UI Designer',      photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
+  { name:'Ananya M.',   company:'https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png', role:'Product Designer', photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
+  { name:'Karan S.',    company:'https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png', role:'UX Researcher',    photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
+  { name:'Divya P.',    company:'https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png', role:'Graphic Designer', photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
+  { name:'Arjun T.',    company:'https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png', role:'Visual Designer',  photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
+  { name:'Priyanka R.', company:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Zomato_Logo.jpg/1280px-Zomato_Logo.jpg', role:'UI/UX Lead',     photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
+  { name:'Nikhil B.',   company:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Zomato_Logo.jpg/1280px-Zomato_Logo.jpg', role:'Motion Designer',photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
+  { name:'Shreya K.',   company:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Zomato_Logo.jpg/1280px-Zomato_Logo.jpg', role:'Brand Designer', photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
+  { name:'Aditya C.',   company:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Zomato_Logo.jpg/1280px-Zomato_Logo.jpg', role:'Freelancer',     photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
+  { name:'Kavya N.',    company:'https://1000logos.net/wp-content/uploads/2021/05/Swiggy-logo.jpg',               role:'UX Designer',      photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
 ];
 
 const carousel = document.getElementById('carousel');
@@ -1580,34 +1072,21 @@ const carousel = document.getElementById('carousel');
   card.style.background = 'rgba(255,255,255,.03)';
   card.innerHTML = `
     <div class="relative mx-auto mb-4" style="width:72px;height:72px">
-      <img
-        src="${s.photo}"
-        alt="${s.name}"
+      <img src="${s.photo}" alt="${s.name}"
         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-        class="w-[72px] h-[72px] rounded-full object-cover object-top border-2 border-white/10"
-      />
-      <!-- Fallback initials if image missing -->
-      <div
-        style="display:none;background:linear-gradient(135deg,${s.color},
-        ${s.color}88);width:72px;height:72px"
-        class="rounded-full items-center justify-center font-syne 
-        font-extrabold text-[1.1rem] text-white absolute top-0 left-0">
+        class="w-[72px] h-[72px] rounded-full object-cover object-top border-2 border-white/10"/>
+      <div style="display:none;background:linear-gradient(135deg,#3b82f6,#a855f7);width:72px;height:72px"
+        class="rounded-full items-center justify-center font-syne font-extrabold text-[1.1rem] text-white absolute top-0 left-0">
         ${s.name.split(' ').map(n => n[0]).join('')}
       </div>
-      <!-- Verified badge -->
-      <div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-[0.55rem] font-bold text-white border-2 border-[#050816]" style="background:${s.color}">✓</div>
+      <div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center text-[0.55rem] font-bold text-white border-2 border-[#050816]" style="background:#3b82f6">✓</div>
     </div>
-    <div class="font-syne font-bold text-[0.95rem] text-[#f0f4ff] mb-1">
-      ${s.name}</div>
-  <div class="flex items-center justify-center mx-auto mb-2" style="height:24px">
-  <img
-    src="${s.company}"
-    alt="company logo"
-    onerror="this.parentElement.style.display='none'"
-    style="height:24px;width:auto;max-width:100px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"
-  />
-</div>
-
+    <div class="font-syne font-bold text-[0.95rem] text-[#f0f4ff] mb-1">${s.name}</div>
+    <div class="flex items-center justify-center mx-auto mb-2" style="height:24px">
+      <img src="${s.company}" alt="company logo"
+        onerror="this.parentElement.style.display='none'"
+        style="height:24px;width:auto;max-width:100px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.6"/>
+    </div>
     <div class="text-[0.7rem] text-[#4a5568]">${s.role}</div>
   `;
   carousel.appendChild(card);
@@ -1615,9 +1094,7 @@ const carousel = document.getElementById('carousel');
 
 // Scroll reveal
 const reveals = document.querySelectorAll('.reveal');
-new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12 }).observe && reveals.forEach(r => new IntersectionObserver((entries) => {
+reveals.forEach(r => new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.12 }).observe(r));
 
@@ -1639,32 +1116,17 @@ for (let i = 0; i < 25; i++) {
   pc.appendChild(p);
 }
 
-
-  // Show sticky bar after hero section scrolls past
-  const stickyBar = document.getElementById('sticky-bar');
-  const heroSection = document.getElementById('hero');
-  window.addEventListener('scroll', () => {
-    const heroBottom = heroSection.getBoundingClientRect().bottom;
-    if (heroBottom < 0) {
-      stickyBar.classList.remove('translate-y-full');
-    } else {
-      stickyBar.classList.add('translate-y-full');
-    }
-  });
-
-  // Sync sticky bar countdown with main countdown
-  let sbTotal = 11 * 3600 + 47 * 60 + 33;
-  const sbH = document.getElementById('sb-h');
-  const sbM = document.getElementById('sb-m');
-  const sbS = document.getElementById('sb-s');
-  setInterval(() => {
-    if (sbTotal <= 0) { sbTotal = 12 * 3600; return; }
-    sbTotal--;
-    sbH.textContent = String(Math.floor(sbTotal / 3600)).padStart(2, '0');
-    sbM.textContent = String(Math.floor((sbTotal % 3600) / 60)).padStart(2, '0');
-    sbS.textContent = String(sbTotal % 60).padStart(2, '0');
-  }, 1000);
-
+// Sticky bar show/hide
+const stickyBar = document.getElementById('sticky-bar');
+const heroSection = document.getElementById('hero');
+window.addEventListener('scroll', () => {
+  const heroBottom = heroSection.getBoundingClientRect().bottom;
+  if (heroBottom < 0) {
+    stickyBar.classList.remove('translate-y-full');
+  } else {
+    stickyBar.classList.add('translate-y-full');
+  }
+});
 </script>
 </body>
 </html>
