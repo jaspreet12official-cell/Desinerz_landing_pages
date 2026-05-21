@@ -573,8 +573,8 @@ body{
       -right-[60px] z-0 max-[900px]:hidden" style="background:rgba(168,85,247,.15);filter:blur(80px)"></div>
 
       <!-- Image -->
-      <div class="relative rounded-2xl overflow-hidden z-[1] lg:mt-[50px] w-full 
-       max-[900px]:order-1 max-[900px]:mt-2 max-[900px]:mx-0 max-[900px]:w-full"
+      <div class="relative rounded-2xl overflow-hidden z-[1] lg:mt-[80px] w-full 
+       max-[900px]:order-1 max-[900px]:mt-0 max-[900px]:mx-0 max-[900px]:w-full"
        style="border:1px solid rgba(255,255,255,.1)">
         <div class="w-full aspect-video flex flex-col items-center 
         justify-center gap-4 rounded-2xl" style="background:linear-gradient(145deg,rgba(59,130,246,.1) 
@@ -583,7 +583,7 @@ body{
       </div>
 
       <!-- Stats row -->
-      <div class="flex items-stretch z-[1] rounded-2xl overflow-hidden w-full max-[900px]:order-3"
+      <div class="flex items-stretch z-[1] rounded-2xl  pt-0 sm:pt-2 overflow-hidden w-full max-[900px]:order-3"
      style="background:rgba(255,255,255,.03)">
 
         <!-- Item 1 -->
@@ -646,7 +646,8 @@ body{
 </section>
 
 <!-- ===================== SUCCESS STORIES ===================== -->
-<section id="success" class="relative z-[1] overflow-hidden px-4 sm:px-8 lg:px-16 py-14 sm:py-16 lg:py-20"
+<section id="success" class="relative z-[1] overflow-hidden px-4
+ sm:px-6 lg:px-16 py-10 sm:py-10 lg:py-14"
   style="background:linear-gradient(180deg,#050816 0%,rgba(11,16,32,.8) 100%)">
   <div class="text-center mb-10 sm:mb-14 reveal">
     <div class="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 rounded-full text-[0.65rem] sm:text-[0.72rem] font-mono tracking-[2px] sm:tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
@@ -667,7 +668,8 @@ body{
 </section>
 
 <!-- ===================== WHAT YOU LEARN ===================== -->
-<section id="learn" class="relative z-[1] py-8 px-[2%]">
+<section id="learn" class="relative z-[1] py-8 px-4
+ sm:px-6 ">
   <div class="text-center mb-16 reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Curriculum
@@ -723,18 +725,26 @@ body{
 </section>
 
 <!-- ===================== MENTOR ===================== -->
-<section id="mentor" class="relative z-[1] py-8 px-4 sm:px-6 lg:px-[2%] overflow-hidden">
+<section id="mentor" class="relative z-[1] py-16 px-4 sm:px-6 lg:px-[2%] overflow-hidden">
 
-  <div class="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 
-  lg:grid-cols-[58%_42%] gap-8 md:gap-3px lg:gap-[40px] items-center">
+  <div class="max-w-[1100px] mx-auto
+  grid grid-cols-1 md:grid-cols-2
+  lg:grid-cols-[58%_42%]
+  gap-8 lg:gap-[40px] items-center">
 
-    <!-- Left Side -->
-    <div class="relative flex items-center justify-center reveal" style="transition-delay:.2s">
+    <!-- Left Side Image (Desktop Only) -->
+    <div class="relative hidden md:flex items-center justify-center reveal
+    order-2 md:order-1"
+    style="transition-delay:.2s">
 
-      <div class="w-full max-w-[620px] aspect-[4/3] flex flex-col items-center justify-center gap-3 rounded-3xl text-[#4a5568] text-[0.85rem] p-4"
-        style="background:linear-gradient(145deg,rgba(59,130,246,.08),rgba(168,85,247,.08));border:1px solid rgba(255,255,255,.08)">
+      <div class="w-full max-w-[620px] aspect-[4/3]
+      flex flex-col items-center justify-center gap-3
+      rounded-3xl text-[#4a5568] text-[0.85rem] p-4"
+      style="background:linear-gradient(145deg,rgba(59,130,246,.08),rgba(168,85,247,.08));
+      border:1px solid rgba(255,255,255,.08)">
 
         <div class="text-5xl opacity-30">🧑‍💻</div>
+
         <span>Mentor Photo</span>
 
       </div>
@@ -742,75 +752,128 @@ body{
     </div>
 
     <!-- Right Side -->
-    <div class="reveal w-full min-w-0">
+    <div class="reveal w-full min-w-0 flex flex-col md:order-2">
 
-      <div class="inline-flex flex-wrap items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5"
-        style="background:rgba(0,212,255,.08)">
+      <!-- Badge + Heading -->
+      <div class="order-1">
 
-        <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>
+        <div class="inline-flex flex-wrap items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5"
+          style="background:rgba(0,212,255,.08)">
 
-        Your Instructor
+          <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>
+
+          Your Instructor
+
+        </div>
+
+        <h2 class="font-syne text-[clamp(1.8rem,5vw,3rem)] font-bold leading-tight tracking-tight mb-4 break-words">
+
+          Meet Your <span class="gradient-text">Mentor</span>
+
+        </h2>
 
       </div>
 
-      <h2 class="font-syne text-[clamp(1.8rem,5vw,3rem)] font-bold leading-tight tracking-tight mb-4 break-words">
+      <!-- Mobile Image -->
+      <div class="order-2 md:hidden mb-6">
 
-        Meet Your <span class="gradient-text">Mentor</span>
+        <div class="w-full aspect-[4/3]
+        flex flex-col items-center justify-center gap-3
+        rounded-3xl text-[#4a5568] text-[0.85rem] p-4"
+        style="background:linear-gradient(145deg,rgba(59,130,246,.08),rgba(168,85,247,.08));
+        border:1px solid rgba(255,255,255,.08)">
 
-      </h2>
+          <div class="text-5xl opacity-30">🧑‍💻</div>
 
-      <p class="text-[#8892b0] text-sm sm:text-base leading-[1.8] mb-2 break-words">
+          <span>Mentor Photo</span>
 
-        <strong class="text-[#f0f4ff]">
-          Senior UI/UX Designer at TCS
-        </strong>
-
-        — 7+ Years Experience in the design industry, mentoring hundreds 
-        of students to break into top companies.
-
-      </p>
-
-      <!-- Stats -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-7">
-
-        <div class="p-4 rounded-xl bg-white/[.03] min-w-0">
-          <div class="text-[0.78rem] text-[#8892b0] mb-1">
-            Senior UI/UX Designer at
-          </div>
-
-          <div class="font-syne text-[1.5rem] sm:text-[1.8rem] font-extrabold gradient-text-2 break-words">
-           <img src="Assets/TCS.png" alt="Logo">
-          </div>
         </div>
 
-        <div class="p-4 rounded-xl bg-white/[.03] min-w-0">
-          <div class="text-[0.78rem] text-[#8892b0] mb-1">
-            Students Mentored
+      </div>
+
+      <!-- Description + Stats -->
+      <div class="order-3">
+
+        <p class="text-[#8892b0] text-sm sm:text-base leading-[1.8] mb-2 break-words">
+
+          <strong class="text-[#f0f4ff]">
+            Senior UI/UX Designer at TCS
+          </strong>
+
+          — 7+ Years Experience in the design industry, mentoring hundreds
+          of students to break into top companies.
+
+        </p>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-2 gap-3 sm:gap-4 my-7">
+
+          <!-- TCS Card -->
+          <div class="p-4 rounded-xl bg-white/[.03] min-w-0 flex flex-col justify-between gap-2">
+
+            <div class="text-[0.72rem] sm:text-[0.78rem] text-[#8892b0]">
+              Senior UI/UX Designer at
+            </div>
+
+            <div class="flex items-center h-[42px]">
+
+              <img
+                src="Assets/TCS.png"
+                alt="TCS Logo"
+                class="h-[32px] sm:h-[42px] w-auto object-contain"
+                style="filter: brightness(0) invert(1); opacity: 0.9;"
+              >
+
+            </div>
+
           </div>
 
-          <div class="font-syne text-[1.5rem] sm:text-[1.8rem] font-extrabold gradient-text-2">
-            1500+
-          </div>
-        </div>
+          <!-- Students Card -->
+          <div class="p-4 rounded-xl bg-white/[.03] min-w-0 flex flex-col justify-between gap-2">
 
-        <div class="p-4 rounded-xl bg-white/[.03] min-w-0">
-          <div class="text-[0.78rem] text-[#8892b0] mb-1">
-            Projects Completed
-          </div>
+            <div class="text-[0.72rem] sm:text-[0.78rem] text-[#8892b0]">
+              Students Mentored
+            </div>
 
-          <div class="font-syne text-[1.5rem] sm:text-[1.8rem] font-extrabold gradient-text-2">
-            200+
-          </div>
-        </div>
+            <div class="font-syne text-[1.2rem] sm:text-[1.8rem] font-extrabold gradient-text-2">
+              1500+
+            </div>
 
-        <div class="p-4 rounded-xl bg-white/[.03] min-w-0">
-          <div class="text-[0.78rem] text-[#8892b0] mb-1">
-            Certifications
           </div>
 
-          <div class="font-syne text-[1.1rem] sm:text-[1.4rem] font-extrabold gradient-text-2 break-words">
-            Google Certified
+          <!-- Projects Card -->
+          <div class="p-4 rounded-xl bg-white/[.03] min-w-0 flex flex-col justify-between gap-2">
+
+            <div class="text-[0.72rem] sm:text-[0.78rem] text-[#8892b0]">
+              Projects Completed
+            </div>
+
+            <div class="font-syne text-[1.2rem] sm:text-[1.8rem] font-extrabold gradient-text-2">
+              200+
+            </div>
+
           </div>
+
+          <!-- Google Cert Card -->
+          <div class="p-4 rounded-xl bg-white/[.03] min-w-0 flex flex-col justify-between gap-2">
+
+            <div class="text-[0.72rem] sm:text-[0.78rem] text-[#8892b0]">
+              Certifications
+            </div>
+
+            <div class="flex items-center h-[42px]">
+
+              <img
+                src="Assets/GoogleCrtf.png"
+                alt="Google Certification"
+                class="h-[32px] sm:h-[42px] w-auto object-contain"
+                style="filter: brightness(0) invert(1); opacity: 0.9;"
+              >
+
+            </div>
+
+          </div>
+
         </div>
 
       </div>
@@ -822,14 +885,17 @@ body{
 </section>
 
 <!-- ===================== BONUSES ===================== -->
-<section id="bonuses" class="relative z-[1] py-8 px-[2%]">
+<section id="bonuses" class="relative z-[1] py-8  sm:py-0 px-4
+ sm:px-6 ">
   <div class="text-center mb-16 reveal">
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono
+     tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Exclusive Bonuses
     </div>
-    <h2 class="font-syne text-3xl font-extrabold leading-snug">Bonuses You'll Get <span class="gradient-text">Inside</span></h2>
+    <h2 class="font-syne text-3xl font-extrabold leading-snug">Bonuses You'll Get
+       <span class="gradient-text">Inside</span></h2>
   </div>
-  <div class="grid grid-cols-3 gap-5 max-w-[1100px] mx-auto max-[900px]:grid-cols-1">
+  <div class="grid grid-cols-3 gap-5 max-w-[1100px]  sm:my-0 mx-auto max-[900px]:grid-cols-1">
     <div class="bonus-card p-9 rounded-[20px] border border-transparent relative overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.01] hover:border-blue-500/35 hover:shadow-[0_30px_80px_rgba(0,0,0,.5)] reveal" style="background:rgba(255,255,255,.03);--b-from:rgba(59,130,246,.08)">
       <div class="font-mono text-[0.72rem] tracking-[2px] text-[#4a5568] mb-4">BONUS 01</div>
       <span class="text-4xl mb-4 block">📚</span>
@@ -855,7 +921,8 @@ body{
 </section>
 
 <!-- ===================== FOR WHO ===================== -->
-<section id="forwho" class="relative z-[1] py-8 px-[2%]">
+<section id="forwho" class="relative z-[1] py-8 px-4
+ sm:px-6 ">
   <div class="text-center mb-16 reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Target Audience
@@ -912,7 +979,8 @@ body{
 </section>
 
 <!-- ===================== VIDEO TESTIMONIALS ===================== -->
-<section id="testimonials" class="relative z-[1] py-8 px-[2%]">
+<section id="testimonials" class="relative z-[1] py-8 px-4
+ sm:px-6 ">
   <div class="text-center mb-16 reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Testimonials
@@ -945,7 +1013,8 @@ body{
 </section>
 
 <!-- ===================== CHAT TESTIMONIALS ===================== -->
-<section id="chats" class="relative z-[1] px-[2%] pb-13">
+<section id="chats" class="relative z-[1] px-4
+ sm:px-6  pb-13">
   <div class="text-center mb-16 reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Real Messages
@@ -981,7 +1050,8 @@ body{
 </section>
 
 <!-- ===================== FAQ ===================== -->
-<section id="faq" class="relative z-[1] py-13 px-[2%]">
+<section id="faq" class="relative z-[1] py-13 px-4
+ sm:px-6 ">
   <div class="text-center mb-16 reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>FAQ
@@ -1039,7 +1109,8 @@ body{
 </section>
 
 <!-- ===================== CERTIFICATE ===================== -->
-<section id="certificate" class="relative z-[1] py-14 px-[2%]">
+<section id="certificate" class="relative z-[1] py-14 px-4
+ sm:px-6 ">
   <div class="max-w-[900px] mx-auto text-center reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Recognition
@@ -1067,7 +1138,8 @@ body{
 </section>
 
 <!-- ===================== FINAL CTA ===================== -->
-<section id="final-cta" class="relative z-[1] py-20 px-[2%] text-center overflow-hidden">
+<section id="final-cta" class="relative z-[1] py-20 px-4
+ sm:px-6  text-center overflow-hidden">
   <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at center,rgba(59,130,246,.1) 0%,transparent 70%)"></div>
   <div class="relative z-[1]">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-6" style="background:rgba(0,212,255,.08)">
@@ -1094,7 +1166,7 @@ body{
 </section>
 
 <!-- ===================== FOOTER ===================== -->
-<footer class="relative z-[1] pt-[50px] sm:pb-40 pb-20 px-5 sm:px-6 md:px-8 lg:px-[5%]"
+<footer class="relative z-[1] pt-[50px] sm:pb-40 pb-20 px-4 sm:px-6 md:px-8 lg:px-[5%]"
  style="border-top:1px solid rgba(59,130,246,.15)">
   <div class="absolute top-[-1px] left-0 right-0 h-[1px]" style="background:linear-gradient(90deg,transparent,#00d4ff,#a855f7,transparent);box-shadow:0 0 20px rgba(59,130,246,.4)"></div>
   <div class="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8">
@@ -1152,8 +1224,10 @@ body{
 
 <!-- ===================== STICKY CTA BAR ===================== -->
 <div id="sticky-bar"
-  class="fixed bottom-0 left-0 right-0 z-[999] translate-y-full transition-transform duration-500 ease-in-out"
-  style="background:rgba(5,8,22,.88);backdrop-filter:blur(24px);border-top:1px solid rgba(59,130,246,.15)">
+  class="fixed bottom-0 left-0 right-0 z-[999] translate-y-full
+   transition-transform duration-500 ease-in-out"
+  style="background:rgba(5,8,22,.88);backdrop-filter:blur(24px);
+border-top:1px solid rgba(59,130,246,.15)">
 
   <!-- TOP LINE -->
   <div class="moving-line absolute top-0 left-0 right-0 h-[1px]"></div>
@@ -1327,7 +1401,7 @@ body{
       <a href="#final-cta"
         class="shine-btn relative overflow-hidden
                flex items-center justify-center
-               px-3 sm:px-5 lg:px-6
+               px-3 sm:px-20 lg:px-6
                py-2.5 sm:py-3
                text-[0.68rem] sm:text-[0.82rem]
                font-bold text-white
