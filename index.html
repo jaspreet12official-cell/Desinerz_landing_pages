@@ -264,23 +264,28 @@ body{
 
 <!-- ===================== NAVBAR ===================== -->
 <nav id="navbar"
-  class="lg:fixed relative top-0 left-0 right-0 z-[1000] h-[70px] flex items-center
-   justify-between px-4 md:px-6 lg:px-[5%] border-b border-white/5 transition-all 
-   duration-300 overflow-hidden"
+  class="lg:fixed relative top-0 left-0 right-0 z-[1000] h-[76px] md:h-[84px]
+   flex items-center justify-between
+   px-4 md:px-6 lg:px-[5%]
+   border-b border-white/5
+   transition-all duration-300 overflow-hidden"
   style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
-  <!-- LEFT : LOGO -->
+
+  <!-- ================= LEFT : LOGO ================= -->
   <div class="flex items-center flex-shrink-0 min-w-0">
+
     <img
       src="Assets/Desinerz_academy_light.png"
       alt="Desinerz Academy"
-      class="h-[34px] sm:h-[38px] w-auto object-contain" />
+      class="h-[32px] sm:h-[36px] lg:h-[40px] w-auto object-contain" />
+
   </div>
 
 
   <!-- ================= DESKTOP ================= -->
-  <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-2.5">
+  <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-3">
 
-    <!-- Limited Offer -->
+    <!-- LIMITED OFFER -->
     <div
       class="flex items-center gap-1.5 px-3 py-1 rounded-full border border-red-500/25 text-[0.68rem] font-semibold text-red-400"
       style="background:rgba(239,68,68,.08)">
@@ -291,16 +296,17 @@ body{
 
     </div>
 
-    <!-- Price -->
+
+    <!-- PRICE -->
     <div
-      class="flex items-center gap-2.5 px-4 py-1.5 rounded-xl border border-purple-500/25"
+      class="flex items-center gap-3 px-5 py-2 rounded-xl border border-purple-500/25"
       style="background:rgba(168,85,247,.08)">
 
       <span class="text-sm text-[#4a5568] line-through">
         ₹499
       </span>
 
-      <span class="text-[1.65rem] font-extrabold font-syne gradient-text leading-none">
+      <span class="text-[1.8rem] font-extrabold font-syne gradient-text leading-none">
         ₹49
       </span>
 
@@ -322,7 +328,8 @@ body{
 
     </div>
 
-    <!-- Seats -->
+
+    <!-- SEATS -->
     <div
       class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-red-500/20 text-[0.65rem] font-semibold text-red-400"
       style="background:rgba(239,68,68,.08)">
@@ -335,28 +342,50 @@ body{
 
 
   <!-- ================= TABLET ================= -->
-  <div class="hidden md:flex lg:hidden items-center gap-4 mx-auto">
+  <div class="hidden md:flex lg:hidden items-center gap-5 mx-auto">
 
-    <!-- ONLY TIMER -->
+    <!-- TIMER -->
     <div class="flex items-center" id="countdown-tablet">
 
-      <div class="flex flex-col items-center min-w-[34px]">
-        <span class="font-mono text-sm font-bold text-[#00d4ff]" id="tab-cd-h">11</span>
-        <span class="text-[0.45rem] uppercase text-[#4a5568]">Hr</span>
+      <!-- HOURS -->
+      <div class="flex flex-col items-center min-w-[46px]">
+        <span class="font-mono text-[1.2rem] font-bold text-[#00d4ff]" id="tab-cd-h">
+          11
+        </span>
+
+        <span class="text-[0.58rem] uppercase tracking-[1px] text-[#4a5568]">
+          Hr
+        </span>
       </div>
 
-      <span class="text-[#00d4ff] opacity-40 pb-3">:</span>
+      <span class="text-[1.2rem] text-[#00d4ff] opacity-40 pb-3 mx-1">
+        :
+      </span>
 
-      <div class="flex flex-col items-center min-w-[34px]">
-        <span class="font-mono text-sm font-bold text-[#00d4ff]" id="tab-cd-m">47</span>
-        <span class="text-[0.45rem] uppercase text-[#4a5568]">Min</span>
+      <!-- MIN -->
+      <div class="flex flex-col items-center min-w-[46px]">
+        <span class="font-mono text-[1.2rem] font-bold text-[#00d4ff]" id="tab-cd-m">
+          47
+        </span>
+
+        <span class="text-[0.58rem] uppercase tracking-[1px] text-[#4a5568]">
+          Min
+        </span>
       </div>
 
-      <span class="text-[#00d4ff] opacity-40 pb-3">:</span>
+      <span class="text-[1.2rem] text-[#00d4ff] opacity-40 pb-3 mx-1">
+        :
+      </span>
 
-      <div class="flex flex-col items-center min-w-[34px]">
-        <span class="font-mono text-sm font-bold text-[#00d4ff]" id="tab-cd-s">33</span>
-        <span class="text-[0.45rem] uppercase text-[#4a5568]">Sec</span>
+      <!-- SEC -->
+      <div class="flex flex-col items-center min-w-[46px]">
+        <span class="font-mono text-[1.2rem] font-bold text-[#00d4ff]" id="tab-cd-s">
+          33
+        </span>
+
+        <span class="text-[0.58rem] uppercase tracking-[1px] text-[#4a5568]">
+          Sec
+        </span>
       </div>
 
     </div>
@@ -365,36 +394,73 @@ body{
 
 
   <!-- ================= RIGHT SIDE ================= -->
-  <div class="hidden md:flex items-center gap-3 flex-shrink-0">
+  <div class="hidden md:flex items-center gap-4 flex-shrink-0">
 
-    <!-- Desktop Timer -->
+    <!-- DESKTOP TIMER -->
     <div class="hidden lg:flex items-center" id="countdown">
 
-      <div class="flex flex-col items-center min-w-[40px]">
-        <span class="font-mono text-base font-bold text-[#00d4ff]" id="nav-cd-h">11</span>
-        <span class="text-[0.52rem] uppercase text-[#4a5568]">Hours</span>
+      <!-- HOURS -->
+      <div class="flex flex-col items-center min-w-[48px]">
+
+        <span class="font-mono text-[1.2rem] font-bold text-[#00d4ff]" id="nav-cd-h">
+          11
+        </span>
+
+        <span class="text-[0.58rem] uppercase tracking-[1px] text-[#4a5568]">
+          Hours
+        </span>
+
       </div>
 
-      <span class="text-lg font-bold text-[#00d4ff] opacity-40 pb-3">:</span>
+      <span class="text-[1.25rem] font-bold text-[#00d4ff] opacity-40 pb-3 mx-1">
+        :
+      </span>
 
-      <div class="flex flex-col items-center min-w-[40px]">
-        <span class="font-mono text-base font-bold text-[#00d4ff]" id="nav-cd-m">47</span>
-        <span class="text-[0.52rem] uppercase text-[#4a5568]">Min</span>
+      <!-- MIN -->
+      <div class="flex flex-col items-center min-w-[48px]">
+
+        <span class="font-mono text-[1.2rem] font-bold text-[#00d4ff]" id="nav-cd-m">
+          47
+        </span>
+
+        <span class="text-[0.58rem] uppercase tracking-[1px] text-[#4a5568]">
+          Min
+        </span>
+
       </div>
 
-      <span class="text-lg font-bold text-[#00d4ff] opacity-40 pb-3">:</span>
+      <span class="text-[1.25rem] font-bold text-[#00d4ff] opacity-40 pb-3 mx-1">
+        :
+      </span>
 
-      <div class="flex flex-col items-center min-w-[40px]">
-        <span class="font-mono text-base font-bold text-[#00d4ff]" id="nav-cd-s">33</span>
-        <span class="text-[0.52rem] uppercase text-[#4a5568]">Sec</span>
+      <!-- SEC -->
+      <div class="flex flex-col items-center min-w-[48px]">
+
+        <span class="font-mono text-[1.2rem] font-bold text-[#00d4ff]" id="nav-cd-s">
+          33
+        </span>
+
+        <span class="text-[0.58rem] uppercase tracking-[1px] text-[#4a5568]">
+          Sec
+        </span>
+
       </div>
 
     </div>
 
+
     <!-- CTA -->
     <button
       onclick="scrollToSection('#final-cta')"
-      class="shine-btn relative overflow-hidden px-4 lg:px-5 py-2 text-[0.78rem] lg:text-[0.85rem] font-semibold text-white rounded-lg transition-all duration-300 hover:-translate-y-px whitespace-nowrap"
+      class="shine-btn relative overflow-hidden
+             px-6 lg:px-7
+             py-3
+             text-[0.92rem] lg:text-[1rem]
+             font-bold text-white
+             rounded-xl
+             transition-all duration-300
+             hover:-translate-y-px
+             whitespace-nowrap"
       style="background:linear-gradient(135deg,#f63b3b,#a855f7)">
 
       Enroll Now
@@ -405,18 +471,23 @@ body{
 
 
   <!-- ================= MOBILE ================= -->
-  <div class="flex md:hidden items-center gap-3">
+  <div class="flex md:hidden items-center">
 
-    <!-- ONLY ₹49 -->
-    <div
-      class="px-3 py-1.5 rounded-xl border border-purple-500/25 flex items-center"
-      style="background:rgba(168,85,247,.08)">
+    <!-- BIG CTA -->
+    <button
+      onclick="scrollToSection('#final-cta')"
+      class="shine-btn relative overflow-hidden
+             px-5 py-3
+             text-[0.9rem]
+             font-bold text-white
+             rounded-xl
+             whitespace-nowrap
+             transition-all duration-300"
+      style="background:linear-gradient(135deg,#f63b3b,#a855f7)">
 
-      <span class="text-[1.2rem] font-extrabold font-syne gradient-text leading-none">
-        ₹49
-      </span>
+      🚀 Enroll Now
 
-    </div>
+    </button>
 
   </div>
 
@@ -425,9 +496,10 @@ body{
 <!-- ===================== HERO ===================== -->
 <section id="hero" class="relative z-[1] min-h-screen flex items-center pt-[30px] pb-2 w-full">
   <div class="grid grid-cols-[40%_60%] gap-[30px] items-center max-w-[1200px] mx-auto 
-  w-full max-[900px]:grid-cols-1 px-4 sm:px-6">
+  w-full max-[900px]:grid-cols-1 px-4 sm:px-6 max-[900px]:px-5 max-[900px]:gap-5">
+
     <!-- Left -->
-    <div class="reveal">
+    <div class="reveal max-[900px]:order-2">
       <div class="inline-flex items-center gap-2 px-4 py-[7px] rounded-full text-[0.78rem] font-medium text-purple-300 mb-3 border border-purple-500/25" style="background:rgba(168,85,247,.1)">
         <span class="pulse-dot w-[6px] h-[6px] rounded-full bg-purple-500 inline-block"></span>
         Live Workshop · Limited Seats
@@ -494,94 +566,74 @@ body{
     </div>
 
     <!-- Right -->
-    <div class="reveal relative flex flex-col gap-5 max-[900px]:items-center" style="transition-delay:.2s">
-      <div class="absolute w-[300px] h-[300px] rounded-full pointer-events-none -top-[60px] right-[20%] z-0" style="background:rgba(59,130,246,.2);filter:blur(80px)"></div>
-      <div class="absolute w-[300px] h-[300px] rounded-full pointer-events-none bottom-0 -right-[60px] z-0" style="background:rgba(168,85,247,.15);filter:blur(80px)"></div>
+    <div class="reveal relative flex flex-col lg:gap-5 sm:gap-2 max-[900px]:contents" style="transition-delay:.2s">
+      <div class="absolute w-[300px] h-[300px] rounded-full pointer-events-none -top-[60px] 
+      right-[20%] z-0 max-[900px]:hidden" style="background:rgba(59,130,246,.2);filter:blur(80px)"></div>
+      <div class="absolute w-[300px] h-[300px] rounded-full pointer-events-none bottom-0 
+      -right-[60px] z-0 max-[900px]:hidden" style="background:rgba(168,85,247,.15);filter:blur(80px)"></div>
 
       <!-- Image -->
-      <div class="relative rounded-2xl overflow-hidden z-[1] mt-[50px] w-full max-[900px]:mt-4" style="border:1px solid rgba(255,255,255,.1)">
-        <div class="w-full aspect-video flex flex-col items-center justify-center gap-4 rounded-2xl" style="background:linear-gradient(145deg,rgba(59,130,246,.1) 0%,rgba(168,85,247,.1) 50%,rgba(6,182,212,.1) 100%)">
+      <div class="relative rounded-2xl overflow-hidden z-[1] lg:mt-[50px] w-full 
+       max-[900px]:order-1 max-[900px]:mt-2 max-[900px]:mx-0 max-[900px]:w-full"
+       style="border:1px solid rgba(255,255,255,.1)">
+        <div class="w-full aspect-video flex flex-col items-center 
+        justify-center gap-4 rounded-2xl" style="background:linear-gradient(145deg,rgba(59,130,246,.1) 
+        0%,rgba(168,85,247,.1) 50%,rgba(6,182,212,.1) 100%)">
         </div>
       </div>
 
       <!-- Stats row -->
-      <div class="flex items-stretch z-[1] rounded-2xl overflow-hidden w-full"
+      <div class="flex items-stretch z-[1] rounded-2xl overflow-hidden w-full max-[900px]:order-3"
      style="background:rgba(255,255,255,.03)">
 
-  <!-- Item 1 -->
-  <div class="relative flex items-center gap-2 sm:gap-3 py-3 px-2 sm:px-4 flex-1 min-w-0 transition-all duration-300 hover:bg-white/[.02] cursor-default">
+        <!-- Item 1 -->
+        <div class="relative flex items-center gap-2 sm:gap-3 py-3 px-2 sm:px-4 flex-1 min-w-0 transition-all duration-300 hover:bg-white/[.02] cursor-default">
+          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center text-sm sm:text-lg flex-shrink-0"
+               style="background:rgba(16,185,129,.12)">
+            👥
+          </div>
+          <div class="flex flex-col min-w-0">
+            <span class="text-[0.85rem] sm:text-[1rem] font-extrabold text-white leading-tight">1500+</span>
+            <span class="text-[0.5rem] sm:text-[0.65rem] text-[#4a5568] tracking-wide uppercase leading-tight break-words">Students</span>
+          </div>
+        </div>
 
-    <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center text-sm sm:text-lg flex-shrink-0"
-         style="background:rgba(16,185,129,.12)">
-      👥
-    </div>
+        <!-- Divider -->
+        <div class="w-[1px] flex-shrink-0"
+             style="background:linear-gradient(180deg,transparent,rgba(255,255,255,.1),transparent)"></div>
 
-    <div class="flex flex-col min-w-0">
-      <span class="text-[0.85rem] sm:text-[1rem] font-extrabold text-white leading-tight">
-        1500+
-      </span>
+        <!-- Item 2 -->
+        <div class="relative flex items-center gap-2 sm:gap-3 py-3 px-2 sm:px-4 flex-1 min-w-0 transition-all duration-300 hover:bg-white/[.02] cursor-default">
+          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center text-sm sm:text-lg flex-shrink-0"
+               style="background:rgba(59,130,246,.12)">
+            🌱
+          </div>
+          <div class="flex flex-col min-w-0">
+            <span class="text-[0.85rem] sm:text-[1rem] font-extrabold text-white leading-tight">100%</span>
+            <span class="text-[0.45rem] sm:text-[0.65rem] text-[#4a5568] tracking-wide uppercase leading-tight break-words">Beginner Friendly</span>
+          </div>
+        </div>
 
-      <span class="text-[0.5rem] sm:text-[0.65rem] text-[#4a5568] tracking-wide uppercase leading-tight break-words">
-        Students
-      </span>
-    </div>
+        <!-- Divider -->
+        <div class="w-[1px] flex-shrink-0"
+             style="background:linear-gradient(180deg,transparent,rgba(255,255,255,.1),transparent)"></div>
 
-  </div>
+        <!-- Item 3 -->
+        <div class="relative flex items-center gap-2 sm:gap-3 py-3 px-2 sm:px-4 flex-1 min-w-0 transition-all duration-300 hover:bg-white/[.02] cursor-default">
+          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center text-sm sm:text-lg flex-shrink-0"
+               style="background:rgba(168,85,247,.12)">
+            🔴
+          </div>
+          <div class="flex flex-col min-w-0">
+            <span class="text-[0.85rem] sm:text-[1rem] font-extrabold text-white leading-tight">Live</span>
+            <span class="text-[0.5rem] sm:text-[0.65rem] text-[#4a5568] tracking-wide uppercase leading-tight">Workshop</span>
+          </div>
+        </div>
 
-  <!-- Divider -->
-  <div class="w-[1px] flex-shrink-0"
-       style="background:linear-gradient(180deg,transparent,rgba(255,255,255,.1),transparent)">
-  </div>
-
-  <!-- Item 2 -->
-  <div class="relative flex items-center gap-2 sm:gap-3 py-3 px-2 sm:px-4 flex-1 min-w-0 transition-all duration-300 hover:bg-white/[.02] cursor-default">
-
-    <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center text-sm sm:text-lg flex-shrink-0"
-         style="background:rgba(59,130,246,.12)">
-      🌱
-    </div>
-
-    <div class="flex flex-col min-w-0">
-      <span class="text-[0.85rem] sm:text-[1rem] font-extrabold text-white leading-tight">
-        100%
-      </span>
-
-      <span class="text-[0.45rem] sm:text-[0.65rem] text-[#4a5568] tracking-wide uppercase leading-tight break-words">
-        Beginner Friendly
-      </span>
-    </div>
-
-  </div>
-
-  <!-- Divider -->
-  <div class="w-[1px] flex-shrink-0"
-       style="background:linear-gradient(180deg,transparent,rgba(255,255,255,.1),transparent)">
-  </div>
-
-  <!-- Item 3 -->
-  <div class="relative flex items-center gap-2 sm:gap-3 py-3 px-2 sm:px-4 flex-1 min-w-0 transition-all duration-300 hover:bg-white/[.02] cursor-default">
-
-    <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center text-sm sm:text-lg flex-shrink-0"
-         style="background:rgba(168,85,247,.12)">
-      🔴
-    </div>
-
-    <div class="flex flex-col min-w-0">
-      <span class="text-[0.85rem] sm:text-[1rem] font-extrabold text-white leading-tight">
-        Live
-      </span>
-
-      <span class="text-[0.5rem] sm:text-[0.65rem] text-[#4a5568] tracking-wide uppercase leading-tight">
-        Workshop
-      </span>
-    </div>
-
-  </div>
-
-</div>
+      </div>
 
       <!-- Book Now btn -->
-      <div class="flex justify-center mb-7 z-[1] w-full">
+      <div class="flex justify-center mb-7 z-[1] w-full max-[900px]:order-4 max-[900px]:mb-4">
         <a href="#final-cta"
           class="shine-btn relative overflow-hidden flex items-center justify-center gap-2 w-[70%] max-[900px]:w-full py-3.5 text-[0.95rem] font-semibold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(59,130,246,.5)]"
           style="background:linear-gradient(135deg,#f63b3b,#a855f7)">
@@ -589,6 +641,7 @@ body{
         </a>
       </div>
     </div>
+
   </div>
 </section>
 
