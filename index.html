@@ -573,15 +573,25 @@ body{
       -right-[60px] z-0 max-[900px]:hidden" style="background:rgba(168,85,247,.15);filter:blur(80px)"></div>
 
       <!-- Image -->
-      <div class="relative rounded-2xl overflow-hidden z-[1] lg:mt-[80px] w-full 
+   <div class="relative rounded-2xl overflow-hidden z-[1] lg:mt-[80px] w-full 
        max-[900px]:order-1 max-[900px]:mt-0 max-[900px]:mx-0 max-[900px]:w-full"
        style="border:1px solid rgba(255,255,255,.1)">
-        <div class="w-full aspect-video flex flex-col items-center 
-        justify-center gap-4 rounded-2xl" style="background:linear-gradient(145deg,rgba(59,130,246,.1) 
-        0%,rgba(168,85,247,.1) 50%,rgba(6,182,212,.1) 100%)">
-        </div>
-      </div>
 
+  <div class="w-full aspect-video flex flex-col items-center 
+      justify-center gap-4 rounded-2xl overflow-hidden relative"
+      style="background:linear-gradient(145deg,rgba(59,130,246,.1) 
+      0%,rgba(168,85,247,.1) 50%,rgba(6,182,212,.1) 100%)">
+
+    <!-- Image -->
+    <img 
+      src="Assets/Herosection.jpeg" 
+      alt="Image"
+      class="w-full h-full object-fit
+       object-top  scale-[1.02]"
+    >
+
+  </div>
+</div>
       <!-- Stats row -->
       <div class="flex items-stretch z-[1] rounded-2xl  pt-0 sm:pt-2 overflow-hidden w-full max-[900px]:order-3"
      style="background:rgba(255,255,255,.03)">
@@ -670,12 +680,12 @@ body{
 <!-- ===================== WHAT YOU LEARN ===================== -->
 <section id="learn" class="relative z-[1] pt-8 px-4
  sm:px-6 ">
-  <div class="text-center  mb-0 lg:mb-16 sm:pb-16 reveal">
+  <div class="text-center  mb-0 lg:mb-1 sm:pb-16 reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Curriculum
     </div>
     <h2 class="font-syne text-3xl font-extrabold mb-3.5 leading-snug">What You'll Learn <span class="gradient-text">Inside This Workshop</span></h2>
-    <p class="text-[#8892b0] text-base max-w-[540px] mx-auto mb-5">Everything you need to understand modern design careers in 2026.</p>
+    <p class="text-[#8892b0] text-base max-w-[540px] mx-auto mb-0 lg:mb-0 sm:mb-5 ">Everything you need to understand modern design careers in 2026.</p>
   </div>
 
   <div class="grid grid-cols-3 gap-4 max-w-[1100px] mx-auto max-[900px]:grid-cols-2
@@ -886,7 +896,7 @@ body{
 </section>
 
 <!-- ===================== BONUSES ===================== -->
-<section id="bonuses" class="relative z-[1] py-8  sm:py-0 px-4
+<section id="bonuses" class="relative z-[1] lg:py-16  sm:py-0 px-4
  sm:px-6 ">
   <div class="text-center mb-5 reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono
@@ -923,16 +933,18 @@ body{
 </section>
 
 <!-- ===================== FOR WHO ===================== -->
-<section id="forwho" class="relative z-[1] py-8 px-4
- sm:px-6 ">
-  <div class="text-center lg:mb-16 mb-5 reveal">
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
+<section id="forwho" class="relative z-[1] lg:py-10  sm:py-0 px-4
+ sm:px-6">
+  <div class="text-center lg:mb-6 mb-5 reveal">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 mt-5 rounded-full text-[0.72rem] font-mono tracking-[3px] 
+    uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Target Audience
     </div>
-    <h2 class="font-syne text-3xl font-extrabold leading-snug">This Workshop Is <span class="gradient-text">Perfect For</span></h2>
+    <h2 class="font-syne text-3xl mb-0 font-extrabold leading-snug">This Workshop Is
+       <span class="gradient-text">Perfect For</span></h2>
   </div>
   <div class="grid grid-cols-3 gap-3.5 max-w-[900px] mx-auto">
-    <div class="who-card relative flex flex-col items-center justify-center gap-2.5 p-5 rounded-2xl border border-transparent text-center cursor-default overflow-hidden transition-all duration-300 hover:border-blue-500/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(59,130,246,.1)] reveal" style="background:rgba(255,255,255,.03)">
+    <div class="who-card relative flex flex-col items-center justify-center gap-2.5 px-5 rounded-2xl border border-transparent text-center cursor-default overflow-hidden transition-all duration-300 hover:border-blue-500/30 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(59,130,246,.1)] reveal" style="background:rgba(255,255,255,.03)">
       <div class="absolute top-0 left-0 right-0 h-[2px]" style="background:linear-gradient(90deg,transparent,rgba(59,130,246,.5),transparent)"></div>
       <div class="text-[2rem]">🎬</div>
       <h3 class="text-[0.82rem] font-semibold leading-snug text-[#f0f4ff]">Individual Creators</h3>
@@ -983,7 +995,7 @@ body{
 <!-- ===================== VIDEO TESTIMONIALS ===================== -->
 <section id="testimonials" class="relative z-[1] py-8 px-4
  sm:px-6 ">
-  <div class="text-center lg:mb-16 mb-5 reveal">
+  <div class="text-center lg:mb-9 mb-5 reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Testimonials
     </div>
@@ -1017,7 +1029,7 @@ body{
 <!-- ===================== CHAT TESTIMONIALS ===================== -->
 <section id="chats" class="relative z-[1] px-4
  sm:px-6  pb-13">
-  <div class="text-center lg:mb-16 mb-5 reveal">
+  <div class="text-center lg:mb-8 mb-5 reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Real Messages
     </div>
@@ -1054,7 +1066,7 @@ body{
 <!-- ===================== FAQ ===================== -->
 <section id="faq" class="relative z-[1] py-13 px-4
  sm:px-6 ">
-  <div class="text-center lg:mb-16 mb-5 reveal">
+  <div class="text-center lg:mb-8 mb-5 reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>FAQ
     </div>
@@ -1168,7 +1180,7 @@ body{
 </section>
 
 <!-- ===================== FOOTER ===================== -->
-<footer class="relative z-[1] pt-10 pb-16 sm:pt-12 sm:pb-20 lg:pt-14 lg:pb-24 px-4 sm:px-6 lg:px-[5%]"
+<footer class="relative z-[1] pt-2 pb-10 sm:pt-12 sm:pb-20 lg:pt-14 lg:pb-24 px-4 sm:px-6 lg:px-[5%]"
  style="border-top:1px solid rgba(59,130,246,.15)">
   <div class="absolute top-[-1px] left-0 right-0 h-[1px]" style="background:linear-gradient(90deg,transparent,#00d4ff,#a855f7,transparent);box-shadow:0 0 20px rgba(59,130,246,.4)"></div>
   <div class="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 
