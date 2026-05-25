@@ -57,10 +57,14 @@ tailwind.config = {
     #FF4D8D 100%
   ); -webkit-background-clip:text;
   -webkit-text-fill-color:transparent; background-clip:text; }
-  .gradient-text-2 { background:linear-gradient(135deg,#06b6d4,#3b82f6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  .gradient-text-2 { background:linear-gradient(135deg,#06b6d4,#3b82f6); 
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; 
+    background-clip:text; }
 
   /* Grid background — complex multi-stop */
-  .grid-bg { background-image:linear-gradient(rgba(59,130,246,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.03) 1px,transparent 1px); background-size:60px 60px; }
+  .grid-bg { background-image:linear-gradient(rgba(59,130,246,.03) 
+    1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.03) 
+    1px,transparent 1px); background-size:60px 60px; }
 
   /* Scroll reveal */
   .reveal { opacity:0; transform:translateY(30px);
@@ -453,8 +457,7 @@ body{
     <button
       onclick="scrollToSection('#final-cta')"
       class="shine-btn relative overflow-hidden
-             px-6 lg:px-7
-             py-3
+             px-7 sm:px-10 lg:px-7 py-3
              text-[0.92rem] lg:text-[1rem]
              font-bold text-white
              rounded-xl
@@ -494,25 +497,36 @@ body{
 </nav>
 
 <!-- ===================== HERO ===================== -->
-<section id="hero" class="relative z-[1] min-h-screen flex items-center pt-[30px] pb-2 w-full">
-  <div class="grid grid-cols-[40%_60%] gap-[30px] items-center max-w-[1200px] mx-auto 
-  w-full max-[900px]:grid-cols-1 px-4 sm:px-6 max-[900px]:px-5 max-[900px]:gap-5">
+<section id="hero" class="relative z-[1] min-h-screen flex items-center pt-[0px]  lg:pt-[50px] pb-0 w-full">
 
-    <!-- Left -->
-    <div class="reveal max-[900px]:order-2">
-      <div class="inline-flex items-center gap-2 px-4 py-[7px] rounded-full text-[0.78rem] font-medium text-purple-300 mb-3 border border-purple-500/25" style="background:rgba(168,85,247,.1)">
+  <div class="grid grid-cols-[42%_58%] gap-6 items-center max-w-[1200px] mx-auto w-full
+              max-[900px]:grid-cols-1 max-[900px]:flex max-[900px]:flex-col mx-1 lg:mx-8
+              px-4 sm:px-6 max-[900px]:px-5 max-[900px]:gap-3
+              py-3 lg:py-0">
+
+    <!-- ═══ LEFT CONTENT — order-3 on mobile ═══ -->
+    <div class="reveal max-[900px]:order-3 max-[900px]:w-full max-[900px]:text-center">
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-[7px] rounded-full text-[0.78rem]
+                  font-medium text-purple-300 mb-3 border border-purple-500/25"
+           style="background:rgba(168,85,247,.1)">
         <span class="pulse-dot w-[6px] h-[6px] rounded-full bg-purple-500 inline-block"></span>
         Live Workshop · Limited Seats
       </div>
 
+      <!-- Heading -->
       <h1 class="font-syne text-[clamp(1rem,1.5vw,1.3rem)] font-bold leading-tight tracking-tight mb-3">
         This <span class="gradient-text text-[30px]">₹49 </span>Decision Could Change Your Career Forever.
       </h1>
 
       <!-- Highlighted banner -->
-      <div class="relative overflow-hidden px-4 py-3 rounded-2xl mb-4 border border-white/10" style="background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(168,85,247,.08))">
-        <div class="absolute inset-0 opacity-30" style="background:radial-gradient(ellipse at 30% 50%,rgba(59,130,246,.25),transparent 70%)"></div>
-        <div class="absolute top-0 left-0 right-0 h-[1.5px]" style="background:linear-gradient(90deg,transparent,#00d4ff,#a855f7,transparent)"></div>
+      <div class="relative overflow-hidden px-4 py-3 rounded-2xl mb-4 border border-white/10 max-[900px]:text-left"
+           style="background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(168,85,247,.08))">
+        <div class="absolute inset-0 opacity-30"
+             style="background:radial-gradient(ellipse at 30% 50%,rgba(59,130,246,.25),transparent 70%)"></div>
+        <div class="absolute top-0 left-0 right-0 h-[1.5px]"
+             style="background:linear-gradient(90deg,transparent,#00d4ff,#a855f7,transparent)"></div>
         <div class="relative z-[1] flex flex-col gap-1">
           <span class="text-[0.62rem] font-mono tracking-[3px] uppercase text-[#8892b0]">✦ You Are Invited To</span>
           <span class="font-syne text-[1.1rem] font-extrabold leading-snug">
@@ -525,39 +539,36 @@ body{
         </div>
       </div>
 
+      <!-- 4 feature cards grid -->
       <div class="grid grid-cols-2 gap-2 mb-4">
-        <!-- Card 1 -->
         <div class="relative flex items-center gap-3 px-4 py-3.5 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_24px_rgba(59,130,246,.1)] cursor-default" style="background:rgba(255,255,255,.04)">
           <div class="absolute top-0 left-0 right-0 h-[1.5px]" style="background:linear-gradient(90deg,transparent,#00d4ff,transparent)"></div>
           <span class="w-[40px] h-[40px] rounded-[11px] flex items-center justify-center text-lg flex-shrink-0" style="background:rgba(59,130,246,.12)">🗺️</span>
-          <div class="flex flex-col">
+          <div class="flex flex-col text-left">
             <span class="text-[0.88rem] font-bold text-[#f0f4ff] leading-tight">Design Roadmap</span>
             <span class="text-[0.7rem] text-[#8892b0] leading-tight mt-0.5">Graphic + UI/UX 2026</span>
           </div>
         </div>
-        <!-- Card 2 -->
         <div class="relative flex items-center gap-3 px-4 py-3.5 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_24px_rgba(168,85,247,.1)] cursor-default" style="background:rgba(255,255,255,.04)">
           <div class="absolute top-0 left-0 right-0 h-[1.5px]" style="background:linear-gradient(90deg,transparent,#a855f7,transparent)"></div>
           <span class="w-[40px] h-[40px] rounded-[11px] flex items-center justify-center text-lg flex-shrink-0" style="background:rgba(168,85,247,.12)">🤖</span>
-          <div class="flex flex-col">
+          <div class="flex flex-col text-left">
             <span class="text-[0.88rem] font-bold text-[#f0f4ff] leading-tight">Top AI Tools</span>
             <span class="text-[0.7rem] text-[#8892b0] leading-tight mt-0.5">Used in Tech Industry</span>
           </div>
         </div>
-        <!-- Card 3 -->
         <div class="relative flex items-center gap-3 px-4 py-3.5 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_24px_rgba(6,182,212,.1)] cursor-default" style="background:rgba(255,255,255,.04)">
           <div class="absolute top-0 left-0 right-0 h-[1.5px]" style="background:linear-gradient(90deg,transparent,#06b6d4,transparent)"></div>
           <span class="w-[40px] h-[40px] rounded-[11px] flex items-center justify-center text-lg flex-shrink-0" style="background:rgba(6,182,212,.12)">⚡</span>
-          <div class="flex flex-col">
+          <div class="flex flex-col text-left">
             <span class="text-[0.88rem] font-bold text-[#f0f4ff] leading-tight">10X Productivity</span>
             <span class="text-[0.7rem] text-[#8892b0] leading-tight mt-0.5">Workflows & Growth Hacks</span>
           </div>
         </div>
-        <!-- Card 4 -->
         <div class="relative flex items-center gap-3 px-4 py-3.5 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_24px_rgba(236,72,153,.1)] cursor-default" style="background:rgba(255,255,255,.04)">
           <div class="absolute top-0 left-0 right-0 h-[1.5px]" style="background:linear-gradient(90deg,transparent,#ec4899,transparent)"></div>
           <span class="w-[40px] h-[40px] rounded-[11px] flex items-center justify-center text-lg flex-shrink-0" style="background:rgba(236,72,153,.12)">🚀</span>
-          <div class="flex flex-col">
+          <div class="flex flex-col text-left">
             <span class="text-[0.88rem] font-bold text-[#f0f4ff] leading-tight">Career in AI & Design</span>
             <span class="text-[0.7rem] text-[#8892b0] leading-tight mt-0.5">Future Opportunities</span>
           </div>
@@ -565,102 +576,81 @@ body{
       </div>
     </div>
 
-    <!-- Right -->
-    <div class="reveal relative flex flex-col lg:gap-5 sm:gap-2 max-[900px]:contents" style="transition-delay:.2s">
-      <div class="absolute w-[300px] h-[300px] rounded-full pointer-events-none -top-[60px] 
-      right-[20%] z-0 max-[900px]:hidden" style="background:rgba(59,130,246,.2);filter:blur(80px)"></div>
-      <div class="absolute w-[300px] h-[300px] rounded-full pointer-events-none bottom-0 
-      -right-[60px] z-0 max-[900px]:hidden" style="background:rgba(168,85,247,.15);filter:blur(80px)"></div>
+    <!-- ═══ RIGHT WRAPPER ═══ -->
+    <div class="reveal relative flex flex-col gap-3
+                max-[900px]:contents"
+         style="transition-delay:.2s">
 
-      <!-- Image -->
-   <div class="relative rounded-2xl overflow-hidden z-[1] lg:mt-[80px] w-full 
-       max-[900px]:order-1 max-[900px]:mt-0 max-[900px]:mx-0 max-[900px]:w-full"
-       style="border:1px solid rgba(255,255,255,.1)">
+      <!-- orb glows — hidden on mobile -->
+      <div class="absolute w-[300px] h-[300px] rounded-full pointer-events-none -top-[60px] right-[20%] z-0 max-[900px]:hidden"
+           style="background:rgba(59,130,246,.2);filter:blur(80px)"></div>
+      <div class="absolute w-[300px] h-[300px] rounded-full pointer-events-none bottom-0 -right-[60px] z-0 max-[900px]:hidden"
+           style="background:rgba(168,85,247,.15);filter:blur(80px)"></div>
 
-  <div class="w-full aspect-video flex flex-col items-center 
-      justify-center gap-4 rounded-2xl overflow-hidden relative"
-      style="background:linear-gradient(145deg,rgba(59,130,246,.1) 
-      0%,rgba(168,85,247,.1) 50%,rgba(6,182,212,.1) 100%)">
+      <!-- IMAGE — order-1 mobile -->
+      <div class="relative rounded-2xl overflow-hidden z-[1] w-full
+                  max-[900px]:order-1 max-[900px]:mt-0"
+           style="border:1px solid rgba(255,255,255,.1)">
+        <div class="w-full aspect-video flex flex-col items-center justify-center gap-4 rounded-2xl overflow-hidden relative"
+             style="background:linear-gradient(145deg,rgba(59,130,246,.1) 0%,rgba(168,85,247,.1) 50%,rgba(6,182,212,.1) 100%)">
+          <img src="Assets/1600-900.jpeg" alt="Workshop Banner"
+               class="w-full h-full object-cover object-top scale-[1.02]">
+        </div>
+      </div>
 
-    <!-- Image -->
-    <img 
-      src="Assets/1600-900.jpeg" 
-      alt="Image"
-      class="w-full h-full object-fit
-       object-top  scale-[1.02]"
-    >
+      <!-- BOOK NOW BTN — order-2 mobile, order-4 lg -->
+      <div class="flex justify-center z-[1] w-full max-[900px]:order-2 lg:order-4">
+        <a href="#final-cta"
+           class="shine-btn relative overflow-hidden flex items-center justify-center gap-2
+                  w-[70%] max-[900px]:w-full
+                  py-3.5 text-[0.95rem] font-semibold text-white rounded-xl
+                  transition-all duration-300 hover:-translate-y-0.5
+                  hover:shadow-[0_12px_40px_rgba(59,130,246,.5)]"
+           style="background:linear-gradient(135deg,#f63b3b,#a855f7)">
+          🎯 Book Your Seat Now
+        </a>
+      </div>
 
-  </div>
-</div>
-      <!-- Stats row -->
-      <div class="flex items-stretch z-[1] rounded-2xl  pt-0 sm:pt-2 overflow-hidden w-full max-[900px]:order-3"
-     style="background:rgba(255,255,255,.03)">
-
-        <!-- Item 1 -->
+      <!-- STATS ROW — order-4 mobile, order-3 lg -->
+      <div class="flex items-stretch z-[1] rounded-2xl overflow-hidden w-full
+                  max-[900px]:order-4 lg:order-3"
+           style="background:rgba(255,255,255,.03)">
         <div class="relative flex items-center gap-2 sm:gap-3 py-3 px-2 sm:px-4 flex-1 min-w-0 transition-all duration-300 hover:bg-white/[.02] cursor-default">
-          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center text-sm sm:text-lg flex-shrink-0"
-               style="background:rgba(16,185,129,.12)">
-            👥
-          </div>
+          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center text-sm sm:text-lg flex-shrink-0" style="background:rgba(16,185,129,.12)">👥</div>
           <div class="flex flex-col min-w-0">
             <span class="text-[0.85rem] sm:text-[1rem] font-extrabold text-white leading-tight">1500+</span>
             <span class="text-[0.5rem] sm:text-[0.65rem] text-[#4a5568] tracking-wide uppercase leading-tight break-words">Students</span>
           </div>
         </div>
-
-        <!-- Divider -->
-        <div class="w-[1px] flex-shrink-0"
-             style="background:linear-gradient(180deg,transparent,rgba(255,255,255,.1),transparent)"></div>
-
-        <!-- Item 2 -->
+        <div class="w-[1px] flex-shrink-0" style="background:linear-gradient(180deg,transparent,rgba(255,255,255,.1),transparent)"></div>
         <div class="relative flex items-center gap-2 sm:gap-3 py-3 px-2 sm:px-4 flex-1 min-w-0 transition-all duration-300 hover:bg-white/[.02] cursor-default">
-          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center text-sm sm:text-lg flex-shrink-0"
-               style="background:rgba(59,130,246,.12)">
-            🌱
-          </div>
+          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center text-sm sm:text-lg flex-shrink-0" style="background:rgba(59,130,246,.12)">🌱</div>
           <div class="flex flex-col min-w-0">
             <span class="text-[0.85rem] sm:text-[1rem] font-extrabold text-white leading-tight">100%</span>
             <span class="text-[0.45rem] sm:text-[0.65rem] text-[#4a5568] tracking-wide uppercase leading-tight break-words">Beginner Friendly</span>
           </div>
         </div>
-
-        <!-- Divider -->
-        <div class="w-[1px] flex-shrink-0"
-             style="background:linear-gradient(180deg,transparent,rgba(255,255,255,.1),transparent)"></div>
-
-        <!-- Item 3 -->
+        <div class="w-[1px] flex-shrink-0" style="background:linear-gradient(180deg,transparent,rgba(255,255,255,.1),transparent)"></div>
         <div class="relative flex items-center gap-2 sm:gap-3 py-3 px-2 sm:px-4 flex-1 min-w-0 transition-all duration-300 hover:bg-white/[.02] cursor-default">
-          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center text-sm sm:text-lg flex-shrink-0"
-               style="background:rgba(168,85,247,.12)">
-            🔴
-          </div>
+          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center text-sm sm:text-lg flex-shrink-0" style="background:rgba(168,85,247,.12)">🔴</div>
           <div class="flex flex-col min-w-0">
             <span class="text-[0.85rem] sm:text-[1rem] font-extrabold text-white leading-tight">Live</span>
             <span class="text-[0.5rem] sm:text-[0.65rem] text-[#4a5568] tracking-wide uppercase leading-tight">Workshop</span>
           </div>
         </div>
-
       </div>
 
-      <!-- Book Now btn -->
-      <div class="flex justify-center mb-7 z-[1] w-full max-[900px]:order-4 max-[900px]:mb-4">
-        <a href="#final-cta"
-          class="shine-btn relative overflow-hidden flex items-center justify-center gap-2 w-[70%] max-[900px]:w-full py-3.5 text-[0.95rem] font-semibold text-white rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(59,130,246,.5)]"
-          style="background:linear-gradient(135deg,#f63b3b,#a855f7)">
-          🎯 Book Your Seat Now
-        </a>
-      </div>
-    </div>
+    </div><!-- end right wrapper -->
 
   </div>
 </section>
-
 <!-- ===================== SUCCESS STORIES ===================== -->
 <section id="success" class="relative z-[1] overflow-hidden px-4
  sm:px-6 lg:px-16 py-10 sm:py-10 lg:py-14"
   style="background:linear-gradient(180deg,#050816 0%,rgba(11,16,32,.8) 100%)">
   <div class="text-center mb-10 sm:mb-14 reveal">
-    <div class="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 rounded-full text-[0.65rem] sm:text-[0.72rem] font-mono tracking-[2px] sm:tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
+    <div class="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5
+     rounded-full text-[0.65rem] sm:text-[0.72rem] font-mono tracking-[2px] sm:tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>
       Social Proof
     </div>
@@ -736,9 +726,9 @@ body{
 </section>
 
 <!-- ===================== MENTOR ===================== -->
-<section id="mentor" class="relative z-[1] pt-16 px-4 sm:px-6 lg:px-[2%] overflow-hidden">
+<section id="mentor" class="relative z-[1] pt-16 px-4 sm:px-6 lg:px-[2%] overflow-hidden"> 
 
-  <div class="max-w-[1100px] mx-auto
+  <div class="max-w-[1100px]  mx-2 lg:mx-8
   grid grid-cols-1 md:grid-cols-2
   lg:grid-cols-[58%_42%]
   gap-8 lg:gap-[40px] items-center">
@@ -767,25 +757,28 @@ body{
     <div class="reveal w-full min-w-0 flex flex-col md:order-2">
 
       <!-- Badge + Heading -->
-      <div class="order-1">
+     <div class="order-1 text-center lg:text-left">
 
-        <div class="inline-flex flex-wrap items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5"
-          style="background:rgba(0,212,255,.08)">
+  <div class="inline-flex flex-wrap items-center gap-2 px-4 py-1.5 rounded-full
+  text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff]
+  border border-[#00d4ff]/20 mb-5
+  mx-auto lg:mx-0"
+  style="background:rgba(0,212,255,.08)">
 
-          <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>
+    <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>
 
-          Your Instructor
+    Your Instructor
 
-        </div>
+  </div>
 
-        <h2 class="font-syne text-[clamp(1.8rem,5vw,3rem)] font-bold leading-tight tracking-tight mb-4 break-words">
+  <h2 class="font-syne text-[clamp(1.8rem,5vw,3rem)]
+  font-bold leading-tight tracking-tight mb-4 break-words">
 
-          Meet Your <span class="gradient-text">Mentor</span>
+    Meet Your <span class="gradient-text">Mentor</span>
 
-        </h2>
+  </h2>
 
-      </div>
-
+</div>
       <!-- Mobile Image -->
       <div class="order-2 md:hidden mb-6">
 
@@ -804,9 +797,9 @@ body{
       </div>
 
       <!-- Description + Stats -->
-      <div class="order-3">
+      <div class="order-3 text-center lg:text-left">
 
-        <p class="text-[#8892b0] text-sm sm:text-base leading-[1.8] mb-2 break-words">
+        <p class="text-[#8892b0] text-sm sm:text-base text-center lg:text-left  leading-[1.8] mb-2 break-words">
 
           <strong class="text-[#f0f4ff]">
             Senior UI/UX Designer at TCS
@@ -907,23 +900,26 @@ body{
     <h2 class="font-syne text-3xl font-extrabold leading-snug">Bonuses You'll Get
        <span class="gradient-text">Inside</span></h2>
   </div>
-  <div class="grid grid-cols-3 gap-5 max-w-[1100px]  sm:my-0 
+  <div class="grid grid-cols-3  gap-5 max-w-[1100px]  sm:my-0 
   mx-auto max-[900px]:grid-cols-1">
-    <div class="bonus-card p-9 rounded-[20px] border border-transparent relative overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.01] hover:border-blue-500/35 hover:shadow-[0_30px_80px_rgba(0,0,0,.5)] reveal" style="background:rgba(255,255,255,.03);--b-from:rgba(59,130,246,.08)">
+    <div class="bonus-card  p-7 rounded-[20px] border border-transparent relative text-center lg:text-left
+     overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.01]
+      hover:border-blue-500/35 hover:shadow-[0_30px_80px_rgba(0,0,0,.5)] reveal" 
+      style="background:rgba(255,255,255,.03);--b-from:rgba(59,130,246,.08)">
       <div class="font-mono text-[0.72rem] tracking-[2px] text-[#4a5568] mb-4">BONUS 01</div>
       <span class="text-4xl mb-4 block">📚</span>
       <h3 class="font-syne text-[1.15rem] font-bold mb-2.5">3 Design Industry E-books</h3>
       <p class="text-[0.85rem] text-[#8892b0] leading-relaxed">Curated e-books covering design fundamentals, UI systems, and freelancing secrets — worth ₹1500 alone.</p>
       <span class="inline-block mt-4 px-3.5 py-1.5 rounded-full text-[0.72rem] font-semibold border border-blue-500/20 text-[#00d4ff]" style="background:rgba(59,130,246,.1)">Instant Download</span>
     </div>
-    <div class="bonus-card p-9 rounded-[20px] border border-transparent relative overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.01] hover:border-purple-500/35 hover:shadow-[0_30px_80px_rgba(0,0,0,.5)] reveal" style="background:rgba(255,255,255,.03);--b-from:rgba(168,85,247,.08);transition-delay:.1s">
+    <div class="bonus-card p-7 rounded-[20px] border border-transparent text-center lg:text-left relative overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.01] hover:border-purple-500/35 hover:shadow-[0_30px_80px_rgba(0,0,0,.5)] reveal" style="background:rgba(255,255,255,.03);--b-from:rgba(168,85,247,.08);transition-delay:.1s">
       <div class="font-mono text-[0.72rem] tracking-[2px] text-[#4a5568] mb-4">BONUS 02</div>
       <span class="text-4xl mb-4 block">📄</span>
       <h3 class="font-syne text-[1.15rem] font-bold mb-2.5">Exclusive Mentor Resume</h3>
       <p class="text-[0.85rem] text-[#8892b0] leading-relaxed">Get the actual resume template that helped crack MNC interviews — battle-tested at companies like TCS.</p>
       <span class="inline-block mt-4 px-3.5 py-1.5 rounded-full text-[0.72rem] font-semibold border border-purple-500/20 text-purple-300" style="background:rgba(168,85,247,.1)">Crack MNC Interviews</span>
     </div>
-    <div class="bonus-card p-9 rounded-[20px] border border-transparent relative overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.01] hover:border-green-500/35 hover:shadow-[0_30px_80px_rgba(0,0,0,.5)] reveal" style="background:rgba(255,255,255,.03);--b-from:rgba(16,185,129,.08);transition-delay:.2s">
+    <div class="bonus-card p-7  text-center lg:text-left rounded-[20px] border border-transparent relative overflow-hidden cursor-default transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.01] hover:border-green-500/35 hover:shadow-[0_30px_80px_rgba(0,0,0,.5)] reveal" style="background:rgba(255,255,255,.03);--b-from:rgba(16,185,129,.08);transition-delay:.2s">
       <div class="font-mono text-[0.72rem] tracking-[2px] text-[#4a5568] mb-4">BONUS 03</div>
       <span class="text-4xl mb-4 block">🗂️</span>
       <h3 class="font-syne text-[1.15rem] font-bold mb-2.5">Industry Portfolio Files</h3>
@@ -1397,18 +1393,18 @@ border-top:1px solid rgba(59,130,246,.15)">
     </div>
 
     <!-- RIGHT -->
-    <div class="flex items-center gap-2 sm:gap-1 flex-shrink-0">
+    <div class="flex items-center gap-2 sm:gap-1 flex-shrink-0 ">
 
       <!-- PRICE -->
       <div class="flex flex-col items-end">
         <span class="text-[0.58rem] sm:text-[0.72rem]
-                     text-[#4a5568] line-through leading-none">
+                     text-[#4a5568] line-through leading-none pr-0 lg:pr-3">
           ₹499
         </span>
 
         <span class="font-syne
                      text-[1.1rem] sm:text-[1.35rem] lg:text-[1.55rem]
-                     font-extrabold gradient-text leading-none">
+                     font-extrabold gradient-text leading-none pr-0 lg:pr-3">
           ₹49
         </span>
       </div>
@@ -1417,10 +1413,10 @@ border-top:1px solid rgba(59,130,246,.15)">
       <a href="#final-cta"
         class="shine-btn relative overflow-hidden
                flex items-center justify-center
-               px-3 sm:px-20 lg:px-6
-               py-2.5 sm:py-3
+               px-12 sm:px-27 lg:px-10
+               py-2.5 sm:py-3 lg:py-4
                text-[0.68rem] sm:text-[0.82rem]
-               font-bold text-white
+               font-bold text-white lg:text-xl
                rounded-lg sm:rounded-xl
                whitespace-nowrap
                transition-all duration-300
