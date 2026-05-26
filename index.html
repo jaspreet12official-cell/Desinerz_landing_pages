@@ -233,6 +233,7 @@ tailwind.config = {
 }
 
 
+
 /* Global Fix */
 *{
   margin: 0;
@@ -497,7 +498,8 @@ body{
 </nav>
 
 <!-- ===================== HERO ===================== -->
-<section id="hero" class="relative z-[1] min-h-screen flex items-center pt-[0px]  lg:pt-[50px] pb-0 w-full">
+<section id="hero" class="relative z-[1] min-h-screen flex items-center  pt-[0px] md:pt-[4px]
+  lg:pt-[50px] pb-0 w-full">
 
   <div class="grid grid-cols-[42%_58%] gap-6 items-center max-w-[1200px] mx-auto w-full
               max-[900px]:grid-cols-1 max-[900px]:flex max-[900px]:flex-col mx-1 lg:mx-8
@@ -516,8 +518,9 @@ body{
       </div>
 
       <!-- Heading -->
-      <h1 class="font-syne text-[clamp(1rem,1.5vw,1.3rem)] font-bold leading-tight tracking-tight mb-3">
-        This <span class="gradient-text text-[30px]">₹49 </span>Decision Could Change Your Career Forever.
+      <h1 class="font-syne text-[clamp(1rem,1.5vw,1.3rem)] 
+      font-bold leading-tight tracking-tight mb-3">
+        This <span class="gradient-text text-[20px] lg:text-[30px]">₹49 </span>Decision Could Change Your Career Forever.
       </h1>
 
       <!-- Highlighted banner -->
@@ -1025,7 +1028,7 @@ body{
 
 <!-- ===================== CHAT TESTIMONIALS ===================== -->
 <section id="chats" class="relative z-[1] px-4
- sm:px-6  pb-13">
+ sm:px-6  pb-12">
   <div class="text-center lg:mb-8 mb-5 reveal">
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Real Messages
@@ -1123,28 +1126,31 @@ body{
 <section id="certificate" class="relative z-[1] py-14 px-4
  sm:px-6 ">
   <div class="max-w-[900px] mx-auto text-center reveal">
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff] border border-[#00d4ff]/20 mb-5" style="background:rgba(0,212,255,.08)">
+    <div class="inline-flex items-center gap-2 px-4 pt-1.5
+     rounded-full text-[0.72rem] font-mono tracking-[3px] uppercase text-[#00d4ff]
+      border border-[#00d4ff]/20 sm:mb-0 lg:mb-5" style="background:rgba(0,212,255,.08)">
       <span class="pulse-dot w-1.5 h-1.5 rounded-full bg-[#00d4ff] inline-block"></span>Recognition
     </div>
-    <h2 class="font-syne text-3xl font-extrabold mb-3 leading-snug">Certificate <span class="gradient-text">Unlocked</span></h2>
+    <h2 class="font-syne text-3xl font-extrabold mb-1 leading-snug">Certificate <span class="gradient-text">Unlocked</span></h2>
     <p class="text-[#8892b0]">Receive an AI Workshop Participation Certificate upon completion</p>
-    <div class="relative max-w-[700px] mx-auto my-12">
-      <div class="absolute inset-[-20px] rounded-[30px] pointer-events-none" style="background:radial-gradient(ellipse,rgba(245,158,11,.06),transparent 70%)"></div>
-      <div class="flex flex-col items-center gap-4 p-14 rounded-[20px] border-2 border-amber-500/30" style="background:linear-gradient(135deg,rgba(245,158,11,.06),rgba(168,85,247,.06));box-shadow:0 0 60px rgba(245,158,11,.1)">
-        <div class="text-5xl">🏅</div>
-        <div class="font-syne text-[1.6rem] font-extrabold text-amber-400">CERTIFICATE OF COMPLETION</div>
-        <div class="w-[200px] h-[2px] rounded" style="background:linear-gradient(90deg,transparent,#fbbf24,transparent)"></div>
-        <div class="text-[0.82rem] tracking-[2px] text-[#4a5568]">THIS IS TO CERTIFY THAT</div>
-        <div class="text-[1.2rem] font-semibold text-[#8892b0] border-b border-white/10 pb-2.5 min-w-[240px] text-center">Your Name Here</div>
-        <div class="text-[0.82rem] text-[#4a5568] max-w-[400px] leading-relaxed">has successfully completed the <strong class="text-amber-400">Gen AI Powered Graphics + UI/UX Design Workshop</strong> conducted by Desinerz Academy</div>
-        <div class="w-[200px] h-[2px] rounded" style="background:linear-gradient(90deg,transparent,#fbbf24,transparent)"></div>
-        <div class="flex gap-10 text-[0.75rem] text-[#4a5568]">
-          <div class="text-center"><div class="font-bold text-[#f0f4ff]">DESINERZ ACADEMY</div><div>Authorized Signature</div></div>
-          <div class="text-center"><div class="font-bold text-[#f0f4ff]">2025</div><div>Date of Completion</div></div>
-        </div>
-      </div>
-    </div>
-    <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full text-[0.82rem] font-semibold text-amber-400 border border-amber-500/30 mt-5" style="background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(168,85,247,.1))">✦ Verified & Shareable on LinkedIn</div>
+   <div class="relative max-w-[700px] mx-auto my-12">
+ 
+
+  <div class="relative rounded-[20px] overflow-hidden border-2 border-amber-500/30"
+       style="background:linear-gradient(135deg,rgba(245,158,11,.06),rgba(168,85,247,.06));
+              box-shadow:0 0 60px rgba(245,158,11,.1)">
+
+    <!-- Certificate Image -->
+    <img 
+      src="Assets/Certificate.jpeg" 
+      alt="Desinerz Academy Certificate"
+      class="w-full h-auto block object-contain"
+      style="display:block;"
+    />
+
+  </div>
+</div>
+    <div class="inline-flex items-center gap-2 px-5  rounded-full text-[0.82rem] font-semibold text-amber-400 border border-amber-500/30 mt-5" style="background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(168,85,247,.1))">✦ Verified & Shareable on LinkedIn</div>
   </div>
 </section>
 
@@ -1460,22 +1466,33 @@ function toggleMobileNav() { document.getElementById('navLinks')?.classList.togg
 
 // Scroll to
 function scrollToSection(sel) { document.querySelector(sel)?.scrollIntoView({ behavior:'smooth' }); }
-
-// FIX #4: Single shared countdown total, update all three countdowns together
 let total = 11 * 3600 + 47 * 60 + 33;
 const navH = document.getElementById('nav-cd-h');
 const navM = document.getElementById('nav-cd-m');
 const navS = document.getElementById('nav-cd-s');
-const sbH  = document.getElementById('sb-cd-h');
-const sbM  = document.getElementById('sb-cd-m');
-const sbS  = document.getElementById('sb-cd-s');
+const tabH = document.getElementById('tab-cd-h');
+const tabM = document.getElementById('tab-cd-m');
+const tabS = document.getElementById('tab-cd-s');
 
 function updateCountdowns() {
   const h = String(Math.floor(total / 3600)).padStart(2, '0');
   const m = String(Math.floor((total % 3600) / 60)).padStart(2, '0');
   const s = String(total % 60).padStart(2, '0');
-  navH.textContent = h; navM.textContent = m; navS.textContent = s;
-  sbH.textContent  = h; sbM.textContent  = m; sbS.textContent  = s;
+
+  // Navbar desktop
+  if(navH) navH.textContent = h;
+  if(navM) navM.textContent = m;
+  if(navS) navS.textContent = s;
+
+  // Navbar tablet
+  if(tabH) tabH.textContent = h;
+  if(tabM) tabM.textContent = m;
+  if(tabS) tabS.textContent = s;
+
+  // Sticky bar — update ALL elements with these IDs
+  document.querySelectorAll('#sb-cd-h').forEach(el => el.textContent = h);
+  document.querySelectorAll('#sb-cd-m').forEach(el => el.textContent = m);
+  document.querySelectorAll('#sb-cd-s').forEach(el => el.textContent = s);
 }
 
 setInterval(() => {
@@ -1484,18 +1501,50 @@ setInterval(() => {
   updateCountdowns();
 }, 1000);
 
+updateCountdowns(); // run immediately on load
+
 // Carousel
 const students = [
-  { name:'Rohit V.',    company:'https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png', role:'UI Designer',      photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
-  { name:'Ananya M.',   company:'https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png', role:'Product Designer', photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
-  { name:'Karan S.',    company:'https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png', role:'UX Researcher',    photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
-  { name:'Divya P.',    company:'https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png', role:'Graphic Designer', photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
-  { name:'Arjun T.',    company:'https://w7.pngwing.com/pngs/256/867/png-transparent-zomato-logo-thumbnail.png', role:'Visual Designer',  photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
-  { name:'Priyanka R.', company:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Zomato_Logo.jpg/1280px-Zomato_Logo.jpg', role:'UI/UX Lead',     photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
-  { name:'Nikhil B.',   company:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Zomato_Logo.jpg/1280px-Zomato_Logo.jpg', role:'Motion Designer',photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
-  { name:'Shreya K.',   company:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Zomato_Logo.jpg/1280px-Zomato_Logo.jpg', role:'Brand Designer', photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
-  { name:'Aditya C.',   company:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Zomato_Logo.jpg/1280px-Zomato_Logo.jpg', role:'Freelancer',     photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
-  { name:'Kavya N.',    company:'https://1000logos.net/wp-content/uploads/2021/05/Swiggy-logo.jpg',               role:'UX Designer',      photo:'https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_.jpg' },
+  { name:'Diya Anand', 
+   company:'/Assets/Logos/Petro.png', 
+   role:'7+ LPA',     
+    photo:'Assets/Studentsimages/Diya.png' },
+  { name:'Ritika',   
+  company:'/Assets/Logos/AQC.png', 
+  role:'8+ LPA', 
+  photo:'Assets/Studentsimages/Ritika.png' },
+  { name:'Rohini',   
+   company:'/Assets/Logos/Wenasp.png', 
+   role:'12+ LPA',    
+   photo:'Assets/Studentsimages/Rohini.png' },
+  { name:'Sahil Narwal',   
+   company:'/Assets/Logos/CRUX.png', 
+   role:'11+ LPA', 
+   photo:'Assets/Studentsimages/SahilNarwal.png' },
+  { name:'Sandeep',    
+  company:'/Assets/Logos/LeoDigitals.png', 
+  role:'7+ LPA',  
+  photo:'Assets/Studentsimages/sandeep.png' },
+  { name:'Sourav',
+   company:'/Assets/Logos/Nextmed.png', 
+   role:'10+ LPA',     
+   photo:'Assets/Studentsimages/Sourav.png' },
+  { name:'Tushar Kochar',  
+   company:'/Assets/Logos/Petro.png', 
+   role:'9+ LPA',
+   photo:'Assets/Studentsimages/TusharKochar.png' },
+  { name:'Kamakshi',  
+   company:'/Assets/Logos/CRUX.png', 
+   role:'11+ LPA', 
+   photo:'Assets/Studentsimages/Kamakshi.jpeg' },
+  { name:'Neha ',  
+   company:'/Assets/Logos/AQC.png', 
+   role:'12+ LPA',     
+   photo:'Assets/Studentsimages/Neha.jpeg' },
+  { name:'Yogesh',   
+   company:'/Assets/Logos/Investfox.png',           
+       role:'9+ LPA',     
+        photo:'Assets/Studentsimages/Yogesh.jpeg' },
 ];
 
 const carousel = document.getElementById('carousel');
