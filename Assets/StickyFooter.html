@@ -1,0 +1,197 @@
+<div id="sticky-bar"
+  class="fixed bottom-0 left-0 right-0 z-[999] translate-y-full
+   transition-transform duration-500 ease-in-out"
+  style="background:rgba(5,8,22,.88);backdrop-filter:blur(24px);
+border-top:1px solid rgba(59,130,246,.15)">
+
+  <!-- TOP LINE -->
+  <div class="moving-line absolute top-0 left-0 right-0 h-[1px]"></div>
+
+  <!-- MAIN -->
+  <div class="max-w-[1200px] mx-auto 
+              px-3 sm:px-5 md:px-8 lg:px-[5%]
+              py-3 sm:py-3
+              min-h-[78px] sm:min-h-[94px]
+              flex items-center justify-between gap-3 sm:gap-5">
+
+    <!-- LEFT -->
+    <div class="flex items-center flex-1 min-w-0">
+
+      <!-- LOGO DESKTOP -->
+      <div class="hidden lg:flex items-center mr-10 flex-shrink-0">
+        <img src="Assets/Desinerz_academy_light.png"
+          alt="Desinerz Academy"
+          class="h-[38px] xl:h-[42px] w-auto object-contain">
+      </div>
+
+      <!-- MOBILE + TABLET TIMER -->
+      <div class="flex lg:hidden flex-col justify-center">
+
+        <!-- TEXT -->
+        <span class="text-[0.64rem] sm:text-[0.72rem]
+                     font-semibold text-amber-400
+                     tracking-wide leading-none mb-1">
+          ⚡ Offer expires in
+        </span>
+
+        <!-- TIMER -->
+        <div class="flex items-center">
+
+          <!-- HOURS -->
+          <div class="flex flex-col items-center min-w-[32px] sm:min-w-[40px]">
+            <span class="font-mono text-[0.95rem] sm:text-[1rem]
+                         font-bold text-[#00d4ff] leading-none"
+              id="sb-cd-h">11</span>
+
+            <span class="text-[0.42rem] sm:text-[0.48rem]
+                         uppercase tracking-[1px]
+                         text-[#4a5568] mt-0.5">
+              Hr
+            </span>
+          </div>
+
+          <span class="text-sm sm:text-base font-bold
+                       text-[#00d4ff] opacity-40
+                       pb-2 mx-0.5 sm:mx-1">
+            :
+          </span>
+
+          <!-- MIN -->
+          <div class="flex flex-col items-center min-w-[32px] sm:min-w-[40px]">
+            <span class="font-mono text-[0.95rem] sm:text-[1rem]
+                         font-bold text-[#00d4ff] leading-none"
+              id="sb-cd-m">47</span>
+
+            <span class="text-[0.42rem] sm:text-[0.48rem]
+                         uppercase tracking-[1px]
+                         text-[#4a5568] mt-0.5">
+              Min
+            </span>
+          </div>
+
+          <span class="text-sm sm:text-base font-bold
+                       text-[#00d4ff] opacity-40
+                       pb-2 mx-0.5 sm:mx-1">
+            :
+          </span>
+
+          <!-- SEC -->
+          <div class="flex flex-col items-center min-w-[32px] sm:min-w-[40px]">
+            <span class="font-mono text-[0.95rem] sm:text-[1rem]
+                         font-bold text-[#00d4ff] leading-none"
+              id="sb-cd-s">33</span>
+
+            <span class="text-[0.42rem] sm:text-[0.48rem]
+                         uppercase tracking-[1px]
+                         text-[#4a5568] mt-0.5">
+              Sec
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DESKTOP TIMER -->
+      <div class="hidden lg:flex items-center gap-4 mx-auto">
+
+        <span class="text-[0.78rem] font-semibold
+                     text-amber-400 tracking-wide whitespace-nowrap">
+          ⚡ Offer expires in
+        </span>
+
+        <div class="flex items-center">
+
+          <!-- HOURS -->
+          <div class="flex flex-col items-center min-w-[48px]">
+            <span class="font-mono text-[1.15rem]
+                         font-bold text-[#00d4ff] leading-none"
+              id="sb-cd-h">11</span>
+
+            <span class="text-[0.55rem]
+                         uppercase tracking-[2px]
+                         text-[#4a5568] mt-1">
+              Hours
+            </span>
+          </div>
+
+          <span class="text-xl font-bold text-[#00d4ff]
+                       opacity-40 pb-3 mx-1">
+            :
+          </span>
+
+          <!-- MIN -->
+          <div class="flex flex-col items-center min-w-[48px]">
+            <span class="font-mono text-[1.15rem]
+                         font-bold text-[#00d4ff] leading-none"
+              id="sb-cd-m">47</span>
+
+            <span class="text-[0.55rem]
+                         uppercase tracking-[2px]
+                         text-[#4a5568] mt-1">
+              Min
+            </span>
+          </div>
+
+          <span class="text-xl font-bold text-[#00d4ff]
+                       opacity-40 pb-3 mx-1">
+            :
+          </span>
+
+          <!-- SEC -->
+          <div class="flex flex-col items-center min-w-[48px]">
+            <span class="font-mono text-[1.15rem]
+                         font-bold text-[#00d4ff] leading-none"
+              id="sb-cd-s">33</span>
+
+            <span class="text-[0.55rem]
+                         uppercase tracking-[2px]
+                         text-[#4a5568] mt-1">
+              Sec
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="flex items-center gap-2 sm:gap-1 flex-shrink-0 ">
+
+      <!-- PRICE -->
+      <div class="flex flex-col items-end">
+        <span class="text-[0.58rem] sm:text-[0.72rem]
+                     text-[#4a5568] line-through leading-none pr-0 lg:pr-3">
+          ₹499
+        </span>
+
+        <span class="font-syne
+                     text-[1.1rem] sm:text-[1.35rem] lg:text-[1.55rem]
+                     font-extrabold gradient-text leading-none pr-0 lg:pr-3">
+          ₹49
+        </span>
+      </div>
+
+      <!-- BUTTON -->
+      <a href="#final-cta"
+        class="shine-btn relative overflow-hidden
+               flex items-center justify-center
+               px-12 sm:px-27 lg:px-10
+               py-2.5 sm:py-3 lg:py-4
+               text-[0.68rem] sm:text-[0.82rem]
+               font-bold text-white lg:text-xl
+               rounded-lg sm:rounded-xl
+               whitespace-nowrap
+               transition-all duration-300
+               hover:-translate-y-0.5
+               hover:shadow-[0_8px_30px_rgba(59,130,246,.45)]"
+        style="background:linear-gradient(135deg,#f63b3b,#a855f7)">
+
+        Reserve Seat ✦
+
+      </a>
+
+    </div>
+
+  </div>
+</div>

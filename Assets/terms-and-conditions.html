@@ -94,6 +94,7 @@
 </head>
 
 <body class="min-h-screen overflow-x-hidden">
+<div id="navbar-container"></div>
 
 <!-- BG layers -->
 <div class="grid-bg fixed inset-0 pointer-events-none z-0"></div>
@@ -323,7 +324,8 @@ sm:px-6 lg:px-8 py-8 sm:py-16 lg:py-10">
   </p>
 
 </main>
-
+<div id="footer-container"></div>
+<div id="stickybar-container"></div>
 <script>
   // Scroll reveal
   document.querySelectorAll('.reveal').forEach(el =>
@@ -331,6 +333,109 @@ sm:px-6 lg:px-8 py-8 sm:py-16 lg:py-10">
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 }).observe(el)
   );
+
+// Reveal animation
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  setTimeout(() => {
+    el.classList.remove('opacity-0', 'translate-y-5');
+  }, i * 150);
+});
+
+// Inject Navbar
+fetch('./navbar.html')
+  .then(r => r.text())
+  .then(html => {
+    document.getElementById('navbar-container').innerHTML = html;
+    // Fix image paths
+    document.querySelectorAll('#navbar-container img').forEach(img => {
+      img.src = img.getAttribute('src').replace('Assets/', '../Assets/');
+    });
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    if (navbar) {
+      window.addEventListener('scroll', () => {
+        navbar.style.background = window.scrollY > 40
+          ? 'rgba(5,8,22,.85)'
+          : 'rgba(5,8,22,.4)';
+      });
+    }
+    // Countdown
+    let total = 11 * 3600 + 47 * 60 + 33;
+    function tick() {
+      if (total <= 0) { total = 12 * 3600; return; }
+      total--;
+      const h = String(Math.floor(total / 3600)).padStart(2, '0');
+      const m = String(Math.floor((total % 3600) / 60)).padStart(2, '0');
+      const s = String(total % 60).padStart(2, '0');
+      const ids = [['nav-cd-h',h],['nav-cd-m',m],['nav-cd-s',s],
+                   ['tab-cd-h',h],['tab-cd-m',m],['tab-cd-s',s]];
+      ids.forEach(([id, val]) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = val;
+      });
+    }
+    setInterval(tick, 1000);
+    tick();
+  });
+
+// Inject Footer
+fetch('./footer.html')
+  .then(r => r.text())
+  .then(html => {
+    document.getElementById('footer-container').innerHTML = html;
+    // Fix image paths
+    document.querySelectorAll('#footer-container img').forEach(img => {
+      img.src = img.getAttribute('src').replace('Assets/', '../Assets/');
+    });
+    // Fix footer links
+    document.querySelectorAll('#footer-container a').forEach(a => {
+      const href = a.getAttribute('href');
+      if (href && href.startsWith('Assets/')) {
+        a.href = '../' + href;
+      }
+    });
+  });
+
+function scrollToSection(sel) {
+  document.querySelector(sel)?.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Inject Sticky Bar
+fetch('./StickyFooter.html')
+  .then(r => r.text())
+  .then(html => {
+    document.getElementById('stickybar-container').innerHTML = html;
+
+    // Fix image paths
+    document.querySelectorAll('#stickybar-container img').forEach(img => {
+      img.src = img.getAttribute('src').replace('Assets/', './Assets/');
+    });
+
+    // Sticky bar show/hide on scroll
+    const stickyBar = document.getElementById('sticky-bar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        stickyBar.classList.remove('translate-y-full');
+      } else {
+        stickyBar.classList.add('translate-y-full');
+      }
+    });
+
+    // Sticky bar countdown
+    let sbTotal = 11 * 3600 + 47 * 60 + 33;
+    function sbTick() {
+      if (sbTotal <= 0) { sbTotal = 12 * 3600; return; }
+      sbTotal--;
+      const h = String(Math.floor(sbTotal / 3600)).padStart(2, '0');
+      const m = String(Math.floor((sbTotal % 3600) / 60)).padStart(2, '0');
+      const s = String(sbTotal % 60).padStart(2, '0');
+      document.querySelectorAll('#sb-cd-h').forEach(el => el.textContent = h);
+      document.querySelectorAll('#sb-cd-m').forEach(el => el.textContent = m);
+      document.querySelectorAll('#sb-cd-s').forEach(el => el.textContent = s);
+    }
+    setInterval(sbTick, 1000);
+    sbTick();
+  });
 </script>
 </body>
 </html>

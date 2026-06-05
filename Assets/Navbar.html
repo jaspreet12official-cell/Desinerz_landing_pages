@@ -1,0 +1,97 @@
+<nav id="navbar"
+  class="lg:fixed relative top-0 left-0 right-0 z-[1000] h-[76px] md:h-[84px]
+   flex items-center justify-between
+   px-4 md:px-6 lg:px-[5%]
+   border-b border-white/5
+   transition-all duration-300 overflow-hidden"
+  style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
+
+  <!-- LEFT : LOGO -->
+  <div class="flex items-center flex-shrink-0 min-w-0">
+    <img src="Assets/Desinerz_academy_light.png" alt="Desinerz Academy"
+      class="h-[32px] sm:h-[36px] lg:h-[40px] w-auto object-contain"/>
+  </div>
+
+  <!-- DESKTOP CENTER -->
+  <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-3">
+    <div class="flex items-center gap-1.5 px-3 py-1 rounded-full border border-red-500/25 text-[0.68rem] font-semibold text-red-400"
+      style="background:rgba(239,68,68,.08)">
+      <span class="w-1.5 h-1.5 rounded-full bg-red-500 pulse-dot inline-block"></span>
+      LIMITED OFFER
+    </div>
+    <div class="flex items-center gap-3 px-5 py-2 rounded-xl border border-purple-500/25"
+      style="background:rgba(168,85,247,.08)">
+      <span class="text-sm text-[#4a5568] line-through">₹499</span>
+      <span class="text-[1.8rem] font-extrabold font-syne gradient-text leading-none">₹49</span>
+      <div class="flex flex-col gap-0.5">
+        <span class="text-[0.6rem] font-bold px-2 py-0.5 rounded-full text-white tracking-wide"
+          style="background:linear-gradient(135deg,#ef4444,#dc2626)">90% OFF</span>
+        <span class="text-[0.55rem] text-[#4a5568] tracking-wide text-center">TODAY ONLY</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-red-500/20 text-[0.65rem] font-semibold text-red-400"
+      style="background:rgba(239,68,68,.08)">
+      🔥 Only <span class="text-white font-bold mx-0.5">12</span> seats left
+    </div>
+  </div>
+
+  <!-- TABLET CENTER -->
+  <div class="hidden md:flex lg:hidden items-center gap-5 mx-auto">
+    <div class="flex items-center" id="countdown-tablet">
+      <div class="flex flex-col items-center min-w-[46px]">
+        <span class="font-mono text-[1.2rem] font-bold text-[#00d4ff]" id="tab-cd-h">11</span>
+        <span class="text-[0.58rem] uppercase tracking-[1px] text-[#4a5568]">Hr</span>
+      </div>
+      <span class="text-[1.2rem] text-[#00d4ff] opacity-40 pb-3 mx-1">:</span>
+      <div class="flex flex-col items-center min-w-[46px]">
+        <span class="font-mono text-[1.2rem] font-bold text-[#00d4ff]" id="tab-cd-m">47</span>
+        <span class="text-[0.58rem] uppercase tracking-[1px] text-[#4a5568]">Min</span>
+      </div>
+      <span class="text-[1.2rem] text-[#00d4ff] opacity-40 pb-3 mx-1">:</span>
+      <div class="flex flex-col items-center min-w-[46px]">
+        <span class="font-mono text-[1.2rem] font-bold text-[#00d4ff]" id="tab-cd-s">33</span>
+        <span class="text-[0.58rem] uppercase tracking-[1px] text-[#4a5568]">Sec</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="hidden md:flex items-center gap-4 flex-shrink-0">
+    <!-- DESKTOP TIMER -->
+    <div class="hidden lg:flex items-center" id="countdown">
+      <div class="flex flex-col items-center min-w-[48px]">
+        <span class="font-mono text-[1.2rem] font-bold text-[#00d4ff]" id="nav-cd-h">11</span>
+        <span class="text-[0.58rem] uppercase tracking-[1px] text-[#4a5568]">Hours</span>
+      </div>
+      <span class="text-[1.25rem] font-bold text-[#00d4ff] opacity-40 pb-3 mx-1">:</span>
+      <div class="flex flex-col items-center min-w-[48px]">
+        <span class="font-mono text-[1.2rem] font-bold text-[#00d4ff]" id="nav-cd-m">47</span>
+        <span class="text-[0.58rem] uppercase tracking-[1px] text-[#4a5568]">Min</span>
+      </div>
+      <span class="text-[1.25rem] font-bold text-[#00d4ff] opacity-40 pb-3 mx-1">:</span>
+      <div class="flex flex-col items-center min-w-[48px]">
+        <span class="font-mono text-[1.2rem] font-bold text-[#00d4ff]" id="nav-cd-s">33</span>
+        <span class="text-[0.58rem] uppercase tracking-[1px] text-[#4a5568]">Sec</span>
+      </div>
+    </div>
+    <!-- CTA -->
+    <button onclick="scrollToSection('#final-cta')"
+      class="shine-btn relative overflow-hidden px-7 sm:px-10 lg:px-7 py-3
+             text-[0.92rem] lg:text-[1rem] font-bold text-white rounded-xl
+             transition-all duration-300 hover:-translate-y-px whitespace-nowrap"
+      style="background:linear-gradient(135deg,#f63b3b,#a855f7)">
+      Enroll Now
+    </button>
+  </div>
+
+  <!-- MOBILE -->
+  <div class="flex md:hidden items-center">
+    <button onclick="scrollToSection('#final-cta')"
+      class="shine-btn relative overflow-hidden px-5 py-3 text-[0.9rem]
+             font-bold text-white rounded-xl whitespace-nowrap transition-all duration-300"
+      style="background:linear-gradient(135deg,#f63b3b,#a855f7)">
+      🚀 Enroll Now
+    </button>
+  </div>
+
+</nav>
