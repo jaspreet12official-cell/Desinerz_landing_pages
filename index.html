@@ -278,12 +278,12 @@ body{
 
   <!-- ================= LEFT : LOGO ================= -->
   <div class="flex items-center flex-shrink-0 min-w-0">
-
+<a href="/index.html"  aria-label="Go to Home Page">
     <img
       src="Assets/Desinerz_academy_light.png"
       alt="Desinerz Academy"
       class="h-[32px] sm:h-[36px] lg:h-[40px] w-auto object-contain" />
-
+</a>
   </div>
 
 
@@ -506,7 +506,7 @@ body{
     <!-- ═══ TOP HEADING — full width, centered, ALL screen sizes ═══ -->
     <div class="reveal text-center mb-5 max-[900px]:mb-3">
       <h1 class="font-syne text-3xl font-extrabold mb-3.5 leading-snug 
-      text-[clamp(1.1rem,2vw,1.5rem)]
+      text-[clamp(2rem,2vw,1.5rem)]
         font-bold leading-tight tracking-tight">
         This <span class="gradient-text text-[28px] lg:text-[42px]">₹49 </span>Decision Could Change Your Career Forever.
       </h1>
@@ -646,6 +646,33 @@ body{
           </div>
 
         </div>
+
+        <div id="countdown"
+     class="hidden lg:flex w-full items-center justify-evenly
+            rounded-2xl py-4 mt-2 overflow-hidden
+            border border-white/10"
+     style="background:rgba(255,255,255,.03)">
+
+  <div class="flex flex-col items-center flex-1">
+    <span class="font-mono text-[2rem] font-bold text-[#00d4ff]" id="nav-cd-h">11</span>
+    <span class="text-[0.7rem] uppercase tracking-[2px] text-[#4a5568]">Hours</span>
+  </div>
+
+  <div class="text-[2rem] font-bold text-[#00d4ff] opacity-40">:</div>
+
+  <div class="flex flex-col items-center flex-1">
+    <span class="font-mono text-[2rem] font-bold text-[#00d4ff]" id="nav-cd-m">47</span>
+    <span class="text-[0.7rem] uppercase tracking-[2px] text-[#4a5568]">Min</span>
+  </div>
+
+  <div class="text-[2rem] font-bold text-[#00d4ff] opacity-40">:</div>
+
+  <div class="flex flex-col items-center flex-1">
+    <span class="font-mono text-[2rem] font-bold text-[#00d4ff]" id="nav-cd-s">33</span>
+    <span class="text-[0.7rem] uppercase tracking-[2px] text-[#4a5568]">Sec</span>
+  </div>
+
+</div>
 
       </div>
 
@@ -1366,64 +1393,100 @@ body{
 
 <!-- ===================== FOOTER ===================== -->
 <footer class="relative z-[1] pt-2 pb-10 sm:pt-12 sm:pb-20 lg:pt-14 lg:pb-24 px-4 sm:px-6 lg:px-[5%]"
- style="border-top:1px solid rgba(59,130,246,.15)">
-  <div class="absolute top-[-1px] left-0 right-0 h-[1px]" style="background:linear-gradient(90deg,transparent,#00d4ff,#a855f7,transparent);box-shadow:0 0 20px rgba(59,130,246,.4)"></div>
-  <div class="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 
-  gap-y-8 sm:gap-y-10 mb-10  gap-x-8">
-    <!-- Logo Section -->
+  style="border-top:1px solid rgba(59,130,246,.15)">
+
+  <div class="absolute top-[-1px] left-0 right-0 h-[1px]"
+    style="background:linear-gradient(90deg,transparent,#00d4ff,#a855f7,transparent);
+           box-shadow:0 0 20px rgba(59,130,246,.4)"></div>
+
+  <div class="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
+              gap-y-8 sm:gap-y-10 mb-10 gap-x-8">
+
+    <!-- Logo -->
     <div class="flex flex-col items-center sm:items-start text-center sm:text-left">
-      <img src="Assets/Desinerz_academy_light.png" alt="Desinerz Academy" class="h-[32px] sm:h-[36px] md:h-[40px] w-auto object-contain"/>
-      <p class="mt-3 text-[0.85rem] leading-relaxed text-[#8892b0] max-w-[280px]">India's most practical design workshop platform.</p>
+      <img src="Assets/Desinerz_academy_light.png" alt="Desinerz Academy"
+        class="h-[32px] sm:h-[36px] md:h-[40px] w-auto object-contain"/>
+      <p class="mt-3 text-[0.85rem] leading-relaxed text-[#8892b0] max-w-[280px]">
+        India's most practical design workshop platform.
+      </p>
     </div>
+
     <!-- Quick Links -->
     <div class="text-center sm:text-left">
       <h4 class="font-syne text-[0.78rem] tracking-[2px] uppercase text-[#8892b0] mb-4">Quick Links</h4>
       <ul class="flex flex-col gap-2.5">
-        <li><a href="Assets/terms-and-conditions.html" class="text-[0.88rem] text-[#8892b0] 
-          hover:text-white transition-all duration-300">Terms & Conditions</a></li>
-        <li><a href="Assets/privacy-policy.html" class="text-[0.88rem] text-[#8892b0] 
-          hover:text-white transition-all duration-300">Privacy Policy</a></li>
+        <li><a href="Assets/terms-and-conditions.html" target="_blank" rel="noopener noreferrer"
+          class="text-[0.88rem] text-[#8892b0] hover:text-white transition-all duration-300">
+          Terms & Conditions</a></li>
+        <li><a href="Assets/privacy-policy.html" target="_blank" rel="noopener noreferrer"
+          class="text-[0.88rem] text-[#8892b0] hover:text-white transition-all duration-300">
+          Privacy Policy</a></li>
       </ul>
     </div>
+
     <!-- Contact -->
     <div class="text-center sm:text-left">
       <h4 class="font-syne text-[0.78rem] tracking-[2px] uppercase text-[#8892b0] mb-4">Contact</h4>
       <ul class="flex flex-col gap-3">
-        <li class="flex items-start justify-center sm:justify-start cursor-pointer gap-2.5 text-[#8892b0] text-[0.85rem] break-all">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l9 6 9-6m-18 8h18V8H3v8z"/></svg>
-          <span>hello@desinerz.academy</span>
+        <li class="flex items-start justify-center sm:justify-start gap-2.5 text-[#8892b0] text-[0.85rem] break-all cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l9 6 9-6m-18 8h18V8H3v8z"/></svg>
+          <a href="mailto:hello@desinerz.academy" target="_blank" rel="noopener noreferrer"
+            class="text-[#8892b0] hover:text-white transition-all duration-300">
+            hello@desinerz.academy
+          </a>
         </li>
-        <li class="flex items-start justify-center sm:justify-start  cursor-pointer gap-2.5 text-[#8892b0] text-[0.85rem]">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4  h-4 flex-shrink-0 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.547 2.19a2 2 0 01-.502 1.94l-1.27 1.27a16 16 0 006.364 6.364l1.27-1.27a2 2 0 011.94-.502l2.19.547A2 2 0 0121 16.72V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-          <span>+91 98765 43210</span>
+        <li class="flex items-start justify-center sm:justify-start gap-2.5 text-[#8892b0] text-[0.85rem] cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 5a2 2 0 012-2h2.28a2 2 0 011.94 1.515l.547 2.19a2 2 0 01-.502 1.94l-1.27 1.27a16 16 0 006.364 6.364l1.27-1.27a2 2 0 011.94-.502l2.19.547A2 2 0 0121 16.72V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          <a href="tel:+919876543210" target="_blank" rel="noopener noreferrer"
+            class="text-[#8892b0] hover:text-white transition-all duration-300">
+            +91 7027948583
+          </a>
         </li>
-        <li class="flex items-start justify-center sm:justify-start cursor-pointer gap-2.5 text-[#8892b0] text-[0.85rem]
-         break-all">
-          <svg xmlns="https://desinerzacademy.com/" class="w-4 h-4 flex-shrink-0 mt-[2px]"
-           fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12A9 9 0 1112 3m0 0c2.5 2.5 4 5.5 4 9s-1.5 6.5-4 9m0-18c-2.5 2.5-4 5.5-4 9s1.5 6.5 4 9"/></svg>
-          <span>desinerzacademy.com</span>
+        <li class="flex items-start justify-center sm:justify-start gap-2.5 text-[#8892b0] text-[0.85rem] break-all cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 12A9 9 0 1112 3m0 0c2.5 2.5 4 5.5 4 9s-1.5 6.5-4 9m0-18c-2.5 2.5-4 5.5-4 9s1.5 6.5 4 9"/></svg>
+          <a href="https://desinerzacademy.com" target="_blank" rel="noopener noreferrer"
+            class="text-[#8892b0] hover:text-white transition-all duration-300">
+            desinerzacademy.com
+          </a>
         </li>
       </ul>
     </div>
-    <!-- Social Media -->
+
+    <!-- Social -->
     <div class="text-center sm:text-left">
       <h4 class="font-syne text-[0.78rem] tracking-[2px] uppercase text-[#8892b0] mb-4">Follow Us</h4>
       <div class="flex flex-wrap justify-center sm:justify-start gap-3">
-        <a href="https://www.instagram.com/desinerz.ig/?hl=en" class="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)">
+        <a href="https://www.instagram.com/desinerz.ig/?hl=en" target="_blank" rel="noopener noreferrer"
+          class="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105"
+          style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)">
           <i class="fab fa-instagram text-white text-[16px]"></i>
         </a>
-        <a href="YOUR_LINKEDIN_LINK" class="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 bg-[#0077b5]">
+        <a href="https://www.linkedin.com/company/desinerz-creative-agency/" target="_blank" rel="noopener noreferrer"
+          class="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 bg-[#0077b5]">
           <i class="fab fa-linkedin-in text-white text-[16px]"></i>
         </a>
-        <a href="YOUR_FACEBOOK_LINK" class="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 bg-[#1877f2]">
+        <a href="https://www.facebook.com/share/1AivdUF8hc/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer"
+          class="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 bg-[#1877f2]">
           <i class="fab fa-facebook-f text-white text-[16px]"></i>
         </a>
-        <a href="YOUR_WHATSAPP_LINK" class="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 bg-[#25d366]">
+        <a href="https://wa.me/7027948583" target="_blank" rel="noopener noreferrer"
+          class="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 bg-[#25d366]">
           <i class="fab fa-whatsapp text-white text-[16px]"></i>
         </a>
       </div>
     </div>
+
   </div>
+
+  <div class="mt-10 sm:mt-12 h-[1.5px] w-full rounded-full opacity-30"
+    style="background:linear-gradient(90deg,#27E6FF 0%,#D9FF3F 25%,#FF9A3D 55%,#FF4D8D 100%)"></div>
+  <p class="my-5 text-center text-[0.75rem] text-[#4a5568] tracking-wide">
+    © 2026 Desinerz Academy. All rights reserved.
+  </p>
+
 </footer>
 
 <!-- ===================== STICKY CTA BAR ===================== -->
