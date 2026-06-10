@@ -42,6 +42,194 @@ tailwind.config = {
     0% { background-position: -100% 0; }
     100% { background-position: 200% 0; }
   }
+
+@media (min-width: 768px) and (max-width: 860px) {
+
+  /* NAVBAR */
+  #navbar { height: 70px; padding-left: 16px; padding-right: 16px; }
+
+  /* HERO */
+  #hero { padding-top: 16px; padding-bottom: 24px; min-height: auto; }
+  #hero h1 { font-size: 1.65rem !important; line-height: 1.25; }
+  #hero .grid.grid-cols-\[40\%_60\%\] { display: flex; flex-direction: column; }
+  #hero .grid.grid-cols-2 { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  #hero #countdown { display: flex !important; }
+
+  /* LEARN */
+  #learn { padding: 28px 20px; }
+  #learn .grid.grid-cols-3 { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  #learn h2 { font-size: 1.55rem !important; }
+
+  /* MENTOR */
+  #mentor { padding: 28px 20px; }
+  #mentor .max-w-\[1100px\] { grid-template-columns: 1fr !important; display: flex !important; flex-direction: column; }
+  #mentor .hidden.lg\:flex { display: none !important; }
+  #mentor .lg\:hidden { display: block !important; }
+  #mentor .text-center.lg\:text-left,
+  #mentor .reveal.w-full.min-w-0.flex.flex-col { text-align: center; }
+  #mentor .grid.grid-cols-2 { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  #mentor .flex.items-center.md\:justify-center { justify-content: center; }
+
+  /* BONUSES */
+  #bonuses { padding: 28px 20px; }
+  #bonuses .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 { grid-template-columns: 1fr; }
+  .bonus-card { text-align: center !important; }
+
+  /* FOR WHO */
+  #forwho { padding: 20px; }
+  #forwho .grid.grid-cols-3 { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .who-card { min-height: 90px; }
+
+  /* TESTIMONIALS */
+  #testimonials { padding: 28px 20px; }
+  #testimonial-track .min-w-full.grid { grid-template-columns: 1fr !important; }
+
+  /* FAQ */
+  #faq { padding: 28px 20px; }
+  #faq .grid.grid-cols-2 { grid-template-columns: 1fr; }
+
+  /* CERTIFICATE */
+  #certificate { padding: 28px 20px; }
+  #certificate .max-w-\[700px\] { max-width: 100%; }
+
+  /* FINAL CTA */
+  #final-cta { padding: 36px 20px; }
+  #final-cta h2 { font-size: 1.7rem !important; }
+  #final-cta .flex.gap-4.justify-center { flex-direction: column; align-items: center; }
+  #final-cta .flex.gap-4.justify-center a { width: 100%; max-width: 340px; justify-content: center; }
+
+  /* FOOTER */
+  footer { padding: 28px 20px 90px; }
+  footer .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+
+  /* STICKY BAR — use mobile timer layout */
+  #sticky-bar .hidden.lg\:flex.items-center.gap-4 { display: none !important; }
+  #sticky-bar .flex.lg\:hidden { display: flex !important; }
+  #sticky-bar a.shine-btn { padding: 10px 20px; font-size: 0.82rem; }
+
+  /* GLOBAL */
+  .font-syne.text-3xl { font-size: 1.55rem !important; }
+  .orb { width: 200px !important; height: 200px !important; }
+  .bento-card h3, .bonus-card h3 { font-size: 0.88rem; }
+  .carousel-track > div { width: 175px !important; }
+}
+
+
+/* ── MID TABLET: 860–960px ─────────────────────────────
+   Two-column hero, mixed grid layouts
+   ──────────────────────────────────────────────────────── */
+@media (min-width: 860px) and (max-width: 960px) {
+
+  /* NAVBAR */
+  #navbar { height: 72px; padding-left: 20px; padding-right: 20px; }
+
+  /* HERO */
+  #hero { padding-top: 20px; min-height: auto; }
+  #hero h1 { font-size: 1.75rem !important; line-height: 1.25; }
+  #hero .grid.grid-cols-\[40\%_60\%\] { grid-template-columns: 1fr 1fr; gap: 18px; }
+  #hero #countdown { display: flex !important; }
+
+  /* LEARN: 2 col */
+  #learn { padding: 32px 20px; }
+  #learn .grid.grid-cols-3 { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  #learn h2 { font-size: 1.65rem !important; }
+
+  /* MENTOR: stacked */
+  #mentor { padding: 32px 20px; }
+  #mentor .max-w-\[1100px\] { grid-template-columns: 1fr !important; display: flex !important; flex-direction: column; }
+  #mentor .hidden.lg\:flex { display: none !important; }
+  #mentor .lg\:hidden { display: block !important; }
+  #mentor .text-center.lg\:text-left { text-align: center; }
+  #mentor .grid.grid-cols-2 { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  #mentor .flex.items-center.md\:justify-center { justify-content: center; }
+
+  /* BONUSES: 2 col */
+  #bonuses { padding: 32px 20px; }
+  #bonuses .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+  /* FOR WHO: 3 col */
+  #forwho { padding: 24px 20px; }
+  #forwho .grid.grid-cols-3 { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .who-card { min-height: 88px; }
+
+  /* TESTIMONIALS: 2 col */
+  #testimonials { padding: 32px 20px; }
+  #testimonial-track .min-w-full.grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* FAQ: 2 col */
+  #faq { padding: 32px 20px; }
+  #faq .grid.grid-cols-2 { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+  /* FINAL CTA */
+  #final-cta { padding: 40px 20px; }
+  #final-cta h2 { font-size: 1.75rem !important; }
+  #final-cta .flex.gap-4.justify-center { flex-direction: row; flex-wrap: wrap; }
+
+  /* FOOTER */
+  footer { padding: 32px 20px 80px; }
+  footer .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+
+  /* STICKY BAR — desktop timer visible */
+  #sticky-bar .hidden.lg\:flex.items-center.gap-4 { display: flex !important; }
+  #sticky-bar .flex.lg\:hidden { display: none !important; }
+
+  /* GLOBAL */
+  .font-syne.text-3xl { font-size: 1.65rem !important; }
+  .orb { width: 220px !important; height: 220px !important; }
+  .carousel-track > div { width: 182px !important; }
+}
+
+
+/* ── WIDE TABLET / iPad Pro: 960–1024px ────────────────
+   Near-desktop layout with minor tweaks
+   ──────────────────────────────────────────────────────── */
+@media (min-width: 960px) and (max-width: 1024px) {
+
+  /* NAVBAR */
+  #navbar { height: 76px; padding-left: 24px; padding-right: 24px; }
+
+  /* HERO */
+  #hero { padding-top: 24px; min-height: auto; }
+  #hero h1 { font-size: 1.9rem !important; }
+  #hero .grid.grid-cols-\[40\%_60\%\] { grid-template-columns: 40% 60%; gap: 20px; }
+  #hero #countdown { display: flex !important; }
+
+  /* LEARN: 3 col */
+  #learn { padding: 36px 24px; }
+  #learn .grid.grid-cols-3 { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+  /* MENTOR: side-by-side */
+  #mentor { padding: 36px 24px; }
+  #mentor .max-w-\[1100px\] { grid-template-columns: 55% 45% !important; display: grid !important; }
+  #mentor .hidden.lg\:flex { display: flex !important; }
+  #mentor .lg\:hidden { display: none !important; }
+
+  /* BONUSES: 3 col */
+  #bonuses { padding: 36px 24px; }
+  #bonuses .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+  /* FOR WHO: 3 col */
+  #forwho .grid.grid-cols-3 { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+  /* TESTIMONIALS: 3 col */
+  #testimonials { padding: 36px 24px; }
+  #testimonial-track .min-w-full.grid { grid-template-columns: repeat(3, 1fr) !important; }
+
+  /* FAQ: 2 col */
+  #faq { padding: 36px 24px; }
+  #faq .grid.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+  /* FOOTER: 4 col */
+  footer .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+  /* STICKY BAR — desktop timer */
+  #sticky-bar .hidden.lg\:flex.items-center.gap-4 { display: flex !important; }
+  #sticky-bar .flex.lg\:hidden { display: none !important; }
+
+  /* GLOBAL */
+  .font-syne.text-3xl { font-size: 1.75rem !important; }
+  .orb { width: 280px !important; height: 280px !important; }
+}
   .moving-line {
     background: linear-gradient(90deg, transparent, transparent, #00d4ff, #a855f7, transparent, transparent);
     background-size: 50% 100%;
@@ -753,7 +941,7 @@ body{
     <p class="text-[#8892b0] text-base max-w-[540px] mx-auto mb-0 lg:mb-0 sm:mb-5">Everything you need to understand modern design careers in 2026.</p>
   </div>
 
-  <div class="grid grid-cols-3 gap-4 max-w-[1100px] mx-auto max-[900px]:grid-cols-2 max-[600px]:grid-cols-1">
+  <div class="grid grid-cols-3 gap-4 mt-2 max-w-[1100px] mx-auto max-[900px]:grid-cols-2 max-[600px]:grid-cols-1">
 
     <!-- Card 1 -->
     <div class="bento-card rounded-[18px] relative overflow-hidden border border-transparent cursor-default transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_20px_60px_rgba(0,0,0,.5)] reveal flex flex-col" style="background:rgba(255,255,255,.03);--card-from:rgba(59,130,246,.06)">
@@ -1951,6 +2139,126 @@ window.addEventListener('scroll', () => {
   });
 })();
 
+const testimonials = [
+  {
+    name: "Rahul Sharma",
+    video: "./videos/video1.mp4",
+  },
+  {
+    name: "Priya Mehta",
+    video: "./videos/video2.mp4",
+  },
+  {
+    name: "Arjun Nair",
+    video: "./videos/video3.mp4",
+  },
+  {
+    name: "Sneha Verma",
+    video: "./videos/video4.mp4",
+  },
+  {
+    name: "Vikram Singh",
+    video: "./videos/video5.mp4",
+  },
+  {
+    name: "Neha Kapoor",
+    video: "./videos/video6.mp4",
+  }
+];
+
+const track = document.getElementById("testimonial-track");
+const dotsContainer = document.getElementById("t-dots");
+
+function getCardsPerSlide() {
+  if (window.innerWidth < 768) return 1;
+  if (window.innerWidth < 1024) return 2;
+  return 3;
+}
+
+let currentSlide = 0;
+
+function renderTestimonials() {
+  const cardsPerSlide = getCardsPerSlide();
+  const totalSlides = Math.ceil(testimonials.length / cardsPerSlide);
+
+  track.innerHTML = "";
+  dotsContainer.innerHTML = "";
+
+  for (let i = 0; i < totalSlides; i++) {
+    const slide = document.createElement("div");
+
+    slide.className =
+      "min-w-full grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
+
+    const start = i * cardsPerSlide;
+    const end = start + cardsPerSlide;
+
+    testimonials.slice(start, end).forEach((item) => {
+      slide.innerHTML += `
+        <div class="rounded-2xl overflow-hidden bg-white/[.03] border border-white/10">
+          <video
+            class="w-full aspect-video object-cover"
+            controls
+            preload="metadata"
+          >
+            <source src="${item.video}" type="video/mp4">
+          </video>
+
+          <div class="p-4">
+            <div class="text-amber-400 text-sm mb-1">★★★★★</div>
+            <div class="font-semibold">${item.name}</div>
+          </div>
+        </div>
+      `;
+    });
+
+    track.appendChild(slide);
+
+    const dot = document.createElement("button");
+    dot.className =
+      "w-2.5 h-2.5 rounded-full bg-white/20 transition";
+
+    dot.addEventListener("click", () => {
+      currentSlide = i;
+      updateCarousel();
+    });
+
+    dotsContainer.appendChild(dot);
+  }
+
+  updateCarousel();
+}
+
+function updateCarousel() {
+  const slides = track.children;
+
+  if (currentSlide >= slides.length) {
+    currentSlide = slides.length - 1;
+  }
+
+  track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+  [...dotsContainer.children].forEach((dot, index) => {
+    dot.classList.toggle("bg-cyan-400", index === currentSlide);
+    dot.classList.toggle("bg-white/20", index !== currentSlide);
+  });
+}
+
+document.getElementById("t-next").addEventListener("click", () => {
+  const totalSlides = track.children.length;
+  currentSlide = (currentSlide + 1) % totalSlides;
+  updateCarousel();
+});
+
+document.getElementById("t-prev").addEventListener("click", () => {
+  const totalSlides = track.children.length;
+  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  updateCarousel();
+});
+
+window.addEventListener("resize", renderTestimonials);
+
+renderTestimonials();
 
 </script>
 </body>
