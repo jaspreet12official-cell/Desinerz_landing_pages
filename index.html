@@ -456,235 +456,7 @@ body{
 <div id="particles" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
 
 <!-- ===================== NAVBAR ===================== -->
-<nav id="navbar"
-  class="lg:fixed relative top-0 left-0 right-0 z-[1000] h-[76px] md:h-[84px]
-   flex items-center justify-between
-   px-4 md:px-6 lg:px-[5%]
-   border-b border-white/5
-   transition-all duration-300 overflow-hidden"
-  style="background:rgba(5,8,22,.4);backdrop-filter:blur(20px)">
-
-  <!-- ================= LEFT : LOGO ================= -->
-  <div class="flex items-center flex-shrink-0 min-w-0">
-<a href="index.html"  aria-label="Go to Home Page">
-    <img
-      src="Assets/Desinerz_academy_light.png"
-      alt="Desinerz Academy"
-      class="h-[32px] sm:h-[36px] lg:h-[40px] w-auto object-contain" />
-</a>
-  </div>
-
-
-  <!-- ================= DESKTOP ================= -->
-  <div class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-3">
-
-    <!-- LIMITED OFFER -->
-    <div
-      class="flex items-center gap-1.5 px-3 py-1 rounded-full border border-red-500/25 text-[0.68rem] font-semibold text-red-400"
-      style="background:rgba(239,68,68,.08)">
-
-      <span class="w-1.5 h-1.5 rounded-full bg-red-500 pulse-dot inline-block"></span>
-
-      LIMITED OFFER
-
-    </div>
-
-
-    <!-- PRICE -->
-    <div
-      class="flex items-center gap-3 px-5 py-2 rounded-xl border border-purple-500/25"
-      style="background:rgba(168,85,247,.08)">
-
-      <span class="text-sm text-[#4a5568] line-through">
-        ₹499
-      </span>
-
-      <span class="text-[1.8rem] font-extrabold font-syne gradient-text leading-none">
-        ₹49
-      </span>
-
-      <div class="flex flex-col gap-0.5">
-
-        <span
-          class="text-[0.6rem] font-bold px-2 py-0.5 rounded-full text-white tracking-wide"
-          style="background:linear-gradient(135deg,#ef4444,#dc2626)">
-
-          90% OFF
-
-        </span>
-
-        <span class="text-[0.55rem] text-[#4a5568] tracking-wide text-center">
-          TODAY ONLY
-        </span>
-
-      </div>
-
-    </div>
-
-
-    <!-- SEATS -->
-    <div
-      class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-red-500/20 text-[0.65rem] font-semibold text-red-400"
-      style="background:rgba(239,68,68,.08)">
-
-      🔥 Only <span class="text-white font-bold mx-0.5">12</span> seats left
-
-    </div>
-
-  </div>
-
-
-  <!-- ================= TABLET ================= -->
-  <div class="hidden md:flex lg:hidden items-center gap-5 mx-auto">
-
-    <!-- TIMER -->
-    <div class="flex items-center" id="countdown-tablet">
-
-      <!-- HOURS -->
-      <div class="flex flex-col items-center min-w-[46px]">
-        <span class="font-mono text-[1.2rem] font-bold text-[#00d4ff]" id="tab-cd-h">
-          11
-        </span>
-
-        <span class="text-[0.58rem] uppercase tracking-[1px] text-[#4a5568]">
-          Hr
-        </span>
-      </div>
-
-      <span class="text-[1.2rem] text-[#00d4ff] opacity-40 pb-3 mx-1">
-        :
-      </span>
-
-      <!-- MIN -->
-      <div class="flex flex-col items-center min-w-[46px]">
-        <span class="font-mono text-[1.2rem] font-bold text-[#00d4ff]" id="tab-cd-m">
-          47
-        </span>
-
-        <span class="text-[0.58rem] uppercase tracking-[1px] text-[#4a5568]">
-          Min
-        </span>
-      </div>
-
-      <span class="text-[1.2rem] text-[#00d4ff] opacity-40 pb-3 mx-1">
-        :
-      </span>
-
-      <!-- SEC -->
-      <div class="flex flex-col items-center min-w-[46px]">
-        <span class="font-mono text-[1.2rem] font-bold text-[#00d4ff]" id="tab-cd-s">
-          33
-        </span>
-
-        <span class="text-[0.58rem] uppercase tracking-[1px] text-[#4a5568]">
-          Sec
-        </span>
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- ================= RIGHT SIDE ================= -->
-  <div class="hidden md:flex items-center gap-4 flex-shrink-0">
-
-    <!-- DESKTOP TIMER -->
-    <div class="hidden lg:flex items-center" id="countdown">
-
-      <!-- HOURS -->
-      <div class="flex flex-col items-center min-w-[48px]">
-
-        <span class="font-mono text-[1.2rem] font-bold text-[#00d4ff]" id="nav-cd-h">
-          11
-        </span>
-
-        <span class="text-[0.58rem] uppercase tracking-[1px] text-[#4a5568]">
-          Hours
-        </span>
-
-      </div>
-
-      <span class="text-[1.25rem] font-bold text-[#00d4ff] opacity-40 pb-3 mx-1">
-        :
-      </span>
-
-      <!-- MIN -->
-      <div class="flex flex-col items-center min-w-[48px]">
-
-        <span class="font-mono text-[1.2rem] font-bold text-[#00d4ff]" id="nav-cd-m">
-          47
-        </span>
-
-        <span class="text-[0.58rem] uppercase tracking-[1px] text-[#4a5568]">
-          Min
-        </span>
-
-      </div>
-
-      <span class="text-[1.25rem] font-bold text-[#00d4ff] opacity-40 pb-3 mx-1">
-        :
-      </span>
-
-      <!-- SEC -->
-      <div class="flex flex-col items-center min-w-[48px]">
-
-        <span class="font-mono text-[1.2rem] font-bold text-[#00d4ff]" id="nav-cd-s">
-          33
-        </span>
-
-        <span class="text-[0.58rem] uppercase tracking-[1px] text-[#4a5568]">
-          Sec
-        </span>
-
-      </div>
-
-    </div>
-
-
-    <!-- CTA -->
-    <button
-      onclick="scrollToSection('#final-cta')"
-      class="shine-btn relative overflow-hidden
-             px-7 sm:px-10 lg:px-7 py-3
-             text-[0.92rem] lg:text-[1rem]
-             font-bold text-white
-             rounded-xl
-             transition-all duration-300
-             hover:-translate-y-px
-             whitespace-nowrap"
-      style="background:linear-gradient(135deg,#f63b3b,#a855f7)">
-
-      Enroll Now
-
-    </button>
-
-  </div>
-
-
-  <!-- ================= MOBILE ================= -->
-  <div class="flex md:hidden items-center">
-
-    <!-- BIG CTA -->
-    <button
-      onclick="scrollToSection('#final-cta')"
-      class="shine-btn relative overflow-hidden
-             px-5 py-3
-             text-[0.9rem]
-             font-bold text-white
-             rounded-xl
-             whitespace-nowrap
-             transition-all duration-300"
-      style="background:linear-gradient(135deg,#f63b3b,#a855f7)">
-
-      🚀 Enroll Now
-
-    </button>
-
-  </div>
-
-</nav>
-
+<div id="navbar-container"></div>
 <!-- ===================== HERO ===================== -->
 <section id="hero" class="relative z-[1] min-h-screen flex items-center pt-[0px] md:pt-[4px]
   lg:pt-[30px] pb-0 w-full">
@@ -1582,7 +1354,7 @@ body{
 </section>
 
 <!-- ===================== FOOTER ===================== -->
-<footer class="relative z-[1] pt-2 pb-10 sm:pt-12 sm:pb-20 lg:pt-14 
+<!-- <footer class="relative z-[1] pt-2 pb-10 sm:pt-12 sm:pb-20 lg:pt-14 
 lg:pb-24 px-4 sm:px-6 lg:px-[5%] "
   style="border-top:1px solid rgba(59,130,246,.15)">
 
@@ -1594,7 +1366,7 @@ lg:pb-24 px-4 sm:px-6 lg:px-[5%] "
    grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:grid-cols-2 
               gap-y-8 sm:gap-y-10 mb-10 gap-x-8">
 
-    <!-- Quick Links -->
+  
     <div class="text-center sm:text-left">
       <h4 class="font-syne text-[0.78rem] tracking-[2px] uppercase text-[#8892b0] mb-4">Quick Links</h4>
       <ul class="flex flex-col gap-2.5">
@@ -1607,7 +1379,7 @@ lg:pb-24 px-4 sm:px-6 lg:px-[5%] "
       </ul>
     </div>
 
-    <!-- Contact -->
+  
     <div class="text-center sm:text-left">
       <h4 class="font-syne text-[0.78rem] tracking-[2px] uppercase text-[#8892b0] mb-4">Contact</h4>
       <ul class="flex flex-col gap-3">
@@ -1662,7 +1434,7 @@ lg:pb-24 px-4 sm:px-6 lg:px-[5%] "
       </ul>
     </div>
 
-    <!-- Social -->
+    
     <div class="text-center sm:text-left">
       <h4 class="font-syne text-[0.78rem] tracking-[2px] uppercase text-[#8892b0] mb-4">Follow Us</h4>
       <div class="flex flex-wrap justify-center sm:justify-start gap-3">
@@ -1703,208 +1475,10 @@ leading-relaxed text-[#8892b0] max-w-[280px] mx-auto md:mx-0">
     © 2026 Desinerz Academy. All rights reserved.
   </p>
 
-</footer>
+</footer> -->
 
-<!-- ===================== STICKY CTA BAR ===================== -->
-<div id="sticky-bar"
-  class="fixed bottom-0 left-0 right-0 z-[999] translate-y-full
-   transition-transform duration-500 ease-in-out"
-  style="background:rgba(5,8,22,.88);backdrop-filter:blur(24px);
-border-top:1px solid rgba(59,130,246,.15)">
-
-  <!-- TOP LINE -->
-  <div class="moving-line absolute top-0 left-0 right-0 h-[1px]"></div>
-
-  <!-- MAIN -->
-  <div class="max-w-[1200px] mx-auto 
-              px-3 sm:px-5 md:px-8 lg:px-[5%]
-              py-3 sm:py-3
-              min-h-[78px] sm:min-h-[94px]
-              flex items-center justify-between gap-3 sm:gap-5">
-
-    <!-- LEFT -->
-    <div class="flex items-center flex-1 min-w-0">
-
-      <!-- LOGO DESKTOP -->
-      <div class="hidden lg:flex items-center mr-10 flex-shrink-0">
-          <a href="../index.html"  aria-label="Go to Home Page">
-        <img src="Assets/Desinerz_academy_light.png"
-          alt="Desinerz Academy"
-          class="h-[38px] xl:h-[42px] w-auto object-contain"></a>
-      </div>
-
-      <!-- MOBILE + TABLET TIMER -->
-      <div class="flex lg:hidden flex-col justify-center">
-
-        <!-- TEXT -->
-        <span class="text-[0.64rem] sm:text-[0.72rem]
-                     font-semibold text-amber-400
-                     tracking-wide leading-none mb-1">
-          ⚡ Offer expires in
-        </span>
-
-        <!-- TIMER -->
-        <div class="flex items-center">
-
-          <!-- HOURS -->
-          <div class="flex flex-col items-center min-w-[32px] sm:min-w-[40px]">
-            <span class="font-mono text-[0.95rem] sm:text-[1rem]
-                         font-bold text-[#00d4ff] leading-none"
-              id="sb-cd-h">11</span>
-
-            <span class="text-[0.42rem] sm:text-[0.48rem]
-                         uppercase tracking-[1px]
-                         text-[#4a5568] mt-0.5">
-              Hr
-            </span>
-          </div>
-
-          <span class="text-sm sm:text-base font-bold
-                       text-[#00d4ff] opacity-40
-                       pb-2 mx-0.5 sm:mx-1">
-            :
-          </span>
-
-          <!-- MIN -->
-          <div class="flex flex-col items-center min-w-[32px] sm:min-w-[40px]">
-            <span class="font-mono text-[0.95rem] sm:text-[1rem]
-                         font-bold text-[#00d4ff] leading-none"
-              id="sb-cd-m">47</span>
-
-            <span class="text-[0.42rem] sm:text-[0.48rem]
-                         uppercase tracking-[1px]
-                         text-[#4a5568] mt-0.5">
-              Min
-            </span>
-          </div>
-
-          <span class="text-sm sm:text-base font-bold
-                       text-[#00d4ff] opacity-40
-                       pb-2 mx-0.5 sm:mx-1">
-            :
-          </span>
-
-          <!-- SEC -->
-          <div class="flex flex-col items-center min-w-[32px] sm:min-w-[40px]">
-            <span class="font-mono text-[0.95rem] sm:text-[1rem]
-                         font-bold text-[#00d4ff] leading-none"
-              id="sb-cd-s">33</span>
-
-            <span class="text-[0.42rem] sm:text-[0.48rem]
-                         uppercase tracking-[1px]
-                         text-[#4a5568] mt-0.5">
-              Sec
-            </span>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- DESKTOP TIMER -->
-      <div class="hidden lg:flex items-center gap-4 mx-auto">
-
-        <span class="text-[0.78rem] font-semibold
-                     text-amber-400 tracking-wide whitespace-nowrap">
-          ⚡ Offer expires in
-        </span>
-
-        <div class="flex items-center">
-
-          <!-- HOURS -->
-          <div class="flex flex-col items-center min-w-[48px]">
-            <span class="font-mono text-[1.15rem]
-                         font-bold text-[#00d4ff] leading-none"
-              id="sb-cd-h">11</span>
-
-            <span class="text-[0.55rem]
-                         uppercase tracking-[2px]
-                         text-[#4a5568] mt-1">
-              Hours
-            </span>
-          </div>
-
-          <span class="text-xl font-bold text-[#00d4ff]
-                       opacity-40 pb-3 mx-1">
-            :
-          </span>
-
-          <!-- MIN -->
-          <div class="flex flex-col items-center min-w-[48px]">
-            <span class="font-mono text-[1.15rem]
-                         font-bold text-[#00d4ff] leading-none"
-              id="sb-cd-m">47</span>
-
-            <span class="text-[0.55rem]
-                         uppercase tracking-[2px]
-                         text-[#4a5568] mt-1">
-              Min
-            </span>
-          </div>
-
-          <span class="text-xl font-bold text-[#00d4ff]
-                       opacity-40 pb-3 mx-1">
-            :
-          </span>
-
-          <!-- SEC -->
-          <div class="flex flex-col items-center min-w-[48px]">
-            <span class="font-mono text-[1.15rem]
-                         font-bold text-[#00d4ff] leading-none"
-              id="sb-cd-s">33</span>
-
-            <span class="text-[0.55rem]
-                         uppercase tracking-[2px]
-                         text-[#4a5568] mt-1">
-              Sec
-            </span>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
-    <!-- RIGHT -->
-    <div class="flex items-center gap-2 sm:gap-1 flex-shrink-0 ">
-
-      <!-- PRICE -->
-      <div class="flex flex-col items-end">
-        <span class="text-[0.58rem] sm:text-[0.72rem]
-                     text-[#4a5568] line-through leading-none pr-0 lg:pr-3">
-          ₹499
-        </span>
-
-        <span class="font-syne
-                     text-[1.1rem] sm:text-[1.35rem] lg:text-[1.55rem]
-                     font-extrabold gradient-text leading-none pr-0 lg:pr-3">
-          ₹49
-        </span>
-      </div>
-
-      <!-- BUTTON -->
-      <a href="#final-cta"
-        class="shine-btn relative overflow-hidden
-               flex items-center justify-center
-               px-12 sm:px-27 lg:px-10
-               py-2.5 sm:py-3 lg:py-4
-               text-[0.68rem] sm:text-[0.82rem]
-               font-bold text-white lg:text-xl
-               rounded-lg sm:rounded-xl
-               whitespace-nowrap
-               transition-all duration-300
-               hover:-translate-y-0.5
-               hover:shadow-[0_8px_30px_rgba(59,130,246,.45)]"
-        style="background:linear-gradient(135deg,#f63b3b,#a855f7)">
-
-        Reserve Seat ✦
-
-      </a>
-
-    </div>
-
-  </div>
-</div>
-
+<div id="footer-container"></div>
+<div id="stickybar-container"></div>
 
 <script>
 // Scroll progress
@@ -1919,12 +1493,6 @@ const cursorGlow = document.getElementById('cursor-glow');
 document.addEventListener('mousemove', (e) => {
   cursorGlow.style.left = e.clientX + 'px';
   cursorGlow.style.top = e.clientY + 'px';
-});
-
-// Navbar scroll
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.style.background = window.scrollY > 40 ? 'rgba(5,8,22,.85)' : 'rgba(5,8,22,.4)';
 });
 
 // Mobile nav
@@ -2066,17 +1634,7 @@ for (let i = 0; i < 25; i++) {
   pc.appendChild(p);
 }
 
-// Sticky bar show/hide
-const stickyBar = document.getElementById('sticky-bar');
-const heroSection = document.getElementById('hero');
-window.addEventListener('scroll', () => {
-  const heroBottom = heroSection.getBoundingClientRect().bottom;
-  if (heroBottom < 0) {
-    stickyBar.classList.remove('translate-y-full');
-  } else {
-    stickyBar.classList.add('translate-y-full');
-  }
-});
+
 (function () {
   const track = document.getElementById('testimonial-track');
   const slides = track.children;
@@ -2263,6 +1821,59 @@ window.addEventListener("resize", renderTestimonials);
 
 renderTestimonials();
 
+const base = window.location.hostname.includes('github.io')
+  ? '/Desinerz_landing_pages/Assets/'
+  : 'Assets/';   // ← was './' — index.html is one level above Assets/
+
+const fixImgPaths = (containerId) => {
+  document.querySelectorAll(`#${containerId} img`).forEach(img => {
+    const src = img.getAttribute('src');
+    if (src && src.startsWith('Assets/')) {
+      img.setAttribute('src', base + src.replace('Assets/', ''));
+    }
+  });
+};
+
+// NAVBAR (you already have this — just fix `base` above, no other change needed)
+fetch(base + 'Navbar.html')
+  .then(r => r.text())
+  .then(html => {
+    document.getElementById('navbar-container').innerHTML = html;
+    fixImgPaths('navbar-container');
+
+    const navbar = document.getElementById('navbar');
+    if (navbar) {
+      window.addEventListener('scroll', () => {
+        navbar.style.background = window.scrollY > 40
+          ? 'rgba(5,8,22,.85)' : 'rgba(5,8,22,.4)';
+      });
+    }
+  });
+
+// FOOTER — add this, you don't have it yet
+fetch(base + 'Footer.html')
+  .then(r => r.text())
+  .then(html => {
+    document.getElementById('footer-container').innerHTML = html;
+    fixImgPaths('footer-container');
+  });
+
+// STICKY BAR — add this too
+fetch(base + 'StickyFooter.html')
+  .then(r => r.text())
+  .then(html => {
+    document.getElementById('stickybar-container').innerHTML = html;
+    fixImgPaths('stickybar-container');
+
+    const stickyBar = document.getElementById('sticky-bar');
+    const heroSection = document.getElementById('hero');
+    if (stickyBar && heroSection) {
+      window.addEventListener('scroll', () => {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        stickyBar.classList.toggle('translate-y-full', heroBottom >= 0);
+      });
+    }
+  });
 </script>
 </body>
 </html>
