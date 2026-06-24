@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Refund & Cancellation Policy – Desinerz Academy</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
+  .pulse-dot { animation: pulse 2s infinite; }
+  .gradient-text {
+    background: linear-gradient(90deg,#27E6FF 0%,#D9FF3F 25%,#FF9A3D 55%,#FF4D8D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  @keyframes shine {
+    0% { transform: translateX(-100%) skewX(-15deg); }
+    100% { transform: translateX(300%) skewX(-15deg); }
+  }
+  .shine-btn::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+    animation: shine 2.5s ease-in-out infinite;
+  }
+</style>
+</head>
+
+<body class="min-h-screen overflow-x-hidden bg-[#050816] text-[#f0f4ff] relative font-[Outfit]">
+
+<!-- ═══ NAVBAR ═══ -->
+<div id="navbar-container"></div>
+
+<!-- Grid Background -->
+<div class="fixed inset-0 pointer-events-none z-0 bg-[linear-gradient(rgba(39,230,255,.04)_1px,_transparent_1px),linear-gradient(90deg,rgba(39,230,255,.04)_1px,_transparent_1px)] bg-[size:50px_50px]"></div>
+
+<!-- Orbs -->
+<div class="fixed w-[500px] h-[500px] rounded-full pointer-events-none z-0 -top-[120px] -left-[120px] blur-[100px] bg-[radial-gradient(circle,rgba(39,230,255,.09),transparent)]"></div>
+<div class="fixed w-[400px] h-[400px] rounded-full pointer-events-none z-0 bottom-[10%] -right-[80px] blur-[100px] bg-[radial-gradient(circle,rgba(255,77,141,.07),transparent)]"></div>
+<div class="fixed w-[350px] h-[350px] rounded-full pointer-events-none z-0 top-[45%] left-[35%] blur-[100px] bg-[radial-gradient(circle,rgba(217,255,63,.06),transparent)]"></div>
+
+<main class="relative z-[1] max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16 lg:py-10">
+
+  <!-- Header -->
+  <div class="mb-10 sm:mb-14 opacity-0 translate-y-5 transition-all duration-700 reveal">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[0.7rem] tracking-[3px] uppercase border mb-6 text-[#27E6FF] border-[rgba(39,230,255,.25)] bg-[rgba(39,230,255,.07)]">
+      <span class="w-1.5 h-1.5 rounded-full inline-block bg-[#27E6FF] animate-pulse"></span>
+      Legal Document
+    </div>
+    <h1 class="font-[Syne] font-extrabold leading-tight mb-3 text-[2rem] sm:text-[2.8rem] lg:text-[3.2rem]">
+      Refund &amp; Cancellation
+      <span class="bg-[linear-gradient(90deg,#27E6FF_0%,#D9FF3F_25%,#FF9A3D_55%,#FF4D8D_100%)] bg-clip-text text-transparent">
+        Policy
+      </span>
+    </h1>
+    <p class="text-[#4a5568] text-[0.82rem] tracking-widest mb-6">
+      Last updated: May 22, 2026
+    </p>
+  </div>
+
+  <!-- Intro -->
+  <div class="opacity-0 translate-y-5 transition-all duration-700 reveal mb-8 px-5 py-4 rounded-2xl text-[0.88rem] text-[#8892b0] leading-relaxed relative overflow-hidden border border-[rgba(39,230,255,.12)] bg-[rgba(39,230,255,.05)]">
+    <div class="absolute top-0 left-0 right-0 h-[1.5px] opacity-60 bg-[linear-gradient(90deg,#27E6FF_0%,#D9FF3F_25%,#FF9A3D_55%,#FF4D8D_100%)]"></div>
+    This Refund &amp; Cancellation Policy outlines the terms under which Desinerz Academy processes refund requests and handles cancellations for our workshops, courses, and other paid offerings. Please read this carefully before making a purchase.
+  </div>
+
+  <!-- ⚠️ No Cancellation Alert Banner -->
+  <div class="opacity-0 translate-y-5 transition-all duration-700 reveal mb-6 px-5 py-5 rounded-2xl relative overflow-hidden border border-[rgba(255,77,141,.35)] bg-[rgba(255,77,141,.07)]">
+    <div class="absolute top-0 left-0 right-0 h-[1.5px] opacity-80 bg-[linear-gradient(90deg,#FF4D8D,#FF9A3D)]"></div>
+    <div class="flex items-start gap-3">
+      <i class="fa-solid fa-triangle-exclamation text-[#FF4D8D] mt-0.5 text-base"></i>
+      <div>
+        <p class="font-[Syne] font-bold text-[#FF4D8D] text-sm mb-1">Important Notice — Workshop Purchases</p>
+        <p class="text-[#8892b0] text-sm leading-7">
+          All workshop registrations are <strong class="text-[#f0f4ff]">final and non-cancellable</strong> once payment is confirmed. By completing your purchase, you agree that no cancellation or refund will be issued for workshop bookings under any circumstances.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="flex flex-col gap-4">
+
+    <!-- 01 -->
+    <div class="opacity-0 translate-y-5 transition-all duration-700 reveal rounded-2xl p-6 border border-white/10 bg-white/[0.03] hover:border-cyan-400/20 hover:-translate-y-1 transition-transform">
+      <div class="flex gap-4">
+        <span class="text-[0.65rem] tracking-[2px] text-[#4a5568] bg-white/5 px-2 py-1 rounded-md h-fit shrink-0">01</span>
+        <div>
+          <h2 class="font-[Syne] font-bold text-lg mb-2">Workshop Registrations — No Cancellation</h2>
+          <p class="text-[#8892b0] leading-8 text-sm">
+            Once you have successfully purchased a seat in any Desinerz Academy workshop, your registration is <strong class="text-[#f0f4ff]">confirmed and non-refundable</strong>. Cancellations are not accepted after payment, regardless of the reason — including scheduling conflicts, change of plans, or personal emergencies. We encourage you to review all workshop details carefully before purchasing.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="opacity-0 translate-y-5 transition-all duration-700 reveal rounded-2xl p-6 border border-white/10 bg-white/[0.03] hover:border-lime-300/20 hover:-translate-y-1 transition-transform">
+      <div class="flex gap-4">
+        <span class="text-[0.65rem] tracking-[2px] text-[#4a5568] bg-white/5 px-2 py-1 rounded-md h-fit shrink-0">02</span>
+        <div>
+          <h2 class="font-[Syne] font-bold text-lg mb-2">Self-Paced Courses — Refund Window</h2>
+          <p class="text-[#8892b0] leading-8 text-sm">
+            For self-paced online courses, you may request a refund within <strong class="text-[#f0f4ff]">7 days of purchase</strong>, provided you have accessed less than 20% of the course content. Once the refund window has passed or the access threshold is exceeded, no refunds will be issued. Refund requests must be submitted to <a href="mailto:hello@desinerz.com" class="text-cyan-300 hover:text-orange-300">hello@desinerz.com</a> with your order details.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="opacity-0 translate-y-5 transition-all duration-700 reveal rounded-2xl p-6 border border-white/10 bg-white/[0.03] hover:border-orange-300/20 hover:-translate-y-1 transition-transform">
+      <div class="flex gap-4">
+        <span class="text-[0.65rem] tracking-[2px] text-[#4a5568] bg-white/5 px-2 py-1 rounded-md h-fit shrink-0">03</span>
+        <div>
+          <h2 class="font-[Syne] font-bold text-lg mb-2">Workshop Rescheduling</h2>
+          <p class="text-[#8892b0] leading-8 text-sm">
+            While cancellations are not permitted, if you are unable to attend a workshop you have registered for, you may write to us at <a href="mailto:hello@desinerz.com" class="text-cyan-300 hover:text-orange-300">hello@desinerz.com</a> at least <strong class="text-[#f0f4ff]">48 hours before the event</strong> to request a one-time transfer of your seat to the next available batch of the same workshop, subject to availability. Seat transfers are not guaranteed and are offered at our sole discretion.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="opacity-0 translate-y-5 transition-all duration-700 reveal rounded-2xl p-6 border border-white/10 bg-white/[0.03] hover:border-pink-400/20 hover:-translate-y-1 transition-transform">
+      <div class="flex gap-4">
+        <span class="text-[0.65rem] tracking-[2px] text-[#4a5568] bg-white/5 px-2 py-1 rounded-md h-fit shrink-0">04</span>
+        <div>
+          <h2 class="font-[Syne] font-bold text-lg mb-2">Workshop Cancelled by Desinerz Academy</h2>
+          <p class="text-[#8892b0] leading-8 text-sm">
+            In the rare event that Desinerz Academy cancels a workshop, all registered participants will receive a <strong class="text-[#f0f4ff]">full refund</strong> within 7–10 business days, or the option to transfer their seat to a future batch. We will notify all affected participants via email as soon as a cancellation decision is made.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 -->
+    <div class="opacity-0 translate-y-5 transition-all duration-700 reveal rounded-2xl p-6 border border-white/10 bg-white/[0.03] hover:border-lime-300/20 hover:-translate-y-1 transition-transform">
+      <div class="flex gap-4">
+        <span class="text-[0.65rem] tracking-[2px] text-[#4a5568] bg-white/5 px-2 py-1 rounded-md h-fit shrink-0">05</span>
+        <div>
+          <h2 class="font-[Syne] font-bold text-lg mb-2">Non-Refundable Items</h2>
+          <p class="text-[#8892b0] leading-8 text-sm">
+            The following are strictly non-refundable under all circumstances:
+          </p>
+          <ul class="mt-3 space-y-2 text-sm text-[#8892b0]">
+            <li class="flex items-start gap-2"><span class="text-[#FF4D8D] mt-1">→</span> Workshop registrations (once purchased)</li>
+            <li class="flex items-start gap-2"><span class="text-[#FF4D8D] mt-1">→</span> Digital downloads and design resources</li>
+            <li class="flex items-start gap-2"><span class="text-[#FF4D8D] mt-1">→</span> Any course or product purchased during a sale or at a discounted price</li>
+            <li class="flex items-start gap-2"><span class="text-[#FF4D8D] mt-1">→</span> Courses where the 7-day refund window has expired</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06 Contact -->
+    <div class="opacity-0 translate-y-5 transition-all duration-700 reveal rounded-2xl p-6 border border-cyan-400/20 bg-[rgba(39,230,255,.04)]">
+      <div class="flex gap-4">
+        <span class="text-[0.65rem] tracking-[2px] text-cyan-300 bg-cyan-400/10 px-2 py-1 rounded-md h-fit shrink-0">06</span>
+        <div>
+          <h2 class="font-[Syne] font-bold text-lg mb-2 text-cyan-300">Contact Us</h2>
+          <p class="text-[#8892b0] leading-8 text-sm">
+            For refund requests, questions, or concerns regarding this policy, please reach out to our support team at
+            <a href="mailto:hello@desinerz.com" class="text-cyan-300 hover:text-orange-300">
+              hello@desinerz.com
+            </a>. We aim to respond within 2 business days.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<div id="footer-container"></div>
+<div id="stickybar-container"></div>
+<script>
+  // Reveal animation
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    setTimeout(() => el.classList.remove('opacity-0', 'translate-y-5'), i * 150);
+  });
+
+  // ═══ BASE PATH ═══
+  const base = window.location.hostname.includes('github.io')
+    ? '/Desinerz_landing_pages/Assets/'
+    : './';
+
+  // ═══ IMAGE PATH FIXER ═══
+  const fixImgPaths = (containerId) => {
+    document.querySelectorAll(`#${containerId} img`).forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('Assets/')) {
+        img.setAttribute('src', base + src.replace('Assets/', ''));
+      }
+    });
+  };
+
+  // ═══ NAVBAR ═══
+  fetch(base + 'Navbar.html')
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById('navbar-container').innerHTML = html;
+      fixImgPaths('navbar-container');
+
+      const navbar = document.getElementById('navbar');
+      if (navbar) {
+        window.addEventListener('scroll', () => {
+          navbar.style.background = window.scrollY > 40
+            ? 'rgba(5,8,22,.85)' : 'rgba(5,8,22,.4)';
+        });
+      }
+
+      let total = 11 * 3600 + 47 * 60 + 33;
+      function tick() {
+        if (total <= 0) { total = 12 * 3600; return; }
+        total--;
+        const h = String(Math.floor(total / 3600)).padStart(2, '0');
+        const m = String(Math.floor((total % 3600) / 60)).padStart(2, '0');
+        const s = String(total % 60).padStart(2, '0');
+        [['nav-cd-h',h],['nav-cd-m',m],['nav-cd-s',s],
+         ['tab-cd-h',h],['tab-cd-m',m],['tab-cd-s',s]]
+        .forEach(([id, val]) => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = val;
+        });
+      }
+      setInterval(tick, 1000);
+      tick();
+    });
+
+  // ═══ FOOTER ═══
+  fetch(base + 'Footer.html')
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById('footer-container').innerHTML = html;
+      fixImgPaths('footer-container');
+      document.querySelectorAll('#footer-container a').forEach(a => {
+        const href = a.getAttribute('href');
+        if (href && href.startsWith('Assets/')) {
+          a.setAttribute('href', base + href.replace('Assets/', ''));
+        }
+      });
+    });
+
+  // ═══ STICKY BAR ═══
+  fetch(base + 'StickyFooter.html')
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById('stickybar-container').innerHTML = html;
+      fixImgPaths('stickybar-container');
+
+      const stickyBar = document.getElementById('sticky-bar');
+      window.addEventListener('scroll', () => {
+        if (stickyBar) {
+          stickyBar.classList.toggle('translate-y-full', window.scrollY <= 300);
+        }
+      });
+
+      let sbTotal = 11 * 3600 + 47 * 60 + 33;
+      function sbTick() {
+        if (sbTotal <= 0) { sbTotal = 12 * 3600; return; }
+        sbTotal--;
+        const h = String(Math.floor(sbTotal / 3600)).padStart(2, '0');
+        const m = String(Math.floor((sbTotal % 3600) / 60)).padStart(2, '0');
+        const s = String(sbTotal % 60).padStart(2, '0');
+        document.querySelectorAll('#sb-cd-h').forEach(el => el.textContent = h);
+        document.querySelectorAll('#sb-cd-m').forEach(el => el.textContent = m);
+        document.querySelectorAll('#sb-cd-s').forEach(el => el.textContent = s);
+      }
+      setInterval(sbTick, 1000);
+      sbTick();
+    });
+
+  function scrollToSection(sel) {
+    document.querySelector(sel)?.scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
